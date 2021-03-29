@@ -1,0 +1,37 @@
+{
+    "name": "Unity.NetCode.EditorTests.Generated",
+    "references": [
+        "GUID:734d92eba21c94caba915361bd5ac177",
+        "GUID:2665a8d13d1b3f18800f46e256720795",
+        "GUID:953adc2a6b8b4e3c8df5b728bcd546e9",
+        "GUID:a5baed0c9693541a5bd947d336ec7659",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:8b0d3bce066bd4b1d93b70ef67167b53",
+        "GUID:363a3288c06c1c14cbbeedbda31215f9",
+        "GUID:eb8cf780bf058694ebf7ec5cf5b8cfa3",
+        "GUID:b9f488645320547fdb2b20e455a1f909",
+        "GUID:b22c78a82d1694028a1cd64d013a017c",
+        "GUID:8819f35a0fc84499b990e90a4ca1911f",
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:5f3cf485eb0554709a8abbeace890c86",
+        "NetCode.Generated",
+        "Unity.Networking.Transport"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [
+        
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
