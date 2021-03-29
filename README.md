@@ -34,14 +34,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/mikyll/TesiUnityDOTS">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Prototipo Unity DOTS</h3>
+  <h3 align="center">Unity DOTS </h3>
 
   <p align="center">
-    Descrizione
+    Descrizione - scrivere un sommario in inglese
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -139,9 +139,15 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
 
--flickering della camera in terza persona (capire perché succede e come risolverlo);
--sistema fisico delle collisioni non funziona come dovrebbe se la capsula si muove aggiornando il componente Translation, piuttosto che il componente PhysicsVelocity
+### Open Issues
+* flickering della camera in terza persona (capire perché succede e come risolverlo);
+* sistema fisico delle collisioni non funziona come dovrebbe se la capsula si muove aggiornando il componente Translation, piuttosto che il componente PhysicsVelocity
 
+### Future developments
+* Players scoreboard
+* Pre-match lobby
+* assign different colors on connect
+* switchable first-person camera using Unity RayCast
 
 
 <!-- CONTRIBUTING -->
