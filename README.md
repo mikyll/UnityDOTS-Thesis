@@ -173,7 +173,7 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 <!-- CONTACT -->
 ## Contact
 
-Michele Righi - <!-- [@twitter_handle](https://twitter.com/twitter_handle) - --!>righi.mikyll@gmail.com
+Michele Righi - <!-- [@twitter_handle](https://twitter.com/twitter_handle) - -->righi.mikyll@gmail.com
 
 Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyll/TesiUnityDOTS)
 
