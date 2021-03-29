@@ -173,9 +173,9 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Michele Righi - [@twitter_handle](https://twitter.com/twitter_handle) - righi.mikyll@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyll/TesiUnityDOTS)
 
 
 
