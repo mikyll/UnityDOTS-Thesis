@@ -1,0 +1,72 @@
+{
+  "ExternalFunctions": [
+    {
+      "Name": "Unity.Profiling.LowLevel.Unsafe.ProfilerUnsafeUtility::BeginSample",
+      "FullName": "Unity.Profiling.LowLevel.Unsafe.ProfilerUnsafeUtility.BeginSample(System.IntPtr markerPtr)_B9F8D63A48F3E38B"
+    },
+    {
+      "Name": "Unity.Profiling.LowLevel.Unsafe.ProfilerUnsafeUtility::EndSample",
+      "FullName": "Unity.Profiling.LowLevel.Unsafe.ProfilerUnsafeUtility.EndSample(System.IntPtr markerPtr)_997CF6962A606A55"
+    },
+    {
+      "Name": "Unity.Jobs.JobHandle::ScheduleBatchedJobs",
+      "FullName": "Unity.Jobs.JobHandle.ScheduleBatchedJobs()_269E609DFA179EDB"
+    },
+    {
+      "Name": "Unity.Jobs.LowLevel.Unsafe.JobsUtility::get_JobDebuggerEnabled",
+      "FullName": "Unity.Jobs.LowLevel.Unsafe.JobsUtility.get_JobDebuggerEnabled()_8B02A8301B7DC421"
+    },
+    {
+      "Name": "Unity.Jobs.JobHandle::ScheduleBatchedJobsAndComplete",
+      "FullName": "Unity.Jobs.JobHandle.ScheduleBatchedJobsAndComplete(ref Unity.Jobs.JobHandle job)_8458C026FEAAC1B0"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::UseSecondaryVersion",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.UseSecondaryVersion(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle)_C259F5A3AD84C819"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::EnforceAllBufferJobsHaveCompleted_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.EnforceAllBufferJobsHaveCompleted_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle)_D9A5E32D0AE46085"
+    },
+    {
+      "Name": "Unity.Jobs.JobHandle::CombineDependenciesInternalPtr_Injected",
+      "FullName": "Unity.Jobs.JobHandle.CombineDependenciesInternalPtr_Injected(void* jobs, int count, ref Unity.Jobs.JobHandle ret)_C8547977A938492A"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::GetReaderArray_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.GetReaderArray_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle, int maxCount, System.IntPtr output)_0D5B6D86DC0ABBD9"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::GetWriter_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.GetWriter_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle, ref Unity.Jobs.JobHandle ret)_2DDCB00DE6D925BF"
+    },
+    {
+      "Name": "Unity.Burst.LowLevel.BurstCompilerService::GetOrCreateSharedMemory",
+      "FullName": "Unity.Burst.LowLevel.BurstCompilerService.GetOrCreateSharedMemory(ref UnityEngine.Hash128 key, uint size_of, uint alignment)_C712A862C7F5F82B"
+    },
+    {
+      "Name": "Unity.Jobs.JobHandle::CheckFenceIsDependencyOrDidSyncFence_Injected",
+      "FullName": "Unity.Jobs.JobHandle.CheckFenceIsDependencyOrDidSyncFence_Injected(ref Unity.Jobs.JobHandle jobHandle, ref Unity.Jobs.JobHandle dependsOn)_E0D63C6F4C00E4D0"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::Create_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.Create_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle ret)_B90501C0654073BD"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::SetAllowSecondaryVersionWriting_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.SetAllowSecondaryVersionWriting_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle, bool allowWriting)_FD8E41B4B41EC92C"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::SetBumpSecondaryVersionOnScheduleWrite_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.SetBumpSecondaryVersionOnScheduleWrite_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle, bool value)_2233875915ECDB24"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::CheckWriteAndThrowNoEarlyOut_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.CheckWriteAndThrowNoEarlyOut_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle)_BBB3C78A1E995A27"
+    },
+    {
+      "Name": "burst_abort",
+      "FullName": "unused.burst_abort(System.String errorId, System.String message)_166B2D0B7AE1D16B"
+    }
+  ]
+}

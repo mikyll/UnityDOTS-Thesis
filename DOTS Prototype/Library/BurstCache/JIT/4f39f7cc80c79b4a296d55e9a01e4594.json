@@ -1,0 +1,12 @@
+{
+  "ExternalFunctions": [
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::CheckWriteAndThrowNoEarlyOut_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.CheckWriteAndThrowNoEarlyOut_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle)_BBB3C78A1E995A27"
+    },
+    {
+      "Name": "burst_abort",
+      "FullName": "unused.burst_abort(System.String errorId, System.String message)_C2EC9A829AFAD7DD"
+    }
+  ]
+}

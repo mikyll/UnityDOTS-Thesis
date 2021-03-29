@@ -1,0 +1,48 @@
+{
+  "ExternalFunctions": [
+    {
+      "Name": "UnityEngine.Jobs.TransformAccessArray::GetSortedToUserIndex",
+      "FullName": "UnityEngine.Jobs.TransformAccessArray.GetSortedToUserIndex(System.IntPtr transformArrayIntPtr)_C0C973B479F327A0"
+    },
+    {
+      "Name": "UnityEngine.Jobs.TransformAccessArray::GetSortedTransformAccess",
+      "FullName": "UnityEngine.Jobs.TransformAccessArray.GetSortedTransformAccess(System.IntPtr transformArrayIntPtr)_470F5CB87EB36427"
+    },
+    {
+      "Name": "Unity.Jobs.LowLevel.Unsafe.JobsUtility::GetWorkStealingRange",
+      "FullName": "Unity.Jobs.LowLevel.Unsafe.JobsUtility.GetWorkStealingRange(ref Unity.Jobs.LowLevel.Unsafe.JobRanges ranges, int jobIndex, ref int beginIndex, ref int endIndex)_72EEAC320E5935AA"
+    },
+    {
+      "Name": "Unity.Jobs.LowLevel.Unsafe.JobsUtility::PatchBufferMinMaxRanges",
+      "FullName": "Unity.Jobs.LowLevel.Unsafe.JobsUtility.PatchBufferMinMaxRanges(System.IntPtr bufferRangePatchData, void* jobdata, int startIndex, int rangeSize)_9EB083F63620D8B8"
+    },
+    {
+      "Name": "UnityEngine.Jobs.TransformAccess::SetLocalPosition",
+      "FullName": "UnityEngine.Jobs.TransformAccess.SetLocalPosition(ref UnityEngine.Jobs.TransformAccess access, ref UnityEngine.Vector3 p)_0EF560A92DD4DA73"
+    },
+    {
+      "Name": "UnityEngine.Jobs.TransformAccess::SetLocalRotation",
+      "FullName": "UnityEngine.Jobs.TransformAccess.SetLocalRotation(ref UnityEngine.Jobs.TransformAccess access, ref UnityEngine.Quaternion r)_66C029401516236E"
+    },
+    {
+      "Name": "UnityEngine.Jobs.TransformAccess::SetLocalScale",
+      "FullName": "UnityEngine.Jobs.TransformAccess.SetLocalScale(ref UnityEngine.Jobs.TransformAccess access, ref UnityEngine.Vector3 r)_274FE9D7DC4EE865"
+    },
+    {
+      "Name": "UnityEngine.Matrix4x4::GetRotation_Injected",
+      "FullName": "UnityEngine.Matrix4x4.GetRotation_Injected(ref UnityEngine.Matrix4x4 _unity_self, ref UnityEngine.Quaternion ret)_7320D86B990C032C"
+    },
+    {
+      "Name": "UnityEngine.Matrix4x4::GetLossyScale_Injected",
+      "FullName": "UnityEngine.Matrix4x4.GetLossyScale_Injected(ref UnityEngine.Matrix4x4 _unity_self, ref UnityEngine.Vector3 ret)_AF680B8030BC6DEA"
+    },
+    {
+      "Name": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle::CheckReadAndThrowNoEarlyOut_Injected",
+      "FullName": "Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle.CheckReadAndThrowNoEarlyOut_Injected(ref Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle handle)_5D0EA054F9B3B77F"
+    },
+    {
+      "Name": "burst_abort",
+      "FullName": "unused.burst_abort(System.String errorId, System.String message)_C2EC9A829AFAD7DD"
+    }
+  ]
+}

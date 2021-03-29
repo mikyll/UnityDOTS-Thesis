@@ -1,0 +1,15 @@
+{
+    "Result": {
+        "Succeeded": true,
+        "Message": null,
+        "BuildPipeline": "Unity.Build.Windows.Classic.WindowsClassicNonIncrementalPipeline, Unity.Build.Windows.Classic",
+        "BuildConfiguration": "GlobalObjectId_V1-1-41bfdd5c38485f44b9cb5291457ea366-93214019566545601-0",
+        "Duration": "00:02:22.3066127"
+    },
+    "Artifacts": [
+        {
+            "$type": "Unity.Build.Windows.Classic.WindowsArtifact, Unity.Build.Windows.Classic",
+            "OutputTargetFile": "Builds/WindowsClassicBuildConfiguration/Prototipo.exe"
+        }
+    ]
+}

@@ -96,9 +96,9 @@ Here's a blank template to get started:
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [Unity](https://unity.com/)
+* [DOTS](https://unity.com/dots)
+* [Microsoft Visual Studio](https://visualstudio.microsoft.com/)
 
 
 
@@ -110,7 +110,9 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Unity Hub
+
+* Unity 2020.2.1 or higher
   ```sh
   npm install npm@latest -g
   ```
@@ -119,9 +121,9 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/mikyll/TesiUnityDOTS
    ```
-2. Install NPM packages
+2. Install a proper Unity version
    ```sh
    npm install
    ```
@@ -141,6 +143,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
+
+-flickering della camera in terza persona (capire perché succede e come risolverlo);
+-sistema fisico delle collisioni non funziona come dovrebbe se la capsula si muove aggiornando il componente Translation, piuttosto che il componente PhysicsVelocity
 
 
 

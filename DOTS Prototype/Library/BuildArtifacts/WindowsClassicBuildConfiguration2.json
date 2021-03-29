@@ -1,0 +1,10 @@
+{
+    "Result": {
+        "Succeeded": false,
+        "Message": "There are no scenes to build.",
+        "BuildPipeline": "Unity.Build.Windows.Classic.WindowsClassicNonIncrementalPipeline, Unity.Build.Windows.Classic",
+        "BuildConfiguration": "GlobalObjectId_V1-1-467ca71988c8dbb4cab7ed47fc71c3ed-93214019566545601-0",
+        "Duration": "00:00:00.0045192"
+    },
+    "Artifacts": []
+}

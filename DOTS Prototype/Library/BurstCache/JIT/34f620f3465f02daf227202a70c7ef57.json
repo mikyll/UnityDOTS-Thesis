@@ -1,0 +1,12 @@
+{
+  "ExternalFunctions": [
+    {
+      "Name": "Unity.Baselib.LowLevel.Binding::Baselib_RegisteredNetwork_Socket_UDP_ScheduleSend_Injected",
+      "FullName": "Unity.Baselib.LowLevel.Binding.Baselib_RegisteredNetwork_Socket_UDP_ScheduleSend_Injected(ref Unity.Baselib.LowLevel.Binding.Baselib_RegisteredNetwork_Socket_UDP socket, Unity.Baselib.LowLevel.Binding.Baselib_RegisteredNetwork_Request* requests, uint requestsCount, Unity.Baselib.LowLevel.Binding.Baselib_ErrorState* errorState)_2794B22827A541BD"
+    },
+    {
+      "Name": "burst_abort",
+      "FullName": "unused.burst_abort(System.String errorId, System.String message)_166B2D0B7AE1D16B"
+    }
+  ]
+}
