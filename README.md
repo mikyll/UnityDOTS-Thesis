@@ -76,7 +76,7 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <!--<li><a href="#license">License</a></li>-->
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -109,13 +109,9 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * Unity Hub
 
 * Unity 2020.2.1 or higher
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
@@ -123,10 +119,9 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/mikyll/TesiUnityDOTS
    ```
-2. Install a proper Unity version
-   ```sh
-   npm install
-   ```
+2. Download Unity Hub at [Download Unity](https://unity3d.com/get-unity/download)
+3. Install a proper Unity version (2020.2.1 or higher)
+
 
 
 
@@ -163,9 +158,9 @@ Contributions are what make the open source community such an amazing place to b
 
 
 <!-- LICENSE -->
-## License
+<!--## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.-->
 
 
 
