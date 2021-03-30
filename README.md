@@ -137,11 +137,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list of proposed features (and known issues).
 
 ### Open Issues
-* flickering della camera in terza persona (capire perché succede e come risolverlo);
-* sistema fisico delle collisioni non funziona come dovrebbe se la capsula si muove aggiornando il componente Translation, piuttosto che il componente PhysicsVelocity
+* The third person camera sometime starts flickering.
+* The collision system doesn't work properly between static entities and ghost entities if those are moving updating Translation component. For this reason we updated the PhysicsVelocity component of the PlayerCapsule, but the movement is obviously different (it needs to accelerate from zero).
+* Sometimes the application throws an error.
+* Infrequent random crashes of the standalone builds.
 
 ### Future developments
 * Players scoreboard
