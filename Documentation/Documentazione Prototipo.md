@@ -55,14 +55,15 @@ nel testo.
 
 ### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a>
 
-Il File Game.cs contiene la *logica per realizzare la connessione*. In particolare al suo interno c'è un sistema 
-**Game** che controlla se il codice che esegue è quello di un client o di un server, svolgendo rispettivamente 
-connect o listen.<br/>
+Il File Game.cs contiene la *logica per realizzare la connessione*. In particolare al suo interno c'è un 
+sistema **Game** che controlla se il codice che esegue è quello di un client o di un server, svolgendo 
+rispettivamente connect o listen.<br/>
 Una volta che client e server sono connessi, è necessario indicare a NetCode che i client sono pronti a 
 inviare comandi e ricevere snapshot dal server: appena la connessione viene stabilita, lato client inizia ad 
 eseguire il sistema **GoInGameClientSystem**, che invia una RPC al server; lato server inizia ad eseguire il 
 sistema **GoInGameServerSystem** che riceve la RPC e marchia il client come "in gioco", aggiungendo il 
-componente **NetworkStreamInGame** all'entità che rappresenta la connessione.
+componente **NetworkStreamInGame** all'entità che rappresenta la connessione e creando una personaggio 
+capsula per il giocatore corrispondente al client.
 <br/>
 <br/>
 #### Struttura EnableGame
@@ -138,6 +139,8 @@ SendRpcCommandRequestComponent, che innesca il sistema di invio della RPC di Uni
 
 #### Sistema GoInGameClientSystem
 
+L'attributo [UpdateInGroup(typeof(ClientSimulationSystemGroup))] indica che questo sistema dev'essere
+aggiornato solo nei client, all'interno del gruppo ClientSimulationSystemGroup.<br/>
 Vogliamo che questo sistema esegua una sola volta, quando il client deve entrare in gioco, per la precisione
 dopo la connessione con il server, ma prima che venga avviata la comunicazione via comandi e snapshot.
 Dunque, richiediamo che sia presente il singleton EnableGame e che l'entità rappresentante la connessione
@@ -170,7 +173,78 @@ protected override void OnUpdate()
 }
 </pre>
 
+#### Sistema GoInGameServerSystem
 
+L'attributo [UpdateInGroup(typeof(ServerSimulationSystemGroup))] indica che questo sistema dev'essere
+aggiornato solo nel server.<br/>
+Vogliamo che questo sistema esegua solo quando, dopo che è stato aggiunto il singleton EnableGame, arriva 
+una richiesta di RPC da un client. Dunque, richiediamo che sia presente EnableGame e che vi sia un'entità
+avente come componenti il nostro comando RPC e **ReceiveRpcCommandRequestComponent**.
+<pre>
+protected override void OnCreate()
+{
+    RequireSingletonForUpdate<EnableGame>();
+    RequireForUpdate(GetEntityQuery(ComponentType.ReadOnly<GoInGameRequest>(), ComponentType.ReadOnly<ReceiveRpcCommandRequestComponent>()));
+}
+</pre>
+
+Nella OnUpdate() otteniamo la lista dei ghost prefab, ovvero i networked object. Nel nostro prototipo
+l'unico ghost presente è la PlayerCapsule, ovvero il personaggio che ciascun giocatore controlla e muove per
+la mappa. Poiché in futuro questa lista potrebbe essere ampliata, controlliamo comunque che il ghost sia
+quello della capsula, ovvero se possiede il componente PlayerMovementSpeed, e lo salviamo in una
+variabile.<br/>
+Dopodiché otteniamo la lista dei **NetworkIdComponent** delle connessioni, salvandola in networkIdFromEntity,
+ovvero un container *dictionary-like*. Tramite questo container possiamo assegnare il rispettivo id della 
+connessione al componente **GhostOwnerComponent** del ghost di ciascun client. Questa è un'operazione 
+fondamentale che bisogna fare a runtime, in quanto prima non è possibile conoscere a chi apparterrà un certo
+ghost.
+<br/>
+Dunque iteriamo su tutte le entità che corrispondono a richieste RPC (aventi dunque GoInGameRequest e
+ReceiveRpcCommandRequestComponent). Poiché nella richiesta è presente l'entità della connessione sorgente
+da cui è partita la RPC, possiamo utilizzarla per aggiungervi il componente **NetworkStreamInGame** e 
+iniziare la comunicazione via comandi e snapshot.
+<br/>
+Fatto questo, istanziamo la capsula del giocatore e aggiorniamo il NetworkId del proprietario di tale ghost.
+<br/>
+Infine, aggiungiamo alla capsula il buffer su cui verranno accumulati gli input del giocatore, ed alla
+connessione il componente **CommandTargetComponent** che servirà al sistema di gestione degli input
+per capire a quale ghost applicare gli input ricevuti dal giocatore.
+<br/>
+Ora è tutto impostato correttamente per permettere al client di accumulare input ed inviarli al server 
+sottoforma di comandi, ed al server di ricevere questi comandi, applicarli nella propria simulazione ed
+inviare le snapshot (ovvero gli aggiornamenti dello stato di gioco) al client.
+<pre>
+protected override void OnUpdate()
+{
+    var ghostCollection = GetSingletonEntity<GhostPrefabCollectionComponent>();
+    var prefab = Entity.Null;
+    var prefabs = EntityManager.GetBuffer<GhostPrefabBuffer>(ghostCollection);
+    for (int ghostId = 0; ghostId < prefabs.Length; ++ghostId)
+    {
+        if (EntityManager.HasComponent<PlayerMovementSpeed>(prefabs[ghostId].Value))
+            prefab = prefabs[ghostId].Value;
+    }
+
+    var commandBuffer = new EntityCommandBuffer(Allocator.Temp);
+    var networkIdFromEntity = GetComponentDataFromEntity<NetworkIdComponent>(true);
+    Entities.WithReadOnly(networkIdFromEntity).ForEach((Entity reqEnt, in GoInGameRequest req, in ReceiveRpcCommandRequestComponent reqSrc) =>
+    {
+        commandBuffer.AddComponent<NetworkStreamInGame>(reqSrc.SourceConnection);
+        UnityEngine.Debug.Log(String.Format("Server setting connection {0} to in game", networkIdFromEntity[reqSrc.SourceConnection].Value));
+
+		// spawn capsula per il giocatore
+        var player = commandBuffer.Instantiate(prefab);
+        commandBuffer.SetComponent(player, new GhostOwnerComponent { NetworkId = networkIdFromEntity[reqSrc.SourceConnection].Value });
+
+        commandBuffer.AddBuffer<PlayerInput>(player);
+        commandBuffer.SetComponent(reqSrc.SourceConnection, new CommandTargetComponent { targetEntity = player });
+
+        commandBuffer.DestroyEntity(reqEnt);
+    }).Run();
+    commandBuffer.Playback(EntityManager);
+    commandBuffer.Dispose();
+}
+</pre>
 
 ### File PlayerMovementSystem
 
