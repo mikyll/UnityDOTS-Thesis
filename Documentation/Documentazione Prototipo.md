@@ -96,7 +96,7 @@ gruppo di sistemi **ClientSimulationSystemGroup**. Dunque creiamo l'entità sing
 facciamo una connect a localhost:7979.
 * Nel caso l'applicazione sia un server, sarà presente il mondo ServerWorld, al cui interno vi sarà il
 gruppo di sistemi **ServerSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
-facciamo una listen sulla porta 7979
+facciamo una listen sulla porta 7979.
 
 	protected override void OnUpdate()
     {
