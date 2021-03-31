@@ -79,6 +79,7 @@ codice di questo sistema è già stato eseguito una volta: nella OnCreate() usia
 chiamata; dopodiché creiamo l'entità avente questo componente; infine nella OnUpdate() rimuoviamo tale
 entità, così Unity non chiama più OnUpdate() di Game.
 
+	<pre>
 	protected override void OnCreate()
     {
         RequireSingletonForUpdate<InitGameComponent>();
@@ -87,6 +88,7 @@ entità, così Unity non chiama più OnUpdate() di Game.
         <span style="color: green">// Create singleton, require singleton for update so system runs once</span>
         EntityManager.CreateEntity(typeof(InitGameComponent));
     }
+	</pre>
 
 La OnUpdate() itera su tutti i mondi presenti nell'applicazione e, dopo aver ottenuto il sistema
 **NetworkStreamReceiveSystem** (che espone i metodi Connect e Listen), controlliamo se ci troviamo in un
