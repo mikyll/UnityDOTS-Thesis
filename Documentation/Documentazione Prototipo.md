@@ -208,7 +208,8 @@ Fatto questo, istanziamo la capsula del giocatore e aggiorniamo il NetworkId del
 <br/>
 Infine, aggiungiamo alla capsula il buffer su cui verranno accumulati gli input del giocatore, ed alla
 connessione il componente **CommandTargetComponent** che servirà al sistema di gestione degli input
-per capire a quale ghost applicare gli input ricevuti dal giocatore.
+per capire a quale ghost applicare gli input ricevuti dal giocatore. Inoltre, distruggiamo l'entità della
+richiesta RPC altrimenti il sistema continua ad eseguire all'infinito.
 <br/>
 Ora è tutto impostato correttamente per permettere al client di accumulare input ed inviarli al server 
 sottoforma di comandi, ed al server di ricevere questi comandi, applicarli nella propria simulazione ed
@@ -232,8 +233,7 @@ protected override void OnUpdate()
         commandBuffer.AddComponent<NetworkStreamInGame>(reqSrc.SourceConnection);
         UnityEngine.Debug.Log(String.Format("Server setting connection {0} to in game", networkIdFromEntity[reqSrc.SourceConnection].Value));
 
-		// spawn capsula per il giocatore
-        var player = commandBuffer.Instantiate(prefab);
+        var player = commandBuffer.Instantiate(prefab); // spawn capsula per il giocatore
         commandBuffer.SetComponent(player, new GhostOwnerComponent { NetworkId = networkIdFromEntity[reqSrc.SourceConnection].Value });
 
         commandBuffer.AddBuffer<PlayerInput>(player);
