@@ -50,7 +50,7 @@ In particolare, sono stati utilizzati i seguenti package:
 
 Flusso di esecuzione
 
-### File Game.cs
+### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a>
 
 Il File Game.cs contiene la logica per realizzare la connessione. In particolare al suo interno c'è un sistema 
 **Game** che controlla se il codice che esegue è quello di un client o di un server, svolgendo rispettivamente 
