@@ -79,6 +79,17 @@ codice di questo sistema è già stato eseguito una volta: nella OnCreate() usia
 chiamata; dopodiché creiamo l'entità avente questo componente; infine nella OnUpdate() rimuoviamo tale
 entità, così Unity non chiama più OnUpdate() di Game.
 
+	```
+	protected override void OnCreate()
+    {
+        RequireSingletonForUpdate<InitGameComponent>();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "Prototipo")
+            return;
+        // Create singleton, require singleton for update so system runs once
+        EntityManager.CreateEntity(typeof(InitGameComponent));
+    }
+	```
+
 La OnUpdate() itera su tutti i mondi presenti nell'applicazione e, dopo aver ottenuto il sistema
 **NetworkStreamReceiveSystem** (che espone i metodi Connect e Listen), controlliamo se ci troviamo in un
 client o in un server:
@@ -89,7 +100,12 @@ facciamo una connect a localhost:7979.
 gruppo di sistemi **ServerSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
 facciamo una listen sulla porta 7979.
 
+#### Struttura GoInGameRequest
 
+Poiché non è stato aggiunto il componente NetworkStreamInGame all'entità che rappresenta la connessione fra
+un client ed il server, questi non possono comunicare inviando comandi o snapshot. Quindi, utilizziamo una 
+RPC per notificare al server che il client è pronto ad entrare in gioco, così il server può marcare la
+connessione e avviare la comunicazione.
 
 
 
