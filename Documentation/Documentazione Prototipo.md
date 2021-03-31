@@ -50,6 +50,9 @@ In particolare, sono stati utilizzati i seguenti package:
 
 Flusso di esecuzione
 
+NB: i pezzi di codice mostrati sono stati ritagliati per mostrare solo le parti fondamentali spiegate
+nel testo.
+
 ### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a>
 
 Il File Game.cs contiene la *logica per realizzare la connessione*. In particolare al suo interno c'è un sistema 
@@ -78,16 +81,12 @@ codice di questo sistema è già stato eseguito una volta: nella OnCreate() usia
 **RequireSingletonForUpdate<>()** per indicare l'entità che dev'essere presente affinché OnUpdate() venga
 chiamata; dopodiché creiamo l'entità avente questo componente; infine nella OnUpdate() rimuoviamo tale
 entità, così Unity non chiama più OnUpdate() di Game.
-<pre>
-protected override void OnCreate()
-{
-    RequireSingletonForUpdate<InitGameComponent>();
-    if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "Prototipo")
-        return;
-    <span style="color: green">// Create singleton, require singleton for update so system runs once</span>
-    EntityManager.CreateEntity(typeof(InitGameComponent));
-}
-</pre>
+
+	protected override void OnCreate()
+	{
+		RequireSingletonForUpdate<InitGameComponent>();
+		EntityManager.CreateEntity(typeof(InitGameComponent));
+	}
 
 La OnUpdate() itera su tutti i mondi presenti nell'applicazione e, dopo aver ottenuto il sistema
 **NetworkStreamReceiveSystem** (che espone i metodi Connect e Listen), controlliamo se ci troviamo in un
@@ -97,7 +96,33 @@ gruppo di sistemi **ClientSimulationSystemGroup**. Dunque creiamo l'entità sing
 facciamo una connect a localhost:7979.
 * Nel caso l'applicazione sia un server, sarà presente il mondo ServerWorld, al cui interno vi sarà il
 gruppo di sistemi **ServerSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
-facciamo una listen sulla porta 7979.
+facciamo una listen sulla porta 7979
+
+	protected override void OnUpdate()
+    {
+        EntityManager.DestroyEntity(GetSingletonEntity<InitGameComponent>());
+        foreach (var world in World.All)
+        {
+            var network = world.GetExistingSystem<NetworkStreamReceiveSystem>();
+            if (world.GetExistingSystem<ClientSimulationSystemGroup>() != null)
+            {
+                world.EntityManager.CreateEntity(typeof(EnableGame));
+                NetworkEndPoint ep = NetworkEndPoint.LoopbackIpv4;
+                ep.Port = 7979;
+                ep = NetworkEndPoint.Parse(ClientServerBootstrap.RequestedAutoConnect, 7979);
+
+                network.Connect(ep);
+            }
+            else if (world.GetExistingSystem<ServerSimulationSystemGroup>() != null)
+            {
+                world.EntityManager.CreateEntity(typeof(EnableGame));
+                NetworkEndPoint ep = NetworkEndPoint.AnyIpv4;
+                ep.Port = 7979;
+				
+                network.Listen(ep);
+            }
+        }
+    }
 
 #### Struttura GoInGameRequest
 
