@@ -84,7 +84,7 @@ entità, così Unity non chiama più OnUpdate() di Game.
         RequireSingletonForUpdate<InitGameComponent>();
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "Prototipo")
             return;
-        // Create singleton, require singleton for update so system runs once
+        <span style="color: green">// Create singleton, require singleton for update so system runs once</span>
         EntityManager.CreateEntity(typeof(InitGameComponent));
     }
 
