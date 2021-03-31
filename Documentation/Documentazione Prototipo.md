@@ -231,7 +231,7 @@ protected override void OnUpdate()
     {
         commandBuffer.AddComponent<NetworkStreamInGame>(reqSrc.SourceConnection);
         UnityEngine.Debug.Log(String.Format("Server setting connection {0} to in game", networkIdFromEntity[reqSrc.SourceConnection].Value));
-		
+
 		// spawn capsula per il giocatore
         var player = commandBuffer.Instantiate(prefab);
         commandBuffer.SetComponent(player, new GhostOwnerComponent { NetworkId = networkIdFromEntity[reqSrc.SourceConnection].Value });
