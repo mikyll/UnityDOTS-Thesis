@@ -37,4 +37,17 @@ L'obbiettivo del progetto è quello di realizzare un gameplay basilare, con movi
 
 ## Principali Funzionalità
 
+* Portali cambia-colore.
+* Teletrasporti.
+* Raccolta oggetti "Collectibles".
+* Simulazione fisica con entità di forme e proprietà fisiche differenti.
+* Camera follow in terza persona.
+
 ## Spiegazione Codice ...
+
+Flusso di esecuzione
+
+### File Game.cs
+
+Il File Game.cs contiene la logica per realizzare la connessione. In particolare al suo interno c'è un sistema "Game" che controlla se il codice che esegue è quello di un client o di un server, svolgendo rispettivamente connect o listen.
+Una volta che client e server sono connessi, è necessario indicare a NetCode che i client sono pronti a inviare comandi e ricevere snapshot dal server: appena la connessione viene stabilita, lato client inizia ad eseguire il sistema GoInGameClientSystem, che invia una RPC al server; lato server inizia ad eseguire il sistema GoInGameServerSystem che riceve la RPC e marchia il client come "in gioco", aggiungendo il componente "NetworkStreamInGame" all'entità che rappresenta la connessione.

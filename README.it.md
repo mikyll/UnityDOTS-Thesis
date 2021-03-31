@@ -43,7 +43,7 @@
   <p align="center">
     Descrizione - scrivere un sommario in inglese
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
     <br />
     <br />
 	<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/README.md">English</a>
@@ -113,7 +113,7 @@ To get a local copy up and running follow these simple steps.
 
 * Unity Hub
 
-* Unity 2020.2.1 or higher
+* Unity 2020.2.1 o più recente
 
 ### Installazione
 
