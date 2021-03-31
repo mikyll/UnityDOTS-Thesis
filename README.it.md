@@ -38,7 +38,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Unity DOTS </h3>
+  <h3 align="center">Progetto di Applicazioni e Giochi Multiplayer<br/>su Architettura Unity DOTS</h3>
 
   <p align="center">
     Descrizione - scrivere un sommario in inglese
