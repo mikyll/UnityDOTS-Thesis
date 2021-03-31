@@ -62,9 +62,13 @@ sistema **GoInGameServerSystem** che riceve la RPC e marchia il client come "in 
 componente **NetworkStreamInGame** all'entità che rappresenta la connessione.
 <br/>
 <br/>
+#### Struttura EnableGame
+
 Dichiariamo la struttura **EnableGame** che ci servirà più avanti per indicare che i client o il server sono
 pronti a stabilire la connessione ed entrare in gioco.
-<br/>
+
+#### Sistema Game
+
 [UpdateInWorld(UpdateInWorld.TargetWorld.Default)] indica che il sistema Game dev'essere eseguito nel mondo 
 di default, in quanto questo mondo è sempre presente perché istanziato automaticamente da Unity.
 
@@ -79,9 +83,11 @@ La OnUpdate() itera su tutti i mondi presenti nell'applicazione e, dopo aver ott
 **NetworkStreamReceiveSystem** (che espone i metodi Connect e Listen), controlliamo se ci troviamo in un
 client o in un server:
 * Nel caso l'applicazione sia un client, sarà presente il mondo ClientWorld, al cui interno vi sarà il
-gruppo di sistemi **ClientSimulationSystemGroup**.
+gruppo di sistemi **ClientSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
+facciamo una connect a localhost:7979.
 * Nel caso l'applicazione sia un server, sarà presente il mondo ServerWorld, al cui interno vi sarà il
-gruppo di sistemi **ServerSimulationSystemGroup.
+gruppo di sistemi **ServerSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
+facciamo una listen sulla porta 7979.
 
 
 
