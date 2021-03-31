@@ -77,7 +77,7 @@
     </li>
     <li><a href="#usage">Utilizzo</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributi</a></li>
+    <li><a href="#contributing">Contributire</a></li>
     <!--<li><a href="#license">Licenza</a></li>-->
     <li><a href="#contact">Contatti</a></li>
     <li><a href="#acknowledgements">Ringraziamenti</a></li>
@@ -87,7 +87,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Il Progetto
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
@@ -96,7 +96,7 @@ Here's a blank template to get started:
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
 
 
-### Built With
+### Sviluppato Con
 
 * [Unity](https://unity.com/)
 * [DOTS](https://unity.com/dots)
@@ -109,13 +109,13 @@ Here's a blank template to get started:
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
+### Prerequisiti
 
 * Unity Hub
 
 * Unity 2020.2.1 or higher
 
-### Installation
+### Installazione
 
 1. Clone the repo
    ```sh
@@ -128,7 +128,7 @@ To get a local copy up and running follow these simple steps.
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Utilizzo
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
@@ -141,13 +141,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list of proposed features (and known issues).
 
-### Open Issues
+### Problemi Non Risolti
 * The third person camera sometime starts flickering.
 * The collision system doesn't work properly between static entities and ghost entities if those are moving updating Translation component. For this reason we updated the PhysicsVelocity component of the PlayerCapsule, but the movement is obviously different (it needs to accelerate from zero).
 * Sometimes the application throws an error.
 * Infrequent random crashes of the standalone builds.
 
-### Future developments
+### Sviluppi Futuri
 * Players scoreboard
 * Pre-match lobby
 * assign different colors on connect
@@ -155,7 +155,7 @@ See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+## Contributire
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -175,7 +175,7 @@ Distributed under the MIT License. See `LICENSE` for more information.-->
 
 
 <!-- CONTACT -->
-## Contact
+## Contatti
 
 Michele Righi - <!-- [@twitter_handle](https://twitter.com/twitter_handle) - -->righi.mikyll@gmail.com
 
@@ -184,7 +184,7 @@ Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyl
 
 
 <!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
+## Ringraziamenti
 
 * []()
 * []()
