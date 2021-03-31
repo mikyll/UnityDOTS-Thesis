@@ -81,12 +81,13 @@ codice di questo sistema è già stato eseguito una volta: nella OnCreate() usia
 **RequireSingletonForUpdate<>()** per indicare l'entità che dev'essere presente affinché OnUpdate() venga
 chiamata; dopodiché creiamo l'entità avente questo componente; infine nella OnUpdate() rimuoviamo tale
 entità, così Unity non chiama più OnUpdate() di Game.
-
-	protected override void OnCreate()
-	{
-		RequireSingletonForUpdate<InitGameComponent>();
-		EntityManager.CreateEntity(typeof(InitGameComponent));
-	}
+<pre>
+protected override void OnCreate()
+{
+	RequireSingletonForUpdate<InitGameComponent>();
+	EntityManager.CreateEntity(typeof(InitGameComponent));
+}
+</pre>
 
 La OnUpdate() itera su tutti i mondi presenti nell'applicazione e, dopo aver ottenuto il sistema
 **NetworkStreamReceiveSystem** (che espone i metodi Connect e Listen), controlliamo se ci troviamo in un
@@ -98,31 +99,33 @@ facciamo una connect a localhost:7979.
 gruppo di sistemi **ServerSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
 facciamo una listen sulla porta 7979.
 
-	protected override void OnUpdate()
+<pre>
+protected override void OnUpdate()
+{
+    EntityManager.DestroyEntity(GetSingletonEntity<InitGameComponent>());
+    foreach (var world in World.All)
     {
-        EntityManager.DestroyEntity(GetSingletonEntity<InitGameComponent>());
-        foreach (var world in World.All)
+        var network = world.GetExistingSystem<NetworkStreamReceiveSystem>();
+        if (world.GetExistingSystem<ClientSimulationSystemGroup>() != null)
         {
-            var network = world.GetExistingSystem<NetworkStreamReceiveSystem>();
-            if (world.GetExistingSystem<ClientSimulationSystemGroup>() != null)
-            {
-                world.EntityManager.CreateEntity(typeof(EnableGame));
-                NetworkEndPoint ep = NetworkEndPoint.LoopbackIpv4;
-                ep.Port = 7979;
-                ep = NetworkEndPoint.Parse(ClientServerBootstrap.RequestedAutoConnect, 7979);
+            world.EntityManager.CreateEntity(typeof(EnableGame));
+            NetworkEndPoint ep = NetworkEndPoint.LoopbackIpv4;
+            ep.Port = 7979;
+            ep = NetworkEndPoint.Parse(ClientServerBootstrap.RequestedAutoConnect, 7979);
 
-                network.Connect(ep);
-            }
-            else if (world.GetExistingSystem<ServerSimulationSystemGroup>() != null)
-            {
-                world.EntityManager.CreateEntity(typeof(EnableGame));
-                NetworkEndPoint ep = NetworkEndPoint.AnyIpv4;
-                ep.Port = 7979;
-				
-                network.Listen(ep);
-            }
+            network.Connect(ep);
+        }
+        else if (world.GetExistingSystem<ServerSimulationSystemGroup>() != null)
+        {
+            world.EntityManager.CreateEntity(typeof(EnableGame));
+            NetworkEndPoint ep = NetworkEndPoint.AnyIpv4;
+            ep.Port = 7979;
+
+            network.Listen(ep);
         }
     }
+}
+</pre>
 
 #### Struttura GoInGameRequest
 
