@@ -10,7 +10,7 @@
     <li>
 		<a href="#componenti">Componenti</a>
 		<ul>
-			<li><a href="#file-game.cs">File Game.cs</a></li>
+			<li><a href="#file-gamecs">File Game.cs</a></li>
 		</ul>
 	</li>
   </ol>
