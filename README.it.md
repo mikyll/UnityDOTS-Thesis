@@ -60,27 +60,27 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary><h2 style="display: inline-block">Indice</h2></summary>
   <ol>
     <li>
-      <a href="#about-the-project">Il Progetto</a>
+      <a href="#il-progetto">Il Progetto</a>
       <ul>
-        <li><a href="#built-with">Sviluppato Con</a></li>
+        <li><a href="#sviluppato-con">Sviluppato Con</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Per Iniziare</a>
+      <a href="#per-iniziare">Per Iniziare</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisiti</a></li>
-        <li><a href="#installation">Installazione</a></li>
+        <li><a href="#prerequisiti">Prerequisiti</a></li>
+        <li><a href="#installazione">Installazione</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Utilizzo</a></li>
+    <li><a href="#utilizzo">Utilizzo</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributire</a></li>
-    <!--<li><a href="#license">Licenza</a></li>-->
-    <li><a href="#contact">Contatti</a></li>
-    <li><a href="#acknowledgements">Ringraziamenti</a></li>
+    <li><a href="#contribuire">Contributire</a></li>
+    <!--<li><a href="#licenza">Licenza</a></li>-->
+    <li><a href="#contatti">Contatti</a></li>
+    <li><a href="#ringraziamenti">Ringraziamenti</a></li>
   </ol>
 </details>
 
