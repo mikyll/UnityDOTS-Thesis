@@ -79,7 +79,7 @@ codice di questo sistema è già stato eseguito una volta: nella OnCreate() usia
 chiamata; dopodiché creiamo l'entità avente questo componente; infine nella OnUpdate() rimuoviamo tale
 entità, così Unity non chiama più OnUpdate() di Game.
 
-	```
+	```sh
 	protected override void OnCreate()
     {
         RequireSingletonForUpdate<InitGameComponent>();
