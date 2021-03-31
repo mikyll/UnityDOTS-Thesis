@@ -148,10 +148,11 @@ See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list
 * Infrequent random crashes of the standalone builds.
 
 ### Future developments
-* Players scoreboard
-* Pre-match lobby
-* assign different colors on connect
-* switchable first-person camera using Unity RayCast
+* Double jump mechanic.
+* Players scoreboard.
+* Pre-match lobby.
+* assign different colors on connect.
+* switchable first-person camera using Unity RayCast.
 
 
 <!-- CONTRIBUTING -->

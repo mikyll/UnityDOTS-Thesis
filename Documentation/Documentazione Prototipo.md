@@ -98,7 +98,6 @@ facciamo una connect a localhost:7979.
 * Nel caso l'applicazione sia un server, sarà presente il mondo ServerWorld, al cui interno vi sarà il
 gruppo di sistemi **ServerSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
 facciamo una listen sulla porta 7979.
-
 <pre>
 protected override void OnUpdate()
 {
@@ -129,12 +128,50 @@ protected override void OnUpdate()
 
 #### Struttura GoInGameRequest
 
-Poiché non è stato aggiunto il componente NetworkStreamInGame all'entità che rappresenta la connessione fra
-un client ed il server, questi non possono comunicare inviando comandi o snapshot. Quindi, utilizziamo una 
-RPC per notificare al server che il client è pronto ad entrare in gioco, così il server può marcare la
-connessione e avviare la comunicazione.
+Poiché non è stato aggiunto il componente **NetworkStreamInGame** all'entità che rappresenta la connessione 
+fra un client ed il server, questi non possono comunicare inviando comandi o snapshot. Quindi, utilizziamo 
+una RPC NetCode (IRpcCommand) per notificare al server che il client è pronto ad entrare in gioco, così il 
+server può marcare la connessione e avviare la comunicazione.<br/>
+Come spiegato nella documentazione di <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/rpcs.html">NetCode</a>, 
+per inviare una RPC è necessario creare un entità ed aggiungervi il comando RPC creato ed il componente
+SendRpcCommandRequestComponent, che innesca il sistema di invio della RPC di Unity.
+
+#### Sistema GoInGameClientSystem
+
+Vogliamo che questo sistema esegua una sola volta, quando il client deve entrare in gioco, per la precisione
+dopo la connessione con il server, ma prima che venga avviata la comunicazione via comandi e snapshot.
+Dunque, richiediamo che sia presente il singleton EnableGame e che l'entità rappresentante la connessione
+(che possiede il componente **NetworkIdComponent**), non abbia **NetworkStreamInGame**.
+<pre>
+protected override void OnCreate()
+{
+    RequireSingletonForUpdate<EnableGame>();
+    RequireForUpdate(GetEntityQuery(ComponentType.ReadOnly<NetworkIdComponent>(), ComponentType.Exclude<NetworkStreamInGame>()));
+}
+</pre>
+
+Dopodiché nella OnUpdate(), iteriamo su tutte le entità che possiedono **NetworkIdComponent** ma non hanno
+**NetworkStreamInGame**, ovvero l'entità della connessione. Dunque, utilizzando un command buffer, seguiamo 
+la procedura per inviare la RPC: creiamo un'entità, vi aggiungiamo il comando RPC, ed infine aggiungiamo il
+componente **SendRpcCommandRequestComponent** indicando la connessione target.
+<pre>
+protected override void OnUpdate()
+{
+    var commandBuffer = new EntityCommandBuffer(Allocator.Temp);
+    Entities.WithNone<NetworkStreamInGame>().ForEach((Entity ent, in NetworkIdComponent id) =>
+    {
+        commandBuffer.AddComponent<NetworkStreamInGame>(ent);
+        var req = commandBuffer.CreateEntity();
+        commandBuffer.AddComponent<GoInGameRequest>(req);
+        commandBuffer.AddComponent(req, new SendRpcCommandRequestComponent { TargetConnection = ent });
+    }).Run();
+    commandBuffer.Playback(EntityManager);
+    commandBuffer.Dispose();
+}
+</pre>
 
 
 
+### File PlayerMovementSystem
 
-### File
+### File PlayerInputSystem
