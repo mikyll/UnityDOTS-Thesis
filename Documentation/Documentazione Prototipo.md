@@ -2,32 +2,23 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Obbiettivo Prototipo</h2></summary>
+  <summary><h2 style="display: inline-block">Indice</h2></summary>
   <ol>
+    <li><a href="#obbiettivo-prototipo">Obbiettivo Prototipo</a></li>
+    <li><a href="#principali-funzionalità">Principali Funzionalità</a></li>
+    <li><a href="#flusso-di-esecuzione">Flusso di esecuzione</a></li>
     <li>
-      <a href="#about-the-project">Principali Funzionalità</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <!--<li><a href="#license">License</a></li>-->
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+		<a href="#componenti">Componenti</a>
+		<ul>
+			<li><a href="#file-game.cs">File Game.cs</a></li>
+		</ul>
+	</li>
   </ol>
 </details>
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
 capsula e può interagire con i vari oggetti di scena.
+
 
 ## Obbiettivo Prototipo
 
@@ -38,17 +29,33 @@ In particolare, sono stati utilizzati i seguenti package:
 * NetCode, per realizzare la parte legata al networking, ovvero le connessioni dei giocatori (client) al server di gioco e la comunicazione fra questi.
 * Physics, per realizzare le meccaniche legate alla fisica (entità statiche/dinamiche, sistema delle collisioni, ecc.).
 
+
 ## Principali Funzionalità
 
+* Movimento del personaggio capsula.
+* Camera follow in terza persona.
 * Portali cambia-colore.
 * Teletrasporti.
 * Raccolta oggetti "Collectibles".
 * Simulazione fisica con entità di forme e proprietà fisiche differenti.
-* Camera follow in terza persona.
 
-## Spiegazione Codice ...
 
-Flusso di esecuzione
+## Flusso di esecuzione
+
+Il flusso di esecuzione del prototipo è il seguente:
+1. All'avvio dell'applicazione viene eseguito il sistema Game, contenuto in Game.cs. Questo sistema realizza
+	la connessione dei client al server, differenziando l'esecuzione del server, il quale si mette in ascolto
+	per le connessioni, da quella dei client, che si connettono al server.
+2. I client eseguono il sistema GoInGameClientSystem, che invia una richiesta al server per entrare in gioco
+	e iniziare a inviare comandi e ricevere snapshot (ovvero gli aggiornamenti dello stato di gioco).
+3. Il server esegue il sistema GoInGameServerSystem, che riceve le richieste di entrare in gioco e per
+	ciascun giocatore abilita la comunicazione tramite comandi e snapshot, e genera un personaggio capsula.
+4. input system
+5. movement system
+6. aggiornamento dei system che realizzano le varie funzionalità.
+
+
+## Componenti
 
 NB: i pezzi di codice mostrati sono stati ritagliati per mostrare solo le parti fondamentali spiegate
 nel testo.
@@ -64,8 +71,7 @@ eseguire il sistema **GoInGameClientSystem**, che invia una RPC al server; lato 
 sistema **GoInGameServerSystem** che riceve la RPC e marchia il client come "in gioco", aggiungendo il 
 componente **NetworkStreamInGame** all'entità che rappresenta la connessione e creando una personaggio 
 capsula per il giocatore corrispondente al client.
-<br/>
-<br/>
+
 #### Struttura EnableGame
 
 Dichiariamo la struttura **EnableGame** che ci servirà più avanti per indicare che i client o il server sono
@@ -246,6 +252,8 @@ protected override void OnUpdate()
 }
 </pre>
 
+
 ### File PlayerMovementSystem
+
 
 ### File PlayerInputSystem
