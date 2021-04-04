@@ -2,7 +2,7 @@
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
 capsula e può interagire con i vari oggetti di scena. È stato realizzato interamente con i package forniti 
-da DOTS
+da DOTS, la maggiorparte dei quali sono ancora in fase di sviluppo.
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -33,6 +33,40 @@ collisioni, ecc.).
 
 
 ## Principali Funzionalità
+
+<table>
+	<tr>
+		<td>Funzionalità</td>
+		<td>File</td>
+		<td>Dimostrazione</td>
+	</tr>
+	<tr>
+		<td>Movimento del personaggio capsula</td>
+		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs.meta">PlayerInputSystem.cs</a><br/>
+		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs.meta">PlayerMovementSystem.cs</a></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="MovimentoGIF"/></td>
+	</tr>
+	<tr>
+		<td>Camera follow in terza persona</td>
+		<td></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="CameraFollowGIF"/></td>
+	</tr>
+	<tr>
+		<td>Portali cambia-colore</td>
+		<td></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="PortaliColoreGIF"/></td>
+	</tr>
+	<tr>
+		<td>Teletrasporti</td>
+		<td></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="TeletrasportoGIF"/></td>
+	</tr>
+	<tr>
+		<td>Raccolta oggetti "collectibles"</td>
+		<td></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="CollectiblesGIF"/></td>
+	</tr>
+</table>
 
 * Movimento del personaggio capsula.
 * Camera follow in terza persona.
