@@ -227,7 +227,7 @@ Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyl
 
 <!--* il mio correlatore [Andrea Garbugli]() per la proposta dell'argomento di tesi ed il supporto e aiuto nella stesura della tesi-->
 * []()
-* [Othneil Drew](https://github.com/othneildrew) per il magnifico [template del README](https://github.com/othneildrew/Best-README-Template).
+<!--* [Othneil Drew](https://github.com/othneildrew) per il magnifico [template del README](https://github.com/othneildrew/Best-README-Template).-->
 
 
 
