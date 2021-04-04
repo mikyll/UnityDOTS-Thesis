@@ -21,14 +21,14 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-<!--
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
--->
+
 
 
 
@@ -213,14 +213,14 @@ Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyl
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/mikyll/TesiUnityDOTS
-[contributors-url]: https://github.com/mikyll/repo/graphs/contributors
+[contributors-url]: https://github.com/mikyll/TesiUnityDOTS/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/mikyll/TesiUnityDOTS
-[forks-url]: https://github.com/mikyll/repo/network/members
+[forks-url]: https://github.com/mikyll/TesiUnityDOTS/network/members
 [stars-shield]: https://img.shields.io/github/stars/mikyll/TesiUnityDOTS
-[stars-url]: https://github.com/mikyll/repo/stargazers
+[stars-url]: https://github.com/mikyll/TesiUnityDOTS/stargazers
 [issues-shield]: https://img.shields.io/github/issues/mikyll/TesiUnityDOTS
-[issues-url]: https://github.com/mikyll/repo/issues
+[issues-url]: https://github.com/mikyll/TesiUnityDOTS/issues
 [license-shield]: https://img.shields.io/github/license/mikyll/TesiUnityDOTS
-[license-url]: https://github.com/mikyll/repo/blob/master/LICENSE.txt
+[license-url]: https://github.com/mikyll/TesiUnityDOTS/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/michele-righi-095283195/?locale=en_US
