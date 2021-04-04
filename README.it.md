@@ -103,24 +103,15 @@
 ## Il Progetto
 
 <table style="border: none">
-<tr>
-<td> <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
-<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
-</tr>
-<td>PC1: Unity Editor</td>
-<td>PC2: Build Standalone</td>
-<tr>
-</tr>
+  <tr>
+    <td> <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+  </tr>
+  <tr>
+    <td>PC1: Unity Editor</td>
+    <td>PC2: Build Standalone</td>
+  </tr>
 </table>
-
-<p style="float: left">
-  
-  <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF" style="width:49%"/>
-  <br/>PC1: Unity Editor
-  
-  <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF" style="width:49%"/>
-  <br/>PC1: Build Standalone
-</p>
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
