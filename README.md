@@ -44,16 +44,16 @@
   <p align="center">
     This project was carried out as an integral part of my bachelor's degree thesis in Computer Engineering, concerning the new Unity DOTS architecture. The goal of the paper, in addition to analyzing the new data-oriented layout provided by the ECS-based model, was to create a <i>working multiplayer game prototype made entirely using DOTS.</i>
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/mikyll/TesiUnityDOTS"><strong>Explore the docs »</strong></a>
     <br />
     <br />
 	<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/README.it.md">Italiano</a>
 	·
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/mikyll/TesiUnityDOTS">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/mikyll/TesiUnityDOTS/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/mikyll/TesiUnityDOTS/issues">Request Feature</a>
   </p>
 </p>
 
