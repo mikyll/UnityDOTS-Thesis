@@ -42,7 +42,7 @@
   <h1 align="center">Progetto di Applicazioni e Giochi Multiplayer<br/>su Architettura Unity DOTS</h1>
 
   <p align="center">
-	Questo progetto è stato realizzato come parte integrante della mia tesi di laurea, riguardante appunto
+	Questo progetto è stato realizzato come parte integrante della mia tesi di laurea triennale, riguardante appunto
 	la nuova architettura Unity DOTS. L'obbiettivo dell'elaborato, oltre all'analisi del nuovo layout orientato ai
 	dati fornito dal modello basato su ECS, era quello di creare un <i>prototipo di gioco multiplayer funzionante.</i>
 	<!--A tal proposito sono stati utilizzati i vari package forniti dallo stack DOTS, con particolare attenzione
@@ -145,7 +145,7 @@ Per chi non ha troppa familiarità con GitHub ottenere una copia locale funziona
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md)
+Per ulteriori esempi fare riferimento alla [Documentazione](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md)
 
 
 
@@ -200,9 +200,9 @@ Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyl
 <!-- ACKNOWLEDGEMENTS -->
 ## Ringraziamenti
 
+<!--* il mio correlatore [Andrea Garbugli]() per la proposta dell'argomento di tesi ed il supporto e aiuto nella stesura della tesi-->
 * []()
-* []()
-* []()
+* [Othneil Drew](https://github.com/othneildrew/Best-README-Template) per il magnifico template del README.
 
 
 
