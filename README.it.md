@@ -108,7 +108,6 @@ Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
 
-
 ### Sviluppato Con
 
 * [Unity](https://unity.com/)
@@ -120,23 +119,25 @@ Here's a blank template to get started:
 <!-- GETTING STARTED -->
 ## Per iniziare
 
-To get a local copy up and running follow these simple steps.
+Per chi non ha troppa familiarità con GitHub ottenere una copia locale funzionante seguire i passi riportati in seguito.
 
 ### Prerequisiti
 
+* Git
 * Unity Hub
-
 * Unity 2020.2.1 o più recente
 
 ### Installazione
 
-1. Clonare la repository
+1. Installare Git presso [Download Git](https://git-scm.com/download)
+2. Clonare la repository
    ```sh
    git clone https://github.com/mikyll/TesiUnityDOTS
    ```
-2. Scaricare Unity Hub presso [Download Unity](https://unity3d.com/get-unity/download)
-3. Installare una versione Unity appropriata (2020.2.1 o superiore) presso [Download Archive](https://unity3d.com/get-unity/download/archive) oppure direttamente dall'apposita sezione su Unity Hub.
-4. Aggiungere il progetto su Unity Hub: Projects > Add > Select Directory
+3. Scaricare Unity Hub presso [Download Unity](https://unity3d.com/get-unity/download)
+4. Installare una versione Unity appropriata (2020.2.1 o superiore) presso [Download Archive](https://unity3d.com/get-unity/download/archive) oppure direttamente dall'apposita sezione su Unity Hub.
+5. Aggiungere il progetto su Unity Hub: Projects > Add > Select Directory
+
 
 
 <!-- USAGE EXAMPLES -->
@@ -151,7 +152,7 @@ _For more examples, please refer to the [Documentation](https://github.com/mikyl
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list of proposed features (and known issues).
+Vedere la sezione [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) per avere una lista di possibili funzionalità future e (problemi attualmente conosciuti).
 
 ### Problemi Non Risolti
 * The third person camera sometime starts flickering.
@@ -160,7 +161,7 @@ See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list
 * Infrequent random crashes of the standalone builds.
 
 ### Sviluppi Futuri
-* Players scoreboard
+* Players scoreboard (esiste già un sistema di punteggio)
 * Pre-match lobby
 * assign different colors on connect
 * switchable first-person camera using Unity RayCast
@@ -169,13 +170,14 @@ See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list
 <!-- CONTRIBUTING -->
 ## Contributire
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+I contributi sono ciò che rende la community open source il posto meraviglioso che è, per imparare, trarre ispirazione e creare contenuti.
+Qualsiasi contributo aggiunto, che sia un parere costruttivo, il report di un bug scoperto, una soluzione ad un problema o anche solo un'idea su come risolverlo, è **largamente apprezzato**!
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Eseguire una Fork del Progetto.
+2. Creare un Branch per la propria Feature (`git checkout -b feature/AmazingFeature`)
+3. Eseguire il Commit dei propri Cambiamenti (`git commit -m 'Add some AmazingFeature'`)
+4. Eseguire il Push al proprio Branch (`git push origin feature/AmazingFeature`)
+5. Aprire una Richiesta di Pull
 
 
 
