@@ -1,4 +1,5 @@
 
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -102,22 +103,25 @@
 <!-- ABOUT THE PROJECT -->
 ## Il Progetto
 
+Le immagini seguenti mostrano un esempio di esecuzione del prototipo, tramite un server headless e due client 
+connessi: il primo è in esecuzione nell'editor Unity, il secondo è un'applicazione standalone in esecuzione
+su una macchina differente. Usando il package NetCode, quando si entra in PlayMode nell'editor Unity, vengono
+messi in esecuzione il server, un client ed un numero arbitrario di *thin clients* (in questo caso non
+impostati).
 <table style="border: none">
   <tr>
     <td> <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
     <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
-    <td>PC1: Unity Editor</td>
+    <td>PC1: Editor Unity</td>
     <td>PC2: Build Standalone</td>
   </tr>
 </table>
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
+<!--Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`-->
 
 ### Sviluppato Con
 
@@ -154,7 +158,7 @@ Per chi non ha troppa familiarità con GitHub ottenere una copia locale funziona
 <!-- USAGE EXAMPLES -->
 ## Utilizzo
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Per provare il prototipo in multiplayer è possibile creare una build per un client standalone, quindi entrare in Play Mode nell'editor Unity e connettere un'applicazione standalone; oppure creare una build per il server ed una per il client e connettere diversi client al server.
 
 Per ulteriori esempi fare riferimento alla [Documentazione](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md)
 
@@ -166,17 +170,27 @@ Per ulteriori esempi fare riferimento alla [Documentazione](https://github.com/m
 Vedere la sezione [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) per avere una lista di possibili funzionalità future e (problemi attualmente conosciuti).
 
 ### Problemi Non Risolti
-* The third person camera sometime starts flickering.
-* The collision system doesn't work properly between static entities and ghost entities if those are moving updating Translation component. For this reason we updated the PhysicsVelocity component of the PlayerCapsule, but the movement is obviously different (it needs to accelerate from zero).
-* Sometimes the application throws an error.
-* Infrequent random crashes of the standalone builds.
+* La camera che segue la capsula a volte inizia a sfarfallare.
+* Il sistema di collisioni fra entità statiche e ghost, se questi ultimi si muovo aggiornando il componente
+Translation. Per questo motivo per realizzare il movimento della capsula abbiamo dovuto utilizzare il
+componente PhysicsVelocity, che però presenta il ritardo dovuto all'accelerazione.
+* Le collisioni e le interazioni fra ghost ed oggetti dinamici non funzionano sempre come previsto (a volte
+il ghost ci passa attraverso, anche se dovrebbero collidere).
+* A volte l'applicazione lancia un errore nel corso dell'esecuzione e all'uscita dalla PlayMode.
+* A volte le build standalone crashano, probabilmente a causa dell'errore sopra citato.
+
 
 ### Sviluppi Futuri
-* Players scoreboard (esiste già un sistema di punteggio)
-* Pre-match lobby
-* assign different colors on connect
-* switchable first-person camera using Unity RayCast
-
+* Un menu principale in cui inserire il nickname ed eventualmente.
+* Una lobby prepartita in cui i giocatori si possono vedere e possono indicare che sono pronti a iniziare
+la partita.
+* L'assegnamento di colori differenti alle capsule dei vari giocatori che si connettono.
+* Una scoreboard che mostra il punteggio attuale di tutti i giocatori connessi (esiste già un sistema di 
+punteggio ed il comando per mostrare la scoreboard con *TAB*, manca solo l'oggetto UI o entità(?) scoreboard 
+ed un sistema che la aggiorni).
+* L'aggiunta di un sistema di direzione della capsula, che segue il puntatore del mouse, usando i RayCast 
+di Unity Physics.
+* La possibilità di cambiare la visuale della videocamera da terza a prima persona.
 
 <!-- CONTRIBUTING -->
 ## Contributire
@@ -213,7 +227,7 @@ Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyl
 
 <!--* il mio correlatore [Andrea Garbugli]() per la proposta dell'argomento di tesi ed il supporto e aiuto nella stesura della tesi-->
 * []()
-* [Othneil Drew](https://github.com/othneildrew/Best-README-Template) per il magnifico template del README.
+* [Othneil Drew](https://github.com/othneildrew) per il magnifico [template del README](https://github.com/othneildrew/Best-README-Template).
 
 
 
