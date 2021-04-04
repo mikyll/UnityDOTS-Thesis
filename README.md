@@ -97,8 +97,8 @@ The following images show an example run of the prototype, with an headless serv
     <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
-    <td>PC1: Editor Unity</td>
-    <td>PC2: Build Standalone</td>
+    <td>PC1: Unity Editor</td>
+    <td>PC2: Standalone Build</td>
   </tr>
 </table>
 
