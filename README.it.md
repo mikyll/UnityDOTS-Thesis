@@ -1,3 +1,4 @@
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -34,16 +35,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/mikyll/TesiUnityDOTS">
+  <!--<a href="https://github.com/mikyll/TesiUnityDOTS">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a>-->
 
-  <h3 align="center">Progetto di Applicazioni e Giochi Multiplayer<br/>su Architettura Unity DOTS</h3>
+  <h1 align="center">Progetto di Applicazioni e Giochi Multiplayer<br/>su Architettura Unity DOTS</h1>
 
   <p align="center">
 	Questo progetto è stato realizzato come parte integrante della mia tesi di laurea, riguardante appunto
 	la nuova architettura Unity DOTS. L'obbiettivo dell'elaborato, oltre all'analisi del nuovo layout orientato ai
-	dati fornito dal modello basato su ECS, era quello di creare un prototipo di gioco multiplayer funzionante.
+	dati fornito dal modello basato su ECS, era quello di creare un <i>prototipo di gioco multiplayer funzionante.</i>
 	<!--A tal proposito sono stati utilizzati i vari package forniti dallo stack DOTS, con particolare attenzione
 	a Entities (che realizza il modello a Entità, Componenti e Sistemi) e NetCode (che implementa il 
 	networking).
@@ -129,14 +130,13 @@ To get a local copy up and running follow these simple steps.
 
 ### Installazione
 
-1. Clone the repo
+1. Clonare la repository
    ```sh
    git clone https://github.com/mikyll/TesiUnityDOTS
    ```
-2. Download Unity Hub at [Download Unity](https://unity3d.com/get-unity/download)
-3. Install a proper Unity version (2020.2.1 or higher)
-
-
+2. Scaricare Unity Hub presso [Download Unity](https://unity3d.com/get-unity/download)
+3. Installare una versione Unity appropriata (2020.2.1 o superiore) presso [Download Archive](https://unity3d.com/get-unity/download/archive) oppure direttamente dall'apposita sezione su Unity Hub.
+4. Aggiungere il progetto su Unity Hub: Projects > Add > Select Directory
 
 
 <!-- USAGE EXAMPLES -->
