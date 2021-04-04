@@ -102,6 +102,15 @@
 <!-- ABOUT THE PROJECT -->
 ## Il Progetto
 
+<div class="row">
+  <div class="column">
+    <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF" style="width:100%">
+  </div>
+</div>
+
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Here's a blank template to get started:
@@ -182,7 +191,7 @@ Qualsiasi contributo aggiunto, che sia un parere costruttivo, il report di un bu
 
 
 <!-- LICENSE -->
-<!--## License
+<!--## Licenza
 
 Distributed under the MIT License. See `LICENSE` for more information.-->
 
