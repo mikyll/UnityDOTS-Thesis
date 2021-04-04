@@ -97,8 +97,8 @@ The following images show an example run of the prototype, with an headless serv
     <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
-    <td>PC1: Editor Unity</td>
-    <td>PC2: Build Standalone</td>
+    <td>PC1: Unity Editor</td>
+    <td>PC2: Standalone Build</td>
   </tr>
 </table>
 
@@ -144,7 +144,7 @@ To get a local copy up and running follow these simple steps.
 
 To test the prototype in multiplayer you can create a build for a standalone client, then enter PlayMode in the editor and connect the standalone application; otherwise you can create one build for the server and one for the client and connect several clients to the server.
 
-For more examples, please refer to the [Documentation](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Prototype%20Documentation.md)
+For more examples, please refer to the [Documentation](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Prototype%20Documentation.md).
 
 
 
