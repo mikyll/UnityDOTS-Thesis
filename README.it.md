@@ -102,14 +102,13 @@
 <!-- ABOUT THE PROJECT -->
 ## Il Progetto
 
-<div class="row">
-  <div class="column" style="float: left; width: 54.9%; padding: 5px">
-    <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF" style="width:100%">
-  </div>
-  <div class="column" style="float: left; width: 54.9%; padding: 5px">
-    <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF" style="width:100%">
-  </div>
-</div>
+<p style="float: left">
+  <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF" style="width:100%"/>
+  <br/>PC1: Unity Editor
+  
+  <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF" style="width:100%"/>
+  <br/>PC1: Build Standalone
+</p>
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
