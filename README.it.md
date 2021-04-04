@@ -93,7 +93,7 @@
     <li><a href="#utilizzo">Utilizzo</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contribuire">Contributire</a></li>
-    <!--<li><a href="#licenza">Licenza</a></li>-->
+    <li><a href="#licenza">Licenza</a></li>
     <li><a href="#contatti">Contatti</a></li>
     <li><a href="#ringraziamenti">Ringraziamenti</a></li>
   </ol>
@@ -199,7 +199,7 @@ di Unity Physics.
 * La possibilità di cambiare la visuale della videocamera da terza a prima persona.
 
 <!-- CONTRIBUTING -->
-## Contributire
+## Contribuire
 
 I contributi sono ciò che rende la community open source il posto meraviglioso che è, per imparare, trarre 
 ispirazione e creare contenuti.
