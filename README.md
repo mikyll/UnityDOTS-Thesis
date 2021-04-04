@@ -202,9 +202,9 @@ Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyl
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
+<!--* My co-rapporteur [Andrea Garbugli]() for the thesis topic and for the support and help in drafting the paper. -->
 * []()
-* []()
-* []()
+* [Othneil Drew](https://github.com/othneildrew) for the amazing [README template](https://github.com/othneildrew/Best-README-Template).
 
 
 
