@@ -103,10 +103,10 @@
 ## Il Progetto
 
 <p style="float: left">
-  <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF" style="width:100%"/>
+  <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF" style="width:49%"/>
   <br/>PC1: Unity Editor
   
-  <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF" style="width:100%"/>
+  <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF" style="width:49%"/>
   <br/>PC1: Build Standalone
 </p>
 
