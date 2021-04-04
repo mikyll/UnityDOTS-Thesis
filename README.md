@@ -38,7 +38,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Unity DOTS </h3>
+  <h3 align="center">Multiplayer Applications and Games Project on Unity DOTS Architecture</h3>
 
   <p align="center">
     Descrizione - scrivere un sommario in inglese
@@ -146,6 +146,7 @@ See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list
 * The collision system doesn't work properly between static entities and ghost entities if those are moving updating Translation component. For this reason we updated the PhysicsVelocity component of the PlayerCapsule, but the movement is obviously different (it needs to accelerate from zero).
 * Sometimes the application throws an error.
 * Infrequent random crashes of the standalone builds.
+* Collision and Interactions between ghosts and dynamic object doesn't always work as expected (sometimes the CapsulePlayer pass through the dynamic object, even if they should collide)
 
 ### Future developments
 * Double jump mechanic.

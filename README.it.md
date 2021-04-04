@@ -41,7 +41,19 @@
   <h3 align="center">Progetto di Applicazioni e Giochi Multiplayer<br/>su Architettura Unity DOTS</h3>
 
   <p align="center">
-    Descrizione - scrivere un sommario in inglese
+	Questo progetto è stato realizzato come parte integrante della mia tesi di laurea, riguardante appunto
+	la nuova architettura Unity DOTS. L'obbiettivo dell'elaborato, oltre all'analisi del nuovo layout orientato ai
+	dati fornito dal modello basato su ECS, era quello di creare un prototipo di gioco multiplayer funzionante.
+	<!--A tal proposito sono stati utilizzati i vari package forniti dallo stack DOTS, con particolare attenzione
+	a Entities (che realizza il modello a Entità, Componenti e Sistemi) e NetCode (che implementa il 
+	networking).
+	Il motivo che ha spinto Unity alla ristrutturazione dell'architettura del proprio game engine è dovuto
+	al fatto che questa era limitata dal modello basato su componenti, troppo legato all'Object-Oriented
+	Programming. Infatti, come è ormai risaputo, questo modello ha diversi problemi, dovuti principalmente
+	al polimorfismo, alle catene di ereditarietà ed ai tipi riferimento.
+	Dunque, con DOTS Unity si propone di superare questi limiti fornendo un'architettura efficiente e
+	performante a priori, in modo tale che gli sviluppatori non debbano preoccuparsi delle prestazioni
+	del codice che scrivono, se non come ultimo aspetto.-->
     <br />
     <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
     <br />
