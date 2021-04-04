@@ -129,7 +129,7 @@ impostati).
 
 
 <!-- GETTING STARTED -->
-## Per iniziare
+## Per Iniziare
 
 Per chi non ha troppa familiarità con GitHub, per ottenere una copia locale funzionante del prototipo è
 necessario seguire i passi riportati in seguito.
