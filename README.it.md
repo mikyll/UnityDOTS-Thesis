@@ -125,6 +125,7 @@ I principali package utilizzati per realizzare il prototipo sono:
 * [Entities](https://docs.unity3d.com/Packages/com.unity.entities@0.17) - implementa il modello basato su ECS.
 * [Physics](https://docs.unity3d.com/Packages/com.unity.physics@0.6) - realizza la fisica.
 * [NetCode](https://docs.unity3d.com/Packages/com.unity.netcode@0.6) - implementa il networking.
+
 Le immagini seguenti mostrano un esempio di esecuzione del prototipo, tramite un server headless e due client 
 connessi: il primo è in esecuzione nell'editor Unity, il secondo è un'applicazione standalone in esecuzione
 su una macchina differente. Usando il package NetCode, quando si entra in PlayMode nell'editor Unity, vengono
