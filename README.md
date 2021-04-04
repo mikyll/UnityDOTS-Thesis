@@ -1,3 +1,4 @@
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -34,14 +35,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/mikyll/TesiUnityDOTS">
+  <!--<a href="https://github.com/mikyll/TesiUnityDOTS">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a>-->
 
   <h3 align="center">Multiplayer Applications and Games Project on Unity DOTS Architecture</h3>
 
   <p align="center">
-    Descrizione - scrivere un sommario in inglese
+    This project was carried out as an integral part of my bachelor's degree thesis in Computer Engineering, concerning the new Unity DOTS architecture. The goal of the paper, in addition to analyzing the new data-oriented layout provided by the ECS-based model, was to create a <i>working multiplayer game prototype made entirely using DOTS.</i>
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -89,11 +90,21 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+The following images show an example run of the prototype, with an headless server and two connected clients: the first one is running in the Unity editor, the second one is a standalone application running on a different computer. Using the NetCode package, when entering PlayMode in the editor, Unity runs the server, a client and an arbitrary number of thin clients (in this case we didn't set any of those).
+<table style="border: none">
+  <tr>
+    <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+  </tr>
+  <tr>
+    <td>PC1: Editor Unity</td>
+    <td>PC2: Build Standalone</td>
+  </tr>
+</table>
 
-Here's a blank template to get started:
+<!--Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`-->
 
 
 ### Built With
@@ -111,28 +122,29 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
+* Git
 * Unity Hub
-
 * Unity 2020.2.1 or higher
 
 ### Installation
 
-1. Clone the repo
+1. Install Git at [Download Git](https://git-scm.com/download).
+2. Clone the repo.
    ```sh
    git clone https://github.com/mikyll/TesiUnityDOTS
    ```
-2. Download Unity Hub at [Download Unity](https://unity3d.com/get-unity/download)
-3. Install a proper Unity version (2020.2.1 or higher)
-
+3. Download Unity Hub at [Download Unity](https://unity3d.com/get-unity/download).
+4. Install a proper Unity version (2020.2.1 or higher) at [Download Archive](https://unity3d.com/get-unity/download/archive) or from Unity Hub.
+5. Add the project directory on Unity Hub: Projects > Add > Select Directory.
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+To test the prototype in multiplayer you can create a build for a standalone client, then enter PlayMode in the editor and connect the standalone application; otherwise you can create one build for the server and one for the client and connect several clients to the server.
 
-_For more examples, please refer to the [Documentation](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Prototype%20Documentation.md)
+For more examples, please refer to the [Documentation](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Prototype%20Documentation.md)
 
 
 
@@ -143,17 +155,19 @@ See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list
 
 ### Open Issues
 * The third person camera sometime starts flickering.
-* The collision system doesn't work properly between static entities and ghost entities if those are moving updating Translation component. For this reason we updated the PhysicsVelocity component of the PlayerCapsule, but the movement is obviously different (it needs to accelerate from zero).
-* Sometimes the application throws an error.
-* Infrequent random crashes of the standalone builds.
-* Collision and Interactions between ghosts and dynamic object doesn't always work as expected (sometimes the CapsulePlayer pass through the dynamic object, even if they should collide)
+* The collision system doesn't work properly between static entities and ghost entities if those are moving updating Translation component. For this reason we updated the PhysicsVelocity component of the PlayerCapsule, but the movement is obviously delayed, because it needs to accelerate from zero.
+* Collision and Interactions between ghosts and dynamic object doesn't always work as expected (sometimes the ghost of the CapsulePlayer passes through the dynamic object, even though they should collide).
+* Sometimes the application throws an error at runtime or when exiting PlayMode.
+* Infrequent random crashes of the standalone builds, probably caused by the aforementioned error.
 
 ### Future developments
-* Double jump mechanic.
-* Players scoreboard.
-* Pre-match lobby.
-* assign different colors on connect.
-* switchable first-person camera using Unity RayCast.
+* Main menu where players can set their nickname and start the matchmaking with the click of a button.
+* A pre-match lobby where players can see each other and say when they're ready to start the match.
+* The assignment of different colors to the capsules of the various players who connect.
+* A scoreboard showing the current score of all connected players (there is already a score system and the system that handles the scoreboard showing with *TAB* command).
+* A working mechanic for the jump (which turns usable only when the character hits the ground).
+* Capsule steering system, which turns the heading of the capsule to the mouse pointer, using Unity Physics RayCasts.
+* The ability to change the camera view from third to first person.
 
 
 <!-- CONTRIBUTING -->

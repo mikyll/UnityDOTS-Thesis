@@ -43,12 +43,13 @@
   <h1 align="center">Progetto di Applicazioni e Giochi Multiplayer<br/>su Architettura Unity DOTS</h1>
 
   <p align="center">
-	Questo progetto è stato realizzato come parte integrante della mia tesi di laurea triennale, riguardante appunto
-	la nuova architettura Unity DOTS. L'obbiettivo dell'elaborato, oltre all'analisi del nuovo layout orientato ai
-	dati fornito dal modello basato su ECS, era quello di creare un <i>prototipo di gioco multiplayer funzionante.</i>
-	<!--A tal proposito sono stati utilizzati i vari package forniti dallo stack DOTS, con particolare attenzione
-	a Entities (che realizza il modello a Entità, Componenti e Sistemi) e NetCode (che implementa il 
-	networking).
+	Questo progetto è stato realizzato come parte integrante della mia tesi di laurea triennale in Ingegneria
+	Informatica, riguardante appunto la nuova architettura Unity DOTS. L'obbiettivo dell'elaborato, oltre 
+	all'analisi del nuovo layout orientato ai dati fornito dal modello basato su ECS, era quello di creare 
+	un <i>prototipo di gioco multiplayer funzionante realizzato interamente sfruttando DOTS.</i>
+	<!--A tal proposito sono stati utilizzati i vari package forniti dallo stack DOTS, con particolare 
+	attenzione a Entities (che realizza il modello a Entità, Componenti e Sistemi) e NetCode (che implementa 
+	il networking).
 	Il motivo che ha spinto Unity alla ristrutturazione dell'architettura del proprio game engine è dovuto
 	al fatto che questa era limitata dal modello basato su componenti, troppo legato all'Object-Oriented
 	Programming. Infatti, come è ormai risaputo, questo modello ha diversi problemi, dovuti principalmente
@@ -110,7 +111,7 @@ messi in esecuzione il server, un client ed un numero arbitrario di *thin client
 impostati).
 <table style="border: none">
   <tr>
-    <td> <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
     <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
@@ -134,7 +135,8 @@ impostati).
 <!-- GETTING STARTED -->
 ## Per iniziare
 
-Per chi non ha troppa familiarità con GitHub ottenere una copia locale funzionante seguire i passi riportati in seguito.
+Per chi non ha troppa familiarità con GitHub, per ottenere una copia locale funzionante del prototipo è
+necessario seguire i passi riportati in seguito.
 
 ### Prerequisiti
 
@@ -144,30 +146,36 @@ Per chi non ha troppa familiarità con GitHub ottenere una copia locale funziona
 
 ### Installazione
 
-1. Installare Git presso [Download Git](https://git-scm.com/download)
-2. Clonare la repository
+1. Installare Git presso [Download Git](https://git-scm.com/download).
+2. Clonare la repository.
    ```sh
    git clone https://github.com/mikyll/TesiUnityDOTS
    ```
-3. Scaricare Unity Hub presso [Download Unity](https://unity3d.com/get-unity/download)
-4. Installare una versione Unity appropriata (2020.2.1 o superiore) presso [Download Archive](https://unity3d.com/get-unity/download/archive) oppure direttamente dall'apposita sezione su Unity Hub.
-5. Aggiungere il progetto su Unity Hub: Projects > Add > Select Directory
+3. Scaricare Unity Hub presso [Download Unity](https://unity3d.com/get-unity/download).
+4. Installare una versione Unity appropriata (2020.2.1 o superiore) presso 
+[Download Archive](https://unity3d.com/get-unity/download/archive) oppure direttamente dall'apposita sezione 
+su Unity Hub.
+5. Aggiungere il progetto su Unity Hub: Projects > Add > Select Directory.
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Utilizzo
 
-Per provare il prototipo in multiplayer è possibile creare una build per un client standalone, quindi entrare in Play Mode nell'editor Unity e connettere un'applicazione standalone; oppure creare una build per il server ed una per il client e connettere diversi client al server.
+Per provare il prototipo in multiplayer è possibile creare una build per un client standalone, quindi 
+entrare in Play Mode nell'editor Unity e connettere un'applicazione standalone; oppure creare una build per 
+il server ed una per il client e connettere diversi client al server.
 
-Per ulteriori esempi fare riferimento alla [Documentazione](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md)
+Per ulteriori esempi fare riferimento alla 
+[Documentazione](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md).
 
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-Vedere la sezione [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) per avere una lista di possibili funzionalità future e (problemi attualmente conosciuti).
+Vedere la sezione [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) per avere una lista di 
+possibili funzionalità future (e problemi attualmente conosciuti).
 
 ### Problemi Non Risolti
 * La camera che segue la capsula a volte inizia a sfarfallare.
@@ -181,13 +189,15 @@ il ghost ci passa attraverso, anche se dovrebbero collidere).
 
 
 ### Sviluppi Futuri
-* Un menu principale in cui inserire il nickname ed eventualmente.
+* Un menu principale in cui inserire il nickname ed avviare un eventuale matchmaking col click di un bottone.
 * Una lobby prepartita in cui i giocatori si possono vedere e possono indicare che sono pronti a iniziare
 la partita.
 * L'assegnamento di colori differenti alle capsule dei vari giocatori che si connettono.
 * Una scoreboard che mostra il punteggio attuale di tutti i giocatori connessi (esiste già un sistema di 
 punteggio ed il comando per mostrare la scoreboard con *TAB*, manca solo l'oggetto UI o entità(?) scoreboard 
 ed un sistema che la aggiorni).
+* L'inserimento di una meccanica funzionante per il salto (che torna utilizzabile quando il personaggio
+tocca terra.
 * L'aggiunta di un sistema di direzione della capsula, che segue il puntatore del mouse, usando i RayCast 
 di Unity Physics.
 * La possibilità di cambiare la visuale della videocamera da terza a prima persona.
@@ -195,8 +205,10 @@ di Unity Physics.
 <!-- CONTRIBUTING -->
 ## Contributire
 
-I contributi sono ciò che rende la community open source il posto meraviglioso che è, per imparare, trarre ispirazione e creare contenuti.
-Qualsiasi contributo aggiunto, che sia un parere costruttivo, il report di un bug scoperto, una soluzione ad un problema o anche solo un'idea su come risolverlo, è **largamente apprezzato**!
+I contributi sono ciò che rende la community open source il posto meraviglioso che è, per imparare, trarre 
+ispirazione e creare contenuti.
+Qualsiasi contributo aggiunto, che sia un parere costruttivo, il report di un bug scoperto, una soluzione 
+ad un problema o anche solo un'idea su come risolverlo, è **largamente apprezzato**!
 
 1. Eseguire una Fork del Progetto.
 2. Creare un Branch per la propria Feature (`git checkout -b feature/AmazingFeature`)
@@ -207,9 +219,9 @@ Qualsiasi contributo aggiunto, che sia un parere costruttivo, il report di un bu
 
 
 <!-- LICENSE -->
-<!--## Licenza
+## Licenza
 
-Distributed under the MIT License. See `LICENSE` for more information.-->
+Distribuito sotto Licenza MIT. See `LICENSE` for more information.
 
 
 
