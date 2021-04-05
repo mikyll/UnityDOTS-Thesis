@@ -2,7 +2,7 @@
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
 capsula e può interagire con i vari oggetti di scena. È stato realizzato interamente con i package forniti 
-da DOTS, la maggiorparte dei quali sono ancora in fase di sviluppo.
+da DOTS.
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
