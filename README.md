@@ -168,14 +168,12 @@ For more examples, please refer to the [Documentation](https://github.com/mikyll
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/mikyll/UnityDOTS-Thesis/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/mikyll/UnityDOTS-Thesis/issues) for the full list of proposed features (and known issues).
 
 ### Open Issues
 * The third person camera sometime starts flickering.
-* The collision system doesn't work properly between static entities and ghost entities if those are moving updating Translation component. For this reason we updated the PhysicsVelocity component of the PlayerCapsule, but the movement is obviously delayed, because it needs to accelerate from zero.
-* Collision and Interactions between ghosts and dynamic object doesn't always work as expected (sometimes the ghost of the CapsulePlayer passes through the dynamic object, even though they should collide).
-* Sometimes the application throws an error at runtime or when exiting PlayMode.
-* Infrequent random crashes of the standalone builds, probably caused by the aforementioned error.
+* Physics simulations with dynamic entities are not synchronized between different clients.
+* Standalone builds sometime crash.
 
 ### Future developments
 * Handle clients disconnection.
