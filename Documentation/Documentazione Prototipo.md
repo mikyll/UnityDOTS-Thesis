@@ -45,9 +45,9 @@ collisioni, ecc.).
 
 <table>
 	<tr>
-		<td>Funzionalità</td>
-		<td>File</td>
-		<td>Dimostrazione</td>
+		<td><b>Funzionalità</b></td>
+		<td><b>File</b></td>
+		<td><b>Dimostrazione</b></td>
 	</tr>
 	<tr>
 		<td>Accumulo degli input e movimento personaggio capsula</td>
