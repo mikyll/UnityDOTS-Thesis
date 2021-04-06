@@ -24,10 +24,10 @@ da DOTS.
     <li>
 		<a href="#codice">Codice</a>
 		<ul>
-			<li><a href="#file-gamecs">File Game.cs</a></li>
-			<li><a href="#file-playerinputsystemcs">File PlayerInputSystem.cs</a></li>
-			<li><a href="#file-playermovementsystemcs">File PlayerMovementSystem.cs</a></li>
-			<li><a href="#file-camerafollowsystemcs">File CameraFollowSystem.cs</a></li>
+			<li><a href="#connessioni">Connessioni</a></li>
+			<li><a href="#input">Input</a></li>
+			<li><a href="#movimento">Movimento</a></li>
+			<li><a href="#visuale-in-terza-persona">Visuale in Terza Persona</a></li>
 			<li><a href="#file-temporarychangematerialontriggersystemcs">File TemporaryChangeMaterialOnTriggerSystem.cs</a></li>
 			<li><a href="#file-teleportsystemcs">File TeleportSystem.cs</a></li>
 			<li><a href="#file-spawnrandomobjectsauthoringcs">File SpawnRandomObjectsAuthoring.cs</a></li>
@@ -133,10 +133,11 @@ Il flusso di esecuzione del prototipo è il seguente:
 NB: i pezzi di codice mostrati sono stati ritagliati per mostrare solo le parti fondamentali spiegate
 nel testo.
 
-### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a>
+### Connessioni
 <details>
-Il file Game.cs contiene la <i>logica per realizzare la connessione</i>. In particolare al suo interno c'è un 
-sistema <b>Game</b> che controlla se il codice che esegue è quello di un client o di un server, svolgendo 
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a> 
+contiene la <i>logica per realizzare la connessione</i>. In particolare al suo interno c'è un sistema 
+<b>Game</b> che controlla se il codice che esegue è quello di un client o di un server, svolgendo 
 rispettivamente connect o listen.<br/>
 Una volta che client e server sono connessi, è necessario indicare a NetCode che i client sono pronti a 
 inviare comandi e ricevere snapshot dal server: appena la connessione viene stabilita, lato client inizia ad 
@@ -327,9 +328,9 @@ protected override void OnUpdate()
 </details>
 
 
-### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a>
+### Input
 <details>
-Il file PlayerInputSystem.cs contiene la logica per l'accumulo degli input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a> contiene la logica per l'accumulo degli input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
 
 #### Struttura `PlayerInput`
 La struttura PlayerInput implementa l'interfaccia ICommandData, ovvero l'interfaccia necessaria per realizzare un comando in NetCode. Questa non è altro che un <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">buffer dinamico</a> utilizzato per accumulare comandi da trasmettere attraverso una connessione. Infatti, questa interfaccia espone la proprietà Tick, che dev'essere specificata, in quanto indica il tick di esecuzione della simulazione in cui è stato campionato l'input, così che il server, quando lo riceverà, potrà applicarlo nello stesso momento del client, indipendentemente dalla latenza della rete. Il tick permette anche di sfruttare la <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/prediction.html">predizione lato client</a> fornita da NetCode.<br/>
@@ -396,9 +397,9 @@ inputBuffer.AddCommandData(input);
 </details>
 
 
-### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a>
+### Movimento
 <details>
-Questo file contiene la logica per l'applicazione del movimento alle capsule dei giocatori, applicando la predizione. 
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contiene la logica per l'applicazione del movimento alle capsule dei giocatori, applicando la predizione. 
 
 #### Sistema `PlayerInputSystem`
 Questo sistema viene aggiornato all'interno del gruppo <b>GhostPredictionSystemGroup</b>, che permette di implementare la predizione lato client dei ghost.
@@ -428,9 +429,9 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 </details>
 
 
-### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a>
+### Visuale in Terza Persona
 <details>
-Questo file permette di realizzare una visuale di gioco in terza persona, in cui la camera principale segue il proprio personaggio capsula.
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a> permette di realizzare una visuale di gioco in terza persona, in cui la camera principale segue il proprio personaggio capsula.
 
 #### Sistema `CameraFollowSystem`
 Come per PlayerInputSystem, questo sistema esegue nel gruppo ClientSimulationSystemGroup, in quanto la logica che realizza mostra un risultato diverso a seconda del client che esegue.
