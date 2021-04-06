@@ -92,13 +92,6 @@ collisioni, ecc.).
 	</tr>
 </table>
 
-* Movimento del personaggio capsula.
-* Camera follow in terza persona.
-* Portali cambia-colore.
-* Teletrasporti.
-* Raccolta oggetti "Collectibles".
-* Simulazione fisica con entità di forme e proprietà fisiche differenti.
-
 
 ## Build Applicazione Standalone
 Per eseguire la <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/install_setup.html#standalone-builds">build</a> di un'applicazione Unity realizzata usando DOTS, è necessario utilizzare i package Platforms (com.unity.platforms.\*). In particolare, nel caso di un'<a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/client-server-worlds.html#standalone-builds">applicazione multiplayer</a>, NetCode utilizza la proprietà <i>Server Build</i> in Build Settings e gli scripting define symbols in Project Settings > Player per capire che tipo di applicazione buildare (solo client, solo server o scelta a runtime).
