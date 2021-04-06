@@ -349,6 +349,20 @@ if (localInput == Entity.Null)
 </pre>
 
 Fatto ciò possiamo finalmente campionare gli input: dopo aver aggiornato il tick del comando, con quello del server, ottenuto da ClientSimulationSystemGroup, impostiamo il valore di horizontal e vertical in base all'input ricevuto dall'utente. Infine, aggiungiamo l'input al buffer di comandi PlayerInput.
+<pre>
+var input = default(PlayerInput);
+input.Tick = m_ClientSimulationSystemGroup.ServerTick;
+if (Input.GetKey("a"))
+	input.horizontal -= 1;
+if (Input.GetKey("d"))
+	input.horizontal += 1;
+if (Input.GetKey("s"))
+	input.vertical -= 1;
+if (Input.GetKey("w"))
+	input.vertical += 1;
+var inputBuffer = EntityManager.GetBuffer<PlayerInput>(localInput);
+inputBuffer.AddCommandData(input);
+</pre>
 
 
 ### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a>
