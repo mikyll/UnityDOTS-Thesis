@@ -440,3 +440,27 @@ Entities.WithAll<PlayerScoreComponent>().ForEach((Entity entity, in Translation 
 }).Run();
 Camera.main.transform.position = position;
 </pre>
+
+
+<h3 id="prova" style="display: inline-block"><a href="">Prova</a></h3>
+
+<details open="close">
+Come per PlayerInputSystem, questo sistema esegue nel gruppo ClientSimulationSystemGroup, in quanto la logica che realizza mostra un risultato diverso a seconda del client che esegue.
+Il metodo OnUpdate() semplicemente salva in una variabile la posizione della camera principale <b>Camera.main</b> e, dopo aver ottenuto il singleton CommandTargetComponent contenente l'entità della capsula corrispondente al client, si cicla su tutte le entità capsule attualmente presenti a tempo di esecuzione. Dunque, si cerca l'entità corrispondente a quella contenuta in CommandTargetComponent, e si aggiorna la posizione della camera con quella della capsula, aggiungendovi un offset per avere una visuale completa. L'offset è ottenuto da un componente <b>PlayerCameraFollowComponent</b>, allegato all'entità capsula.
+<pre>
+var position = Camera.main.transform.position;
+
+var commandTargetComponentEntity = GetSingletonEntity<CommandTargetComponent>();
+var commandTargetComponent = GetComponent<CommandTargetComponent>(commandTargetComponentEntity);
+Entities.WithAll<PlayerScoreComponent>().ForEach((Entity entity, in Translation translation, in PlayerCameraFollowComponent pcf) =>
+{
+	if (entity == commandTargetComponent.targetEntity && !pcf.fixedCamera)
+	{
+		position.x = translation.Value.x + pcf.xOffset;
+		position.y = translation.Value.y + pcf.yOffset;
+		position.z = translation.Value.z + pcf.zOffset;
+	}
+}).Run();
+Camera.main.transform.position = position;
+</pre>
+</details>
