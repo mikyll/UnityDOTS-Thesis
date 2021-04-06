@@ -28,6 +28,9 @@ da DOTS.
 			<li><a href="#file-playermovementsystemcs">File PlayerMovementSystem.cs</a></li>
 			<li><a href="#file-camerafollowsystemcs">File CameraFollowSystem.cs</a></li>
 			<li><a href="#file-persistentchangematerialontriggersystemcs">File PersistentChangeMaterialOnTriggerSystem.cs</a></li>
+			<li><a href="#file-teleportsystemcs">File TeleportSystem.cs</a></li>
+			<li><a href="#file-spawnrandomobjectsauthoringcs">File SpawnRandomObjectsAuthoring.cs</a></li>
+			<li><a href="#file-pickupsystemcs">File PickUpSystem.cs</a></li>
 		</ul>
 	</li>
   </ol>
@@ -453,4 +456,20 @@ Camera.main.transform.position = position;
 ### File <a href="">PersistentChangeMaterialOnTriggerSystem.cs</a>
 <details>
 Fare riferimento a Physics doc e PhysicsSamples
+	Componente Dynamic!! Permette di bufferizzare gli eventi trigger generati dal sistema fisico (problema con le versioni più recenti e gli allocator)
+</details>
+
+### File <a href="">TeleportSystem.cs</a>
+<details>
+Fare riferimento anche per questo a...
+</details>
+
+### File <a href="">SpawnRandomObjectsAuthoring.cs</a>
+<details>
+
+</details>
+
+### File <a href="">PickUpSystem.cs</a>
+<details>
+
 </details>
