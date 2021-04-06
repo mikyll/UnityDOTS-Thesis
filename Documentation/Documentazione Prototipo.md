@@ -84,7 +84,7 @@ collisioni, ecc.).
 	<tr>
 		<td>Raccolta oggetti "collectibles"</td>
 		<td></td>
-		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="CollectiblesGIF"/></td>
+		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_PickupCollectibles.gif" alt="CollectiblesGIF"/></td>
 	</tr>
 </table>
 
