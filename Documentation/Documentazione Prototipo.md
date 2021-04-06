@@ -6,9 +6,9 @@ capsula e può interagire con i vari oggetti di scena. È stato realizzato inter
 da DOTS.
 <br/>
 <p align="center">
-<a href="https://github.com/mikyll/UnityDOTS-Thesis">Home page</a>
-·
-<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md">English version</a>
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md">English</a>
+	·
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis">Home page</a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
