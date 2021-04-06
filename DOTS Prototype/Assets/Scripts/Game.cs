@@ -9,7 +9,7 @@ using Unity.Collections;
 using Unity.Rendering;
 
 public struct EnableGame : IComponentData
-{}
+{ }
 
 // Control system updating in the default world
 [UpdateInWorld(UpdateInWorld.TargetWorld.Default)]
@@ -85,7 +85,7 @@ public class GoInGameClientSystem : SystemBase
         Entities.WithNone<NetworkStreamInGame>().ForEach((Entity ent, in NetworkIdComponent id) =>
         {
             // qui forse si potrebbe inserire un prompt per mettere il nickname del player e controllare che non esista gia'
-            
+
             commandBuffer.AddComponent<NetworkStreamInGame>(ent);
             var req = commandBuffer.CreateEntity();
             commandBuffer.AddComponent<GoInGameRequest>(req);
@@ -109,7 +109,7 @@ public class GoInGameServerSystem : SystemBase
 
     protected override void OnUpdate()
     {
-		// we get the ghost prefabs collection.
+        // we get the ghost prefabs collection.
         var ghostCollection = GetSingletonEntity<GhostPrefabCollectionComponent>();
         var prefab = Entity.Null;
         var prefabs = EntityManager.GetBuffer<GhostPrefabBuffer>(ghostCollection);
@@ -126,7 +126,7 @@ public class GoInGameServerSystem : SystemBase
             commandBuffer.AddComponent<NetworkStreamInGame>(reqSrc.SourceConnection);
             UnityEngine.Debug.Log(String.Format("Server setting connection {0} to in game", networkIdFromEntity[reqSrc.SourceConnection].Value));
 
-			// spawns a player (capsule)
+            // spawns a player (capsule)
             var player = commandBuffer.Instantiate(prefab);
             commandBuffer.SetComponent(player, new GhostOwnerComponent { NetworkId = networkIdFromEntity[reqSrc.SourceConnection].Value });
 
