@@ -322,6 +322,7 @@ protected override void OnUpdate()
 
 
 ### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a>
+<details>
 Il file PlayerInputSystem.cs contiene la logica per l'accumulo degli input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
 
 #### Struttura `PlayerInput`
@@ -386,9 +387,11 @@ if (Input.GetKey("w"))
 var inputBuffer = EntityManager.GetBuffer<PlayerInput>(localInput);
 inputBuffer.AddCommandData(input);
 </pre>
+</details>
 
 
 ### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a>
+<details>
 Questo file contiene la logica per l'applicazione del movimento alle capsule dei giocatori, applicando la predizione. 
 
 #### Sistema `PlayerInputSystem`
@@ -416,6 +419,7 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 		pv.Linear.z -= speed * deltaTime;
 }).ScheduleParallel();
 </pre>
+</details>
 
 
 ### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a>
@@ -443,8 +447,7 @@ Camera.main.transform.position = position;
 
 
 <h3 id="prova" style="display: inline-block"><a href="">Prova</a></h3>
-
-<details open="closed">
+<details>
 Come per PlayerInputSystem, questo sistema esegue nel gruppo ClientSimulationSystemGroup, in quanto la logica che realizza mostra un risultato diverso a seconda del client che esegue.
 Il metodo OnUpdate() semplicemente salva in una variabile la posizione della camera principale <b>Camera.main</b> e, dopo aver ottenuto il singleton CommandTargetComponent contenente l'entità della capsula corrispondente al client, si cicla su tutte le entità capsule attualmente presenti a tempo di esecuzione. Dunque, si cerca l'entità corrispondente a quella contenuta in CommandTargetComponent, e si aggiorna la posizione della camera con quella della capsula, aggiungendovi un offset per avere una visuale completa. L'offset è ottenuto da un componente <b>PlayerCameraFollowComponent</b>, allegato all'entità capsula.
 <pre>
