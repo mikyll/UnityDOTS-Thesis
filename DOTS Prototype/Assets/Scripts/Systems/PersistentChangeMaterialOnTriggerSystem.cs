@@ -30,7 +30,7 @@ public class PersistentChangeMaterialOnTriggerSystem : SystemBase
         {
             All = new ComponentType[]
             {
-                typeof(PersistentChangeMaterialOnTriggerComponent)
+                typeof(PersistentChangeMaterialOnTriggerTagComponent)
             }
         }));
     }
@@ -48,7 +48,8 @@ public class PersistentChangeMaterialOnTriggerSystem : SystemBase
         Entities
             .WithName("ChangeMaterialOnTriggerEnter")
             .WithoutBurst()
-            .ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEvent> triggerEventBuffer, ref PersistentChangeMaterialOnTriggerComponent changeMaterial) =>
+            .WithAll<PersistentChangeMaterialOnTriggerTagComponent>()
+            .ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEvent> triggerEventBuffer) =>
             {
                 for (int i = 0; i < triggerEventBuffer.Length; i++)
                 {
