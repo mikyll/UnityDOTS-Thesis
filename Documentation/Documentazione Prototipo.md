@@ -52,19 +52,19 @@ collisioni, ecc.).
 	</tr>
 	<tr>
 		<td>Accumulo degli input e movimento personaggio capsula</td>
-		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs.meta">PlayerInputSystem.cs</a><br/>
-		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs.meta">PlayerMovementSystem.cs</a></td>
+		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs">PlayerInputSystem.cs</a><br/>
+		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a></td>
 		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Camera follow in terza persona</td>
-		<td></td>
+		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowPlayerSystem.cs">CameraFollowPlayerSystem.cs</a></td>
 		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
 	</tr>
 	<tr>
 		<td>Portali cambia-colore</td>
 		<td></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="PortaliColoreGIF"/></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_ChangeMaterialPortals.gif" alt="PortaliColoreGIF"/></td>
 	</tr>
 	<tr>
 		<td>Teletrasporti</td>
