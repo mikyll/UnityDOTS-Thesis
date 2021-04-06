@@ -94,7 +94,7 @@ Quando si utilizza NetCode, poiché esistono sia Client che Server
 2. Creare una Configurazione di Build: Project Window > Create > Build > Windows Classic Build Configuration.
 3. Selezionare la configurazione ed eseguire la build.
 <p float="left">
-<img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="45%"/>
+<img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
 <img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
 </p>
 
