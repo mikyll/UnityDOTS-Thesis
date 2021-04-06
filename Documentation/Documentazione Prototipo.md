@@ -17,6 +17,7 @@ da DOTS.
   <ol>
     <li><a href="#obbiettivo-prototipo">Obbiettivo Prototipo</a></li>
     <li><a href="#principali-funzionalità">Principali Funzionalità</a></li>
+    <li><a href="#build-applicazione-standalone">Build Applicazione Standalone</a></li>
     <li><a href="#flusso-di-esecuzione">Flusso di esecuzione</a></li>
     <li>
 		<a href="#codice">Codice</a>
@@ -85,7 +86,19 @@ collisioni, ecc.).
 * Simulazione fisica con entità di forme e proprietà fisiche differenti.
 
 
-## Flusso di esecuzione
+## Build Applicazione Standalone
+Per eseguire il <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/install_setup.html#standalone-builds">build</a> di un'applicazione Unity realizzata usando DOTS, è necessario utilizzare i package Platforms (com.unity.platforms.*). In particolare, nel caso di un'<a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/client-server-worlds.html#standalone-builds">applicazione multiplayer</a>, NetCode utilizza la proprietà <i>Server Build</i> in Build Settings per capire che tipo di applicazione buildare (solo client, solo server o entrambi)
+Quando si utilizza NetCode, poiché esistono sia Client che Server
+### Esempio Windows
+1. Controllare che il package com.unity.platforms.windows sia presente nel PackageManager.
+2. Creare una Configurazione di Build: Project Window > Create > Build > Windows Classic Build Configuration.
+3. Selezionare la configurazione ed eseguire la build.
+<p float="left">
+<img href="https://github.com/mikyll/TesiUnityDOTS/tree/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="45%"/>
+<img href="https://github.com/mikyll/TesiUnityDOTS/tree/main/Documentation/Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
+</p>
+
+## Flusso di Esecuzione
 
 Il flusso di esecuzione del prototipo è il seguente:
 1. All'avvio dell'applicazione viene eseguito il sistema Game, contenuto in Game.cs. Questo sistema realizza
