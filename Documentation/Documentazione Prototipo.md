@@ -1,8 +1,15 @@
+
 # Documentazione Prototipo (ITA)
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
 capsula e può interagire con i vari oggetti di scena. È stato realizzato interamente con i package forniti 
 da DOTS.
+<br/>
+<p align="center">
+<a href="https://github.com/mikyll/TesiUnityDOTS">Home page</a>
+·
+<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Prototype%20Documentation.md">English version</a>
+</p>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -41,7 +48,7 @@ collisioni, ecc.).
 		<td>Dimostrazione</td>
 	</tr>
 	<tr>
-		<td>Movimento del personaggio capsula</td>
+		<td>Accumulo degli input e movimento personaggio capsula</td>
 		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs.meta">PlayerInputSystem.cs</a><br/>
 		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs.meta">PlayerMovementSystem.cs</a></td>
 		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="MovimentoGIF"/></td>
@@ -98,7 +105,7 @@ nel testo.
 
 ### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a>
 
-Il File Game.cs contiene la *logica per realizzare la connessione*. In particolare al suo interno c'è un 
+Il file Game.cs contiene la *logica per realizzare la connessione*. In particolare al suo interno c'è un 
 sistema **Game** che controlla se il codice che esegue è quello di un client o di un server, svolgendo 
 rispettivamente connect o listen.<br/>
 Una volta che client e server sono connessi, è necessario indicare a NetCode che i client sono pronti a 
@@ -108,12 +115,12 @@ sistema **GoInGameServerSystem** che riceve la RPC e marchia il client come "in 
 componente **NetworkStreamInGame** all'entità che rappresenta la connessione e creando una personaggio 
 capsula per il giocatore corrispondente al client.
 
-#### Struttura EnableGame
+#### Struttura `EnableGame`
 
 Dichiariamo la struttura **EnableGame** che ci servirà più avanti per indicare che i client o il server sono
 pronti a stabilire la connessione ed entrare in gioco.
 
-#### Sistema Game
+#### Sistema `Game`
 
 [UpdateInWorld(UpdateInWorld.TargetWorld.Default)] indica che il sistema Game dev'essere eseguito nel mondo 
 di default, in quanto questo mondo è sempre presente perché istanziato automaticamente da Unity.
@@ -123,7 +130,7 @@ dell'applicazione. Dunque, utilizziamo un ulteriore singleton **InitGameComponen
 codice di questo sistema è già stato eseguito una volta: nella OnCreate() usiamo il metodo 
 **RequireSingletonForUpdate<>()** per indicare l'entità che dev'essere presente affinché OnUpdate() venga
 chiamata; dopodiché creiamo l'entità avente questo componente; infine nella OnUpdate() rimuoviamo tale
-entità, così Unity non chiama più OnUpdate() di Game.
+entità, così Unity non chiama più OnUpdate() del sistema Game.
 <pre>
 protected override void OnCreate()
 {
@@ -169,7 +176,7 @@ protected override void OnUpdate()
 }
 </pre>
 
-#### Struttura GoInGameRequest
+#### Struttura `GoInGameRequest`
 
 Poiché non è stato aggiunto il componente **NetworkStreamInGame** all'entità che rappresenta la connessione 
 fra un client ed il server, questi non possono comunicare inviando comandi o snapshot. Quindi, utilizziamo 
@@ -179,7 +186,7 @@ Come spiegato nella documentazione di <a href="https://docs.unity3d.com/Packages
 per inviare una RPC è necessario creare un entità ed aggiungervi il comando RPC creato ed il componente
 SendRpcCommandRequestComponent, che innesca il sistema di invio della RPC di Unity.
 
-#### Sistema GoInGameClientSystem
+#### Sistema `GoInGameClientSystem`
 
 L'attributo [UpdateInGroup(typeof(ClientSimulationSystemGroup))] indica che questo sistema dev'essere
 aggiornato solo nei client, all'interno del gruppo ClientSimulationSystemGroup.<br/>
@@ -215,7 +222,7 @@ protected override void OnUpdate()
 }
 </pre>
 
-#### Sistema GoInGameServerSystem
+#### Sistema `GoInGameServerSystem`
 
 L'attributo [UpdateInGroup(typeof(ServerSimulationSystemGroup))] indica che questo sistema dev'essere
 aggiornato solo nel server.<br/>
@@ -289,7 +296,57 @@ protected override void OnUpdate()
 </pre>
 
 
-### File PlayerMovementSystem
+### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a>
+Il file PlayerInputSystem.cs si occupa di accumulare l'input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
+
+#### Struttura `PlayerInput`
+La struttura PlayerInput implementa l'interfaccia ICommandData, ovvero l'interfaccia necessaria per realizzare un comando in NetCode. Questa non è altro che un <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">buffer dinamico</a> utilizzato per accumulare comandi da trasmettere attraverso una connessione. Infatti, questa interfaccia espone la proprietà Tick, che dev'essere specificata, in quanto indica il tick di esecuzione della simulazione in cui è stato campionato l'input, così che il server, quando lo riceverà, potrà applicarlo nello stesso momento del client, indipendentemente dalla latenza della rete. Il tick permette anche di sfruttare la predizione lato client fornita da NetCode.<br/>
+Nel nostro caso questa struttura contiene, oltre al tick, i campi horizontal e vertical, che indicano rispettivamente il movimento sull'asse x e sull'asse y.
+<pre>
+public struct PlayerInput : ICommandData
+{
+	public uint Tick { get; set; }
+	public int horizontal;
+	public int vertical;
+}
+</pre>
+
+#### Sistema `PlayerInputSystem`
+La raccolta degli input avviene tramite il sistema <b>PlayerInputSystem</b>, che esegue solo lato client. All'interno di questo, in OnCreate(), innanzitutto richiediamo che, affinché il sistema venga aggiornato, siano presenti il singleton <b>NetworkIdComponent</b> (che identifica una connessione, dunque un client) ed EnableGame (che indica che il gioco è iniziato). Poi salviamo in una variabile il gruppo di sistema <b>ClientSimulationSystemGroup</b>, in quanto da questo possiamo ottenere il tick del server (che aggiorna sempre ad un timestep fisso).
+<pre>
+ClientSimulationSystemGroup m_ClientSimulationSystemGroup;
+protected override void OnCreate()
+{
+	RequireSingletonForUpdate<NetworkIdComponent>();
+	RequireSingletonForUpdate<EnableGame>();
+	m_ClientSimulationSystemGroup = World.GetExistingSystem<ClientSimulationSystemGroup>();
+}
+</pre>
+
+La parte più complicata di questo sistema risiede nel metodo OnUpdate(): dopo aver ottenuto il singleton <b>CommandTargetComponent</b>, controlliamo che contenga il  riferimento all'entità capsula del giocatore. Poiché a runtime ci possono essere diversi giocatori, e di conseguenza diversi personaggi capsula, è necessario distinguere il client a cui appartengono. Il componente CommandTargetComponent serve proprio a questo: è un singleton, diverso per ogni client. Infatti, quando l'applicazione viene messa in esecuzione normalmente, è presente solo il World del client specifico, di conseguenza il singleton rappresenta l'entità ghost della capsula associata al client del mondo.
+Però, poiché alla prima esecuzione questo componente non è inizializzato, dobbiamo gestire anche il caso in cui non contenga ancora l'entità. In questo caso semplicemente otteniamo l'id della connessione dal singleton NetworkIdComponent e, iterando su tutte le entità capsula, cerchiamo quella con il NetworkId (nel componente GhostOwner, che avevamo inizializzato in Game.cs) corrispondente. Una volta trovata, impostiamo il valore di targetEntity di CommandTargetComponent.
+<pre>
+var localInput = GetSingleton<CommandTargetComponent>().targetEntity; 
+if (localInput == Entity.Null)
+{
+	var localPlayerId = GetSingleton<NetworkIdComponent>().Value;
+	var commandBuffer = new EntityCommandBuffer(Allocator.Temp);
+	var commandTargetEntity = GetSingletonEntity<CommandTargetComponent>();
+	Entities.WithAll<PlayerMovementSpeed>().WithNone<PlayerInput>()
+	.ForEach((Entity ent, ref GhostOwnerComponent ghostOwner) =>
+	{
+	if (ghostOwner.NetworkId == localPlayerId)
+	{
+		commandBuffer.AddBuffer<PlayerInput>(ent);
+		commandBuffer.SetComponent(commandTargetEntity, new CommandTargetComponent { targetEntity = ent });
+	}
+	}).Run();
+	commandBuffer.Playback(EntityManager);
+	return;
+}
+</pre>
+
+Fatto ciò possiamo finalmente campionare gli input: dopo aver aggiornato il tick del comando, con quello del server, ottenuto da ClientSimulationSystemGroup, impostiamo il valore di horizontal e vertical in base all'input ricevuto dall'utente. Infine, aggiungiamo l'input al buffer di comandi PlayerInput.
 
 
-### File PlayerInputSystem
+### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a>
