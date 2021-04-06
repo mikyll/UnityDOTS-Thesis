@@ -36,7 +36,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <!--<a href="https://github.com/mikyll/TesiUnityDOTS">
+  <!--<a href="https://github.com/mikyll/UnityDOTS-Thesis">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>-->
 
@@ -58,16 +58,16 @@
 	performante a priori, in modo tale che gli sviluppatori non debbano preoccuparsi delle prestazioni
 	del codice che scrivono, se non come ultimo aspetto.-->
     <br />
-    <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
     <br />
     <br />
-	<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/README.md">English</a>
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.md">English</a>
 	·
-    <a href="https://github.com/mikyll/TesiUnityDOTS">View Demo</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis">View Demo</a>
     ·
-    <a href="https://github.com/mikyll/TesiUnityDOTS/issues">Report Bug</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug</a>
     ·
-    <a href="https://github.com/mikyll/TesiUnityDOTS/issues">Request Feature</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Request Feature</a>
   </p>
 </p>
 
@@ -134,8 +134,8 @@ impostati).
 <br/>
 <table style="border: none">
   <tr>
-    <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
-    <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
     <td>PC1: Editor Unity</td>
@@ -168,7 +168,7 @@ necessario seguire i passi riportati in seguito.
 1. Installare Git presso [Download Git](https://git-scm.com/download).
 2. Clonare la repository.
    ```sh
-   git clone https://github.com/mikyll/TesiUnityDOTS
+   git clone https://github.com/mikyll/UnityDOTS-Thesis
    ```
 3. Scaricare Unity Hub presso [Download Unity](https://unity3d.com/get-unity/download).
 4. Installare una versione Unity appropriata (2020.2.1 o superiore) presso 
@@ -186,14 +186,14 @@ entrare in Play Mode nell'editor Unity e connettere un'applicazione standalone; 
 il server ed una per il client e connettere diversi client al server.
 
 Per ulteriori esempi fare riferimento alla 
-[Documentazione](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Documentazione%20Prototipo.md).
+[Documentazione](https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Documentazione%20Prototipo.md).
 
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-Vedere la sezione [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) per avere una lista di 
+Vedere la sezione [open issues](https://github.com/mikyll/UnityDOTS-Thesis/issues) per avere una lista di 
 possibili funzionalità future (e problemi attualmente conosciuti).
 
 ### Problemi Non Risolti
@@ -249,7 +249,7 @@ Distribuito sotto Licenza MIT. See `LICENSE` for more information.
 
 Michele Righi - <!-- [@twitter_handle](https://twitter.com/twitter_handle) - -->righi.mikyll@gmail.com
 
-Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyll/TesiUnityDOTS)
+Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/UnityDOTS-Thesis)
 
 
 
@@ -266,15 +266,15 @@ Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyl
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/mikyll/TesiUnityDOTS
-[contributors-url]: https://github.com/mikyll/TesiUnityDOTS/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/mikyll/TesiUnityDOTS
-[forks-url]: https://github.com/mikyll/TesiUnityDOTS/network/members
-[stars-shield]: https://img.shields.io/github/stars/mikyll/TesiUnityDOTS
-[stars-url]: https://github.com/mikyll/TesiUnityDOTS/stargazers
-[issues-shield]: https://img.shields.io/github/issues/mikyll/TesiUnityDOTS
-[issues-url]: https://github.com/mikyll/TesiUnityDOTS/issues
-[license-shield]: https://img.shields.io/github/license/mikyll/TesiUnityDOTS
-[license-url]: https://github.com/mikyll/TesiUnityDOTS/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/mikyll/UnityDOTS-Thesis
+[contributors-url]: https://github.com/mikyll/UnityDOTS-Thesis/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/mikyll/UnityDOTS-Thesis
+[forks-url]: https://github.com/mikyll/UnityDOTS-Thesis/network/members
+[stars-shield]: https://img.shields.io/github/stars/mikyll/UnityDOTS-Thesis
+[stars-url]: https://github.com/mikyll/UnityDOTS-Thesis/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mikyll/UnityDOTS-Thesis
+[issues-url]: https://github.com/mikyll/UnityDOTS-Thesis/issues
+[license-shield]: https://img.shields.io/github/license/mikyll/UnityDOTS-Thesis
+[license-url]: https://github.com/mikyll/UnityDOTS-Thesis/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/michele-righi-095283195/?locale=it_IT
