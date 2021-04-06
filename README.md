@@ -176,15 +176,10 @@ See the [open issues](https://github.com/mikyll/UnityDOTS-Thesis/issues) for the
 * Standalone builds sometime crash.
 
 ### Future developments
-* Handle clients disconnection.
-* Insert a kill&respawn box below the map.
-* Main menu where players can set their nickname and start the matchmaking with the click of a button.
-* A pre-match lobby where players can see each other and say when they're ready to start the match.
-* The assignment of different colors to the capsules of the various players who connect.
-* A scoreboard showing the current score of all connected players (there is already a score system and the system that handles the scoreboard showing with *TAB* command).
-* A working mechanic for the jump (which turns usable only when the character hits the ground).
-* Capsule steering system, which turns the heading of the capsule to the mouse pointer, using Unity Physics RayCasts.
-* The ability to change the camera view from third to first person.
+* Clients disconnection handle.
+* Main menu where and pre-match lobby.
+* Player scoreboard.
+* Inventory mechanic.
 
 
 <!-- CONTRIBUTING -->
