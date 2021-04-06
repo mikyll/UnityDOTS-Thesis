@@ -178,6 +178,8 @@ See the [open issues](https://github.com/mikyll/UnityDOTS-Thesis/issues) for a l
 * Infrequent random crashes of the standalone builds, probably caused by the aforementioned error.
 
 ### Future developments
+* Handle clients disconnection.
+* Insert a kill&respawn box below the map.
 * Main menu where players can set their nickname and start the matchmaking with the click of a button.
 * A pre-match lobby where players can see each other and say when they're ready to start the match.
 * The assignment of different colors to the capsules of the various players who connect.
