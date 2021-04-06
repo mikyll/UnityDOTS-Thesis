@@ -48,19 +48,19 @@ collisioni, ecc.).
 	<tr>
 		<td><b>Funzionalità</b></td>
 		<td><b>File</b></td>
-		<td><b>Dimostrazione</b></td>
+		<td width="40%"><b>Dimostrazione</b></td>
 	</tr>
 	<tr>
 		<td>Accumulo degli input e movimento personaggio capsula</td>
 		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs">PlayerInputSystem.cs</a><br/>
 		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
+		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Camera follow in terza persona</td>
 		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerCameraFollowComponent.cs">PlayerCameraFollowComponent.cs</a><br/>
 			<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowPlayerSystem.cs">CameraFollowPlayerSystem.cs</a></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
+		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
 	</tr>
 	<tr>
 		<td>Portali cambia-colore</td>
@@ -68,22 +68,22 @@ collisioni, ecc.).
 		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a><br/><br/>
 		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/TemporaryChangeMaterialOnTriggerComponent.cs">TemporaryChangeMaterialOnTriggerComponent.cs</a><br/>
 		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_ChangeMaterialPortals.gif" alt="PortaliColoreGIF"/></td>
+		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_ChangeMaterialPortals.gif" alt="PortaliColoreGIF"/></td>
 	</tr>
 	<tr>
 		<td>Teletrasporti</td>
 		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="TeletrasportoGIF"/></td>
+		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="TeletrasportoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Spawn entità in punti randomici di un area</td>
 		<td></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="SpawnEntitiesGIF"/></td>
+		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="SpawnEntitiesGIF"/></td>
 	</tr>
 	<tr>
 		<td>Raccolta oggetti "collectibles"</td>
 		<td></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="CollectiblesGIF"/></td>
+		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="CollectiblesGIF"/></td>
 	</tr>
 </table>
 
