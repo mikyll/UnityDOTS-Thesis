@@ -13,7 +13,7 @@ da DOTS.
 </p>
 
 <!-- TABLE OF CONTENTS -->
-<details open="open">
+<details>
   <summary><h2 style="display: inline-block">Indice</h2></summary>
   <ol>
     <li><a href="#obbiettivo-prototipo">Obbiettivo Prototipo</a></li>
