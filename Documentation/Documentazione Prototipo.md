@@ -129,7 +129,7 @@ NB: i pezzi di codice mostrati sono stati ritagliati per mostrare solo le parti 
 nel testo.
 
 ### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a>
-
+<details>
 Il file Game.cs contiene la *logica per realizzare la connessione*. In particolare al suo interno c'è un 
 sistema **Game** che controlla se il codice che esegue è quello di un client o di un server, svolgendo 
 rispettivamente connect o listen.<br/>
@@ -319,6 +319,7 @@ protected override void OnUpdate()
     commandBuffer.Dispose();
 }
 </pre>
+</details>
 
 
 ### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a>
@@ -423,6 +424,7 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 
 
 ### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a>
+<details>
 Questo file permette di realizzare una visuale di gioco in terza persona, in cui la camera principale segue il proprio personaggio capsula.
 
 #### Sistema `CameraFollowSystem`
@@ -444,6 +446,7 @@ Entities.WithAll<PlayerScoreComponent>().ForEach((Entity entity, in Translation 
 }).Run();
 Camera.main.transform.position = position;
 </pre>
+</details>
 
 
 <h3 id="prova" style="display: inline-block"><a href="">Prova</a></h3>
