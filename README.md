@@ -35,7 +35,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <!--<a href="https://github.com/mikyll/TesiUnityDOTS">
+  <!--<a href="https://github.com/mikyll/UnityDOTS-Thesis">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>-->
 
@@ -44,16 +44,16 @@
   <p align="center">
     This project was carried out as an integral part of my bachelor's degree thesis in Computer Engineering, concerning the new Unity DOTS architecture. The goal of the paper, in addition to analyzing the new data-oriented layout provided by the ECS-based model, was to create a <i>working multiplayer game prototype made entirely using DOTS.</i>
     <br />
-    <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-	<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/README.it.md">Italiano</a>
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.it.md">Italiano</a>
 	·
-    <a href="https://github.com/mikyll/TesiUnityDOTS">View Demo</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis">View Demo</a>
     ·
-    <a href="https://github.com/mikyll/TesiUnityDOTS/issues">Report Bug</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug</a>
     ·
-    <a href="https://github.com/mikyll/TesiUnityDOTS/issues">Request Feature</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Request Feature</a>
   </p>
 </p>
 
@@ -114,8 +114,8 @@ The main packages used to make the prototype are:
 The following images show an example run of the prototype, with an headless server and two connected clients: the first one is running in the Unity editor, the second one is a standalone application running on a different computer. Using the NetCode package, when entering PlayMode in the editor, Unity runs the server, a client and an arbitrary number of thin clients (in this case we didn't set any of those).
 <table style="border: none">
   <tr>
-    <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
-    <td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
     <td>PC1: Unity Editor</td>
@@ -148,7 +148,7 @@ To get a local copy up and running follow these simple steps.
 1. Install Git at [Download Git](https://git-scm.com/download).
 2. Clone the repo.
    ```sh
-   git clone https://github.com/mikyll/TesiUnityDOTS
+   git clone https://github.com/mikyll/UnityDOTS-Thesis
    ```
 3. Download Unity Hub at [Download Unity](https://unity3d.com/get-unity/download).
 4. Install a proper Unity version (2020.2.1 or higher) at [Download Archive](https://unity3d.com/get-unity/download/archive) or from Unity Hub.
@@ -161,14 +161,14 @@ To get a local copy up and running follow these simple steps.
 
 To test the prototype in multiplayer you can create a build for a standalone client, then enter PlayMode in the editor and connect the standalone application; otherwise you can create one build for the server and one for the client and connect several clients to the server.
 
-For more examples, please refer to the [Documentation](https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Prototype%20Documentation.md).
+For more examples, please refer to the [Documentation](https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md).
 
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/mikyll/TesiUnityDOTS/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/mikyll/UnityDOTS-Thesis/issues) for a list of proposed features (and known issues).
 
 ### Open Issues
 * The third person camera sometime starts flickering.
@@ -212,7 +212,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Michele Righi - <!-- [@twitter_handle](https://twitter.com/twitter_handle) - -->righi.mikyll@gmail.com
 
-Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyll/TesiUnityDOTS)
+Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/UnityDOTS-Thesis)
 
 
 
@@ -229,15 +229,15 @@ Project Link: [https://github.com/mikyll/TesiUnityDOTS](https://github.com/mikyl
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/mikyll/TesiUnityDOTS
-[contributors-url]: https://github.com/mikyll/TesiUnityDOTS/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/mikyll/TesiUnityDOTS
-[forks-url]: https://github.com/mikyll/TesiUnityDOTS/network/members
-[stars-shield]: https://img.shields.io/github/stars/mikyll/TesiUnityDOTS
-[stars-url]: https://github.com/mikyll/TesiUnityDOTS/stargazers
-[issues-shield]: https://img.shields.io/github/issues/mikyll/TesiUnityDOTS
-[issues-url]: https://github.com/mikyll/TesiUnityDOTS/issues
-[license-shield]: https://img.shields.io/github/license/mikyll/TesiUnityDOTS
-[license-url]: https://github.com/mikyll/TesiUnityDOTS/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/mikyll/UnityDOTS-Thesis
+[contributors-url]: https://github.com/mikyll/UnityDOTS-Thesis/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/mikyll/UnityDOTS-Thesis
+[forks-url]: https://github.com/mikyll/UnityDOTS-Thesis/network/members
+[stars-shield]: https://img.shields.io/github/stars/mikyll/UnityDOTS-Thesis
+[stars-url]: https://github.com/mikyll/UnityDOTS-Thesis/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mikyll/UnityDOTS-Thesis
+[issues-url]: https://github.com/mikyll/UnityDOTS-Thesis/issues
+[license-shield]: https://img.shields.io/github/license/mikyll/UnityDOTS-Thesis
+[license-url]: https://github.com/mikyll/UnityDOTS-Thesis/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/michele-righi-095283195/?locale=en_US
