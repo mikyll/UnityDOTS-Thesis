@@ -203,19 +203,10 @@ possibili funzionalità future (e problemi attualmente conosciuti).
 
 ### Sviluppi Futuri
 * Gestione della disconnessione dei client.
-* Aggiunta di una trigger box per uccidere e respawnare le capsule che cadono dalla mappa.
-* Un menu principale in cui inserire il nickname ed avviare un eventuale matchmaking col click di un bottone.
-* Una lobby prepartita in cui i giocatori si possono vedere e possono indicare che sono pronti a iniziare
-la partita.
-* L'assegnamento di colori differenti alle capsule dei vari giocatori che si connettono.
-* Una scoreboard che mostra il punteggio attuale di tutti i giocatori connessi (esiste già un sistema di 
-punteggio ed il comando per mostrare la scoreboard con *TAB*, manca solo l'oggetto UI o entità(?) scoreboard 
-ed un sistema che la aggiorni).
-* L'inserimento di una meccanica funzionante per il salto (che torna utilizzabile quando il personaggio
-tocca terra.
-* L'aggiunta di un sistema di direzione della capsula, che segue il puntatore del mouse, usando i RayCast 
-di Unity Physics.
-* La possibilità di cambiare la visuale della videocamera da terza a prima persona.
+* Un menu principale ed una lobby prepartita-
+* Una scoreboard dei giocatori.
+* Sistema per l'inventario.
+
 
 <!-- CONTRIBUTING -->
 ## Contribuire
