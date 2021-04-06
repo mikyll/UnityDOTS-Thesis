@@ -54,27 +54,27 @@ collisioni, ecc.).
 		<td>Accumulo degli input e movimento personaggio capsula</td>
 		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs.meta">PlayerInputSystem.cs</a><br/>
 		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs.meta">PlayerMovementSystem.cs</a></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="MovimentoGIF"/></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Camera follow in terza persona</td>
 		<td></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="CameraFollowGIF"/></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
 	</tr>
 	<tr>
 		<td>Portali cambia-colore</td>
 		<td></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="PortaliColoreGIF"/></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="PortaliColoreGIF"/></td>
 	</tr>
 	<tr>
 		<td>Teletrasporti</td>
 		<td></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="TeletrasportoGIF"/></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="TeletrasportoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Raccolta oggetti "collectibles"</td>
 		<td></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Presentation/" alt="CollectiblesGIF"/></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="CollectiblesGIF"/></td>
 	</tr>
 </table>
 
