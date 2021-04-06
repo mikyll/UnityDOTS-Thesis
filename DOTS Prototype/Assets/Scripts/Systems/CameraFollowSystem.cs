@@ -9,7 +9,7 @@ using Unity.Physics.Systems;
 
 [UpdateInGroup(typeof(ClientSimulationSystemGroup))]
 [UpdateAfter(typeof(EndFramePhysicsSystem))]
-public class CameraFollowPlayerSystem : SystemBase
+public class CameraFollowSystem : SystemBase
 {
     
     protected override void OnUpdate()
