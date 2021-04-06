@@ -19,7 +19,7 @@ da DOTS.
     <li><a href="#principali-funzionalità">Principali Funzionalità</a></li>
     <li><a href="#flusso-di-esecuzione">Flusso di esecuzione</a></li>
     <li>
-		<a href="#componenti">Componenti</a>
+		<a href="#codice">Codice</a>
 		<ul>
 			<li><a href="#file-gamecs">File Game.cs</a></li>
 			<li><a href="#file-playerinputsystemcs">File PlayerInputSystem.cs</a></li>
@@ -100,7 +100,7 @@ Il flusso di esecuzione del prototipo è il seguente:
 6. aggiornamento dei system che realizzano le varie funzionalità.
 
 
-## Componenti
+## Codice
 
 NB: i pezzi di codice mostrati sono stati ritagliati per mostrare solo le parti fondamentali spiegate
 nel testo.
