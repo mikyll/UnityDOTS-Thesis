@@ -22,8 +22,8 @@ da DOTS.
 		<a href="#componenti">Componenti</a>
 		<ul>
 			<li><a href="#file-gamecs">File Game.cs</a></li>
-			<li><a href="#file-gamecs">File PlayerInputSystem.cs</a></li>
-			<li><a href="#file-gamecs">File PlayerMovementSystem.cs</a></li>
+			<li><a href="#file-playerinputsystemcs">File PlayerInputSystem.cs</a></li>
+			<li><a href="#file-playermovementsystemcs">File PlayerMovementSystem.cs</a></li>
 		</ul>
 	</li>
   </ol>
