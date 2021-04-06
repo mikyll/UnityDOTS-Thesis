@@ -504,12 +504,8 @@ Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEven
 }).Run();
 </pre>
 
-!!!!!!Modificare il codice, farlo meglio, il component non serve a un cazzo, usare solo Tag e metterlo con WithAll<>
-
 #### Sistema `PersistentChangeMaterialOnTriggerSystem `
 Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata di quello temporaneo. A differenza del precedente, non si gestisce la casistica in cui l'entità che attraversa il portale esca. Per questo motivo si utilizza il componente <b>PersistentChangeMaterialOnTriggerTagComponent</b> che non contiene alcun tipo di informazione, ma serve solo per indicare che un'entità è un portale.
-
-Issue: Modificare il codice di PersistentChangeMaterialOnTriggerSystem al fine di non utilizzare il buffer di StatefulTriggerEvent, ma solo un evento trigger.
 </details>
 
 ### Teletrasporto
