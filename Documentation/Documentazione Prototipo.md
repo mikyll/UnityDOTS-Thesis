@@ -1,5 +1,6 @@
 
 
+
 # Documentazione Prototipo (ITA)
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
@@ -27,7 +28,7 @@ da DOTS.
 			<li><a href="#file-playerinputsystemcs">File PlayerInputSystem.cs</a></li>
 			<li><a href="#file-playermovementsystemcs">File PlayerMovementSystem.cs</a></li>
 			<li><a href="#file-camerafollowsystemcs">File CameraFollowSystem.cs</a></li>
-			<li><a href="#file-persistentchangematerialontriggersystemcs">File PersistentChangeMaterialOnTriggerSystem.cs</a></li>
+			<li><a href="#file-temporarychangematerialontriggersystemcs">File TemporaryChangeMaterialOnTriggerSystem.cs</a></li>
 			<li><a href="#file-teleportsystemcs">File TeleportSystem.cs</a></li>
 			<li><a href="#file-spawnrandomobjectsauthoringcs">File SpawnRandomObjectsAuthoring.cs</a></li>
 			<li><a href="#file-pickupsystemcs">File PickUpSystem.cs</a></li>
@@ -134,19 +135,19 @@ nel testo.
 
 ### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a>
 <details>
-Il file Game.cs contiene la *logica per realizzare la connessione*. In particolare al suo interno c'è un 
-sistema **Game** che controlla se il codice che esegue è quello di un client o di un server, svolgendo 
+Il file Game.cs contiene la <i>logica per realizzare la connessione</i>. In particolare al suo interno c'è un 
+sistema <b>Game</b> che controlla se il codice che esegue è quello di un client o di un server, svolgendo 
 rispettivamente connect o listen.<br/>
 Una volta che client e server sono connessi, è necessario indicare a NetCode che i client sono pronti a 
 inviare comandi e ricevere snapshot dal server: appena la connessione viene stabilita, lato client inizia ad 
-eseguire il sistema **GoInGameClientSystem**, che invia una RPC al server; lato server inizia ad eseguire il 
-sistema **GoInGameServerSystem** che riceve la RPC e marchia il client come "in gioco", aggiungendo il 
-componente **NetworkStreamInGame** all'entità che rappresenta la connessione e creando una personaggio 
+eseguire il sistema <b>GoInGameClientSystem</b>, che invia una RPC al server; lato server inizia ad eseguire il 
+sistema <b>GoInGameServerSystem</b> che riceve la RPC e marchia il client come "in gioco", aggiungendo il 
+componente <b>NetworkStreamInGame</b> all'entità che rappresenta la connessione e creando una personaggio 
 capsula per il giocatore corrispondente al client.
 
 #### Struttura `EnableGame`
 
-Dichiariamo la struttura **EnableGame** che ci servirà più avanti per indicare che i client o il server sono
+Dichiariamo la struttura <b>EnableGame</b> che ci servirà più avanti per indicare che i client o il server sono
 pronti a stabilire la connessione ed entrare in gioco.
 
 #### Sistema `Game`
@@ -155,9 +156,9 @@ pronti a stabilire la connessione ed entrare in gioco.
 di default, in quanto questo mondo è sempre presente perché istanziato automaticamente da Unity.
 
 Poiché il codice del sistema Game realizza la connessione, dev'essere eseguito una sola volta per run
-dell'applicazione. Dunque, utilizziamo un ulteriore singleton **InitGameComponent**, per indicare quando il 
+dell'applicazione. Dunque, utilizziamo un ulteriore singleton <b>InitGameComponent</b>, per indicare quando il 
 codice di questo sistema è già stato eseguito una volta: nella OnCreate() usiamo il metodo 
-**RequireSingletonForUpdate<>()** per indicare l'entità che dev'essere presente affinché OnUpdate() venga
+<b>RequireSingletonForUpdate<>()</b> per indicare l'entità che dev'essere presente affinché OnUpdate() venga
 chiamata; dopodiché creiamo l'entità avente questo componente; infine nella OnUpdate() rimuoviamo tale
 entità, così Unity non chiama più OnUpdate() del sistema Game.
 <pre>
@@ -169,13 +170,13 @@ protected override void OnCreate()
 </pre>
 
 La OnUpdate() itera su tutti i mondi presenti nell'applicazione e, dopo aver ottenuto il sistema
-**NetworkStreamReceiveSystem** (che espone i metodi Connect e Listen), controlliamo se ci troviamo in un
+<b>NetworkStreamReceiveSystem</b> (che espone i metodi Connect e Listen), controlliamo se ci troviamo in un
 client o in un server:
 * Nel caso l'applicazione sia un client, sarà presente il mondo ClientWorld, al cui interno vi sarà il
-gruppo di sistemi **ClientSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
+gruppo di sistemi <b>ClientSimulationSystemGroup</b>. Dunque creiamo l'entità singleton <b>EnableGame</b> e
 facciamo una connect a localhost:7979.
 * Nel caso l'applicazione sia un server, sarà presente il mondo ServerWorld, al cui interno vi sarà il
-gruppo di sistemi **ServerSimulationSystemGroup**. Dunque creiamo l'entità singleton **EnableGame** e
+gruppo di sistemi <b>ServerSimulationSystemGroup</b>. Dunque creiamo l'entità singleton <b>EnableGame</b> e
 facciamo una listen sulla porta 7979.
 <pre>
 protected override void OnUpdate()
@@ -207,7 +208,7 @@ protected override void OnUpdate()
 
 #### Struttura `GoInGameRequest`
 
-Poiché non è stato aggiunto il componente **NetworkStreamInGame** all'entità che rappresenta la connessione 
+Poiché non è stato aggiunto il componente <b>NetworkStreamInGame</b> all'entità che rappresenta la connessione 
 fra un client ed il server, questi non possono comunicare inviando comandi o snapshot. Quindi, utilizziamo 
 una RPC NetCode (IRpcCommand) per notificare al server che il client è pronto ad entrare in gioco, così il 
 server può marcare la connessione e avviare la comunicazione.<br/>
@@ -222,7 +223,7 @@ aggiornato solo nei client, all'interno del gruppo ClientSimulationSystemGroup.<
 Vogliamo che questo sistema esegua una sola volta, quando il client deve entrare in gioco, per la precisione
 dopo la connessione con il server, ma prima che venga avviata la comunicazione via comandi e snapshot.
 Dunque, richiediamo che sia presente il singleton EnableGame e che l'entità rappresentante la connessione
-(che possiede il componente **NetworkIdComponent**), non abbia **NetworkStreamInGame**.
+(che possiede il componente <b>NetworkIdComponent</b>), non abbia <b>NetworkStreamInGame</b>.
 <pre>
 protected override void OnCreate()
 {
@@ -231,10 +232,10 @@ protected override void OnCreate()
 }
 </pre>
 
-Dopodiché nella OnUpdate(), iteriamo su tutte le entità che possiedono **NetworkIdComponent** ma non hanno
-**NetworkStreamInGame**, ovvero l'entità della connessione. Dunque, utilizzando un command buffer, seguiamo 
+Dopodiché nella OnUpdate(), iteriamo su tutte le entità che possiedono <b>NetworkIdComponent</b> ma non hanno
+<b>NetworkStreamInGame</b>, ovvero l'entità della connessione. Dunque, utilizzando un command buffer, seguiamo 
 la procedura per inviare la RPC: creiamo un'entità, vi aggiungiamo il comando RPC, ed infine aggiungiamo il
-componente **SendRpcCommandRequestComponent** indicando la connessione target.
+componente <b>SendRpcCommandRequestComponent</b> indicando la connessione target.
 <pre>
 protected override void OnUpdate()
 {
@@ -257,7 +258,7 @@ L'attributo [UpdateInGroup(typeof(ServerSimulationSystemGroup))] indica che ques
 aggiornato solo nel server.<br/>
 Vogliamo che questo sistema esegua solo quando, dopo che è stato aggiunto il singleton EnableGame, arriva 
 una richiesta di RPC da un client. Dunque, richiediamo che sia presente EnableGame e che vi sia un'entità
-avente come componenti il nostro comando RPC e **ReceiveRpcCommandRequestComponent**.
+avente come componenti il nostro comando RPC e <b>ReceiveRpcCommandRequestComponent</b>.
 <pre>
 protected override void OnCreate()
 {
@@ -271,21 +272,21 @@ l'unico ghost presente è la PlayerCapsule, ovvero il personaggio che ciascun gi
 la mappa. Poiché in futuro questa lista potrebbe essere ampliata, controlliamo comunque che il ghost sia
 quello della capsula, ovvero se possiede il componente PlayerMovementSpeed, e lo salviamo in una
 variabile.<br/>
-Dopodiché otteniamo la lista dei **NetworkIdComponent** delle connessioni, salvandola in networkIdFromEntity,
-ovvero un container *dictionary-like*. Tramite questo container possiamo assegnare il rispettivo id della 
-connessione al componente **GhostOwnerComponent** del ghost di ciascun client. Questa è un'operazione 
+Dopodiché otteniamo la lista dei <b>NetworkIdComponent</b> delle connessioni, salvandola in networkIdFromEntity,
+ovvero un container <i>dictionary-like</i>. Tramite questo container possiamo assegnare il rispettivo id della 
+connessione al componente <b>GhostOwnerComponent</b> del ghost di ciascun client. Questa è un'operazione 
 fondamentale che bisogna fare a runtime, in quanto prima non è possibile conoscere a chi apparterrà un certo
 ghost.
 <br/>
 Dunque iteriamo su tutte le entità che corrispondono a richieste RPC (aventi dunque GoInGameRequest e
 ReceiveRpcCommandRequestComponent). Poiché nella richiesta è presente l'entità della connessione sorgente
-da cui è partita la RPC, possiamo utilizzarla per aggiungervi il componente **NetworkStreamInGame** e 
+da cui è partita la RPC, possiamo utilizzarla per aggiungervi il componente <b>NetworkStreamInGame</b> e 
 iniziare la comunicazione via comandi e snapshot.
 <br/>
 Fatto questo, istanziamo la capsula del giocatore e aggiorniamo il NetworkId del proprietario di tale ghost.
 <br/>
 Infine, aggiungiamo alla capsula il buffer su cui verranno accumulati gli input del giocatore, ed alla
-connessione il componente **CommandTargetComponent** che servirà al sistema di gestione degli input
+connessione il componente <b>CommandTargetComponent</b> che servirà al sistema di gestione degli input
 per capire a quale ghost applicare gli input ricevuti dal giocatore. Inoltre, distruggiamo l'entità della
 richiesta RPC altrimenti il sistema continua ad eseguire all'infinito.
 <br/>
@@ -453,10 +454,61 @@ Camera.main.transform.position = position;
 </details>
 
 
-### File <a href="">PersistentChangeMaterialOnTriggerSystem.cs</a>
+### File <a href="">TemporaryChangeMaterialOnTriggerSystem.cs</a>
 <details>
-Fare riferimento a Physics doc e PhysicsSamples
-	Componente Dynamic!! Permette di bufferizzare gli eventi trigger generati dal sistema fisico (problema con le versioni più recenti e gli allocator)
+Rileva gli eventi trigger causati dal passaggio di un personaggio capsula attraverso un portale avente il componente <b>TemporaryChangeMaterialOnTriggerComponent</b>, modificandone il materiale (dunque anche il colore) della capsula in modo temporaneo, finché la capsula non esce dal portale.
+
+#### Sistema `TemporaryChangeMaterialOnTriggerSystem`
+Questo sistema itera sulle entità aventi un buffer di componenti <b>StatefulTriggerEvent</b> ed il componente <b>TemporaryChangeMaterialOnTriggerComponent</b>:
+* <b>StatefulTriggerEvent</b> è contenuto nel file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> e permette di accumulare eventi di tipo Trigger (lanciati quando una oggetto attraversa un portale, tramite le proprietà del componente PhysicsShape di quest'ultimo). Tramite questo possiamo sapere il frame esatto di entrata ed uscita dal portale, oltre che i frame in cui un'entità rimane all'interno di esso, poiché vengono bufferizzati gli eventi Trigger singoli e si controlla lo stato del frame precedente. Tale file è stato preso dalla sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a> di Unity, in cui vi sono diversi esempi per l'utilizzo del package Physics.
+* <b>TemporaryChangeMaterialOnTriggerComponent</b> contiene l'entità di cui il portale cambierà il materiale, ogni volta che questa entrerà nel portale.
+
+All'interno del ForEach, si itera sugli eventi trigger del buffer, che contengono l'entità con la quale il portale ha avuto la collisione, controllando in particolare quando questa entra o esce:
+* Quando entra, si aggiorna il materiale dell'entità con quello del portale.
+* Quando esce, si ripristina il materiale originale dell'entità.
+In questo modo, viene resettato il materiale originale dell'entità, non quello precedente all'ingresso nel portale.
+<pre>
+Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEvent> triggerEventBuffer, ref TemporaryChangeMaterialOnTriggerComponent changeMaterial) =>
+{
+	for (int i = 0; i < triggerEventBuffer.Length; i++)
+	{
+		var triggerEvent = triggerEventBuffer[i];
+		var otherEntity = triggerEvent.GetOtherEntity(e);
+		
+		// exclude other triggers and processed events
+		if (triggerEvent.State == EventOverlapState.Stay || !nonTriggerMask.Matches(otherEntity))
+		{
+			continue;
+		}
+		if (triggerEvent.State == EventOverlapState.Enter)
+		{
+			var volumeRenderMesh = EntityManager.GetSharedComponentData<RenderMesh>(e);
+			var overlappingRenderMesh = EntityManager.GetSharedComponentData<RenderMesh>(otherEntity);
+			overlappingRenderMesh.material = volumeRenderMesh.material;
+			commandBuffer.SetSharedComponent(otherEntity, overlappingRenderMesh);
+		}
+		else
+		{
+			// State == PhysicsEventState.Exit
+			if (changeMaterial.ReferenceEntity == Entity.Null)
+			{
+				continue;
+			}
+			var overlappingRenderMesh = EntityManager.GetSharedComponentData<RenderMesh>(otherEntity);
+			var referenceRenderMesh = EntityManager.GetSharedComponentData<RenderMesh>(changeMaterial.ReferenceEntity);
+			overlappingRenderMesh.material = referenceRenderMesh.material;
+			commandBuffer.SetSharedComponent(otherEntity, overlappingRenderMesh);
+		}
+	}
+}).Run();
+</pre>
+
+!!!!!!Modificare il codice, farlo meglio, il component non serve a un cazzo, usare solo Tag e metterlo con WithAll<>
+
+#### Sistema `PersistentChangeMaterialOnTriggerSystem `
+Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata di quello temporaneo, in cui non si gestisce la casistica in cui l'entità che attraversa il portale esca. Per questo motivo si utilizza il componente PersistentChangeMaterialOnTriggerTagComponent che, a differenza di quello persistente, non contiene alcun tipo di informazione, ma serve solo per indicare che un'entità è un portale.
+
+Issue: Modificare il codice di PersistentChangeMaterialOnTriggerSystem al fine di non utilizzare il buffer di StatefulTriggerEvent, ma solo un evento trigger.
 </details>
 
 ### File <a href="">TeleportSystem.cs</a>
