@@ -30,8 +30,8 @@ da DOTS.
 			<li><a href="#visuale-in-terza-persona">Visuale in Terza Persona</a></li>
 			<li><a href="#portali-cambia-colore">Portali Cambia-Colore</a></li>
 			<li><a href="#teletrasporto">Teletrasporto</a></li>
-			<li><a href="#file-spawnrandomobjectsauthoringcs">File SpawnRandomObjectsAuthoring.cs</a></li>
-			<li><a href="#file-pickupsystemcs">File PickUpSystem.cs</a></li>
+			<li><a href="#spawn-di-entità">Spawn di Entità</a></li>
+			<li><a href="#raccolta-di-entità">Raccolta di Entità</a></li>
 		</ul>
 	</li>
   </ol>
@@ -464,7 +464,7 @@ Questo sistema itera sulle entità aventi un buffer di componenti <b>StatefulTri
 * <b>StatefulTriggerEvent</b> è contenuto nel file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> e permette di accumulare eventi di tipo Trigger (lanciati quando una oggetto attraversa un portale, tramite le proprietà del componente PhysicsShape di quest'ultimo). Tramite questo possiamo sapere il frame esatto di entrata ed uscita dal portale, oltre che i frame in cui un'entità rimane all'interno di esso, poiché vengono bufferizzati gli eventi Trigger singoli e si controlla lo stato del frame precedente. Tale file è stato preso dalla sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a> di Unity, in cui vi sono diversi esempi per l'utilizzo del package Physics.
 * <b>TemporaryChangeMaterialOnTriggerComponent</b> contiene l'entità di cui il portale cambierà il materiale, ogni volta che questa entrerà nel portale.
 
-All'interno del ForEach, si itera sugli eventi trigger del buffer, che contengono l'entità con la quale il portale ha avuto la collisione, controllando in particolare quando questa entra o esce:
+All'interno del ForEach, iteriamo sugli eventi trigger del buffer, che contengono l'entità con la quale il portale ha avuto la collisione, controllando in particolare quando questa entra o esce:
 * Quando entra, si aggiorna il materiale dell'entità con quello del portale.
 * Quando esce, si ripristina il materiale originale dell'entità.
 In questo modo, viene resettato il materiale originale dell'entità, non quello precedente all'ingresso nel portale.
@@ -507,23 +507,23 @@ Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEven
 !!!!!!Modificare il codice, farlo meglio, il component non serve a un cazzo, usare solo Tag e metterlo con WithAll<>
 
 #### Sistema `PersistentChangeMaterialOnTriggerSystem `
-Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata di quello temporaneo, in cui non si gestisce la casistica in cui l'entità che attraversa il portale esca. Per questo motivo si utilizza il componente PersistentChangeMaterialOnTriggerTagComponent che, a differenza di quello persistente, non contiene alcun tipo di informazione, ma serve solo per indicare che un'entità è un portale.
+Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata di quello temporaneo. A differenza del precedente, non si gestisce la casistica in cui l'entità che attraversa il portale esca. Per questo motivo si utilizza il componente <b>PersistentChangeMaterialOnTriggerTagComponent</b> che non contiene alcun tipo di informazione, ma serve solo per indicare che un'entità è un portale.
 
 Issue: Modificare il codice di PersistentChangeMaterialOnTriggerSystem al fine di non utilizzare il buffer di StatefulTriggerEvent, ma solo un evento trigger.
 </details>
 
 ### Teletrasporto
 <details>
-Il file <a href="">TeleportSystem.cs</a>
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a>
 Fare riferimento anche per questo a...
 </details>
 
-### File <a href="">SpawnRandomObjectsAuthoring.cs</a>
+### Spawn di Entità
 <details>
-
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a>
 </details>
 
-### File <a href="">PickUpSystem.cs</a>
+### Raccolta di Entità
 <details>
-
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a>
 </details>
