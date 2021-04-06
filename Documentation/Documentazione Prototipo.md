@@ -59,7 +59,7 @@ collisioni, ecc.).
 	<tr>
 		<td>Camera follow in terza persona</td>
 		<td></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="CameraFollowGIF"/></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
 	</tr>
 	<tr>
 		<td>Portali cambia-colore</td>
