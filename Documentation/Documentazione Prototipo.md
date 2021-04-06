@@ -54,7 +54,7 @@ collisioni, ecc.).
 		<td>Accumulo degli input e movimento personaggio capsula</td>
 		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs.meta">PlayerInputSystem.cs</a><br/>
 		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs.meta">PlayerMovementSystem.cs</a></td>
-		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_Movement" alt="MovimentoGIF"/></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Camera follow in terza persona</td>
