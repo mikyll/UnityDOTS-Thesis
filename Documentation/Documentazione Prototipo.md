@@ -64,7 +64,9 @@ collisioni, ecc.).
 	</tr>
 	<tr>
 		<td>Portali cambia-colore</td>
-		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a><br/>
+		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PersistentChangeMaterialOnTriggerComponent.cs">PersistentChangeMaterialOnTriggerComponent.cs</a><br/>
+		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a><br/><br/>
+		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/TemporaryChangeMaterialOnTriggerComponent.cs">TemporaryChangeMaterialOnTriggerComponent.cs</a><br/>
 		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a></td>
 		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_ChangeMaterialPortals.gif" alt="PortaliColoreGIF"/></td>
 	</tr>
@@ -72,6 +74,11 @@ collisioni, ecc.).
 		<td>Teletrasporti</td>
 		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a></td>
 		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="TeletrasportoGIF"/></td>
+	</tr>
+	<tr>
+		<td>Spawn entità in punti randomici di un area</td>
+		<td></td>
+		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="SpawnEntitiesGIF"/></td>
 	</tr>
 	<tr>
 		<td>Raccolta oggetti "collectibles"</td>
