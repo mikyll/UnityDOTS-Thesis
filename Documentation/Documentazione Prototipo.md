@@ -1,4 +1,5 @@
 
+
 # Documentazione Prototipo (ITA)
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
@@ -413,4 +414,28 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 	if (input.vertical < 0)
 		pv.Linear.z -= speed * deltaTime;
 }).ScheduleParallel();
+</pre>
+
+
+### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowPlayerSystem.cs">CameraFollowPlayerSystem.cs</a>
+Questo file permette di realizzare una visuale di gioco in terza persona, in cui la camera principale segue il proprio personaggio capsula.
+
+### Sistema CameraFollowPlayerSystem
+Come per PlayerInputSystem, questo sistema esegue nel gruppo ClientSimulationSystemGroup, in quanto la logica che realizza mostra un risultato diverso a seconda del client che esegue.
+Il metodo OnUpdate() semplicemente salva in una variabile la posizione della camera principale <b>Camera.main</b> e, dopo aver ottenuto il singleton CommandTargetComponent contenente l'entità della capsula corrispondente al client, si cicla su tutte le entità capsule attualmente presenti a tempo di esecuzione. Dunque, si cerca l'entità corrispondente a quella contenuta in CommandTargetComponent, e si aggiorna la posizione della camera con quella della capsula, aggiungendovi un offset per avere una visuale completa.
+<pre>
+var position = Camera.main.transform.position;
+
+var commandTargetComponentEntity = GetSingletonEntity<CommandTargetComponent>();
+var commandTargetComponent = GetComponent<CommandTargetComponent>(commandTargetComponentEntity);
+Entities.WithAll<PlayerScoreComponent>().ForEach((Entity entity, in Translation translation, in PlayerCameraFollowComponent pcf) =>
+{
+	if (entity == commandTargetComponent.targetEntity && !pcf.fixedCamera)
+	{
+		position.x = translation.Value.x + pcf.xOffset;
+		position.y = translation.Value.y + pcf.yOffset;
+		position.z = translation.Value.z + pcf.zOffset;
+	}
+}).Run();
+Camera.main.transform.position = position;
 </pre>
