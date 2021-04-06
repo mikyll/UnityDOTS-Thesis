@@ -299,10 +299,10 @@ protected override void OnUpdate()
 
 
 ### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a>
-Il file PlayerInputSystem.cs si occupa di accumulare l'input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
+Il file PlayerInputSystem.cs contiene la logica per l'accumulo degli input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
 
 #### Struttura `PlayerInput`
-La struttura PlayerInput implementa l'interfaccia ICommandData, ovvero l'interfaccia necessaria per realizzare un comando in NetCode. Questa non è altro che un <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">buffer dinamico</a> utilizzato per accumulare comandi da trasmettere attraverso una connessione. Infatti, questa interfaccia espone la proprietà Tick, che dev'essere specificata, in quanto indica il tick di esecuzione della simulazione in cui è stato campionato l'input, così che il server, quando lo riceverà, potrà applicarlo nello stesso momento del client, indipendentemente dalla latenza della rete. Il tick permette anche di sfruttare la predizione lato client fornita da NetCode.<br/>
+La struttura PlayerInput implementa l'interfaccia ICommandData, ovvero l'interfaccia necessaria per realizzare un comando in NetCode. Questa non è altro che un <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">buffer dinamico</a> utilizzato per accumulare comandi da trasmettere attraverso una connessione. Infatti, questa interfaccia espone la proprietà Tick, che dev'essere specificata, in quanto indica il tick di esecuzione della simulazione in cui è stato campionato l'input, così che il server, quando lo riceverà, potrà applicarlo nello stesso momento del client, indipendentemente dalla latenza della rete. Il tick permette anche di sfruttare la <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/prediction.html">predizione lato client</a> fornita da NetCode.<br/>
 Nel nostro caso questa struttura contiene, oltre al tick, i campi horizontal e vertical, che indicano rispettivamente il movimento sull'asse x e sull'asse y.
 <pre>
 public struct PlayerInput : ICommandData
@@ -366,3 +366,30 @@ inputBuffer.AddCommandData(input);
 
 
 ### File <a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a>
+Questo file contiene la logica per l'applicazione del movimento alle capsule dei giocatori, applicando la predizione. 
+
+#### Sistema `PlayerInputSystem`
+Questo sistema viene aggiornato all'interno del gruppo <b>GhostPredictionSystemGroup</b>, che permette di implementare la predizione lato client dei ghost.
+In particolare, nella OnUpdate() otteniamo il tick di predizione da tale gruppo e iteriamo su tutte le entità capsule, inserendo nella lambda i componenti che ci serviranno.
+Come prima cosa controlliamo se il codice della predizione dovrebbe eseguire, utilizzando il metodo <b>ShouldPredict()</b> per sapere se all'entità dev'essere applicata la predizione per il tick in questione. In caso affermativo, dal buffer PlayerInput otteniamo il comando relativo a tale tick, e applichiamo il movimento in base ai dati contenuti nel comando.
+<pre>
+var tick = m_GhostPredictionSystemGroup.PredictingTick;
+var deltaTime = Time.DeltaTime;
+Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv, in PredictedGhostComponent prediction, in PlayerMovementSpeed pms) =>
+{
+	if (!GhostPredictionSystemGroup.ShouldPredict(tick, prediction))
+		return;
+	PlayerInput input;
+	inputBuffer.GetDataAtTick(tick, out input);
+	var speed = pms.speed;
+	
+	if (input.horizontal > 0)
+		pv.Linear.x += speed * deltaTime;
+	if (input.horizontal < 0)
+		pv.Linear.x -= speed * deltaTime;
+	if (input.vertical > 0)
+		pv.Linear.z += speed * deltaTime;
+	if (input.vertical < 0)
+		pv.Linear.z -= speed * deltaTime;
+}).ScheduleParallel();
+</pre>
