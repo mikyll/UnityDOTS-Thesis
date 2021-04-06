@@ -28,8 +28,8 @@ da DOTS.
 			<li><a href="#input">Input</a></li>
 			<li><a href="#movimento">Movimento</a></li>
 			<li><a href="#visuale-in-terza-persona">Visuale in Terza Persona</a></li>
-			<li><a href="#file-temporarychangematerialontriggersystemcs">File TemporaryChangeMaterialOnTriggerSystem.cs</a></li>
-			<li><a href="#file-teleportsystemcs">File TeleportSystem.cs</a></li>
+			<li><a href="#portali-cambia-colore">Portali Cambia-Colore</a></li>
+			<li><a href="#teletrasporto">Teletrasporto</a></li>
 			<li><a href="#file-spawnrandomobjectsauthoringcs">File SpawnRandomObjectsAuthoring.cs</a></li>
 			<li><a href="#file-pickupsystemcs">File PickUpSystem.cs</a></li>
 		</ul>
@@ -455,9 +455,9 @@ Camera.main.transform.position = position;
 </details>
 
 
-### File <a href="">TemporaryChangeMaterialOnTriggerSystem.cs</a>
+### Portali Cambia-Colore 
 <details>
-Rileva gli eventi trigger causati dal passaggio di un personaggio capsula attraverso un portale avente il componente <b>TemporaryChangeMaterialOnTriggerComponent</b>, modificandone il materiale (dunque anche il colore) della capsula in modo temporaneo, finché la capsula non esce dal portale.
+I file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a> e <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a> contengono la logica per cambiare il materiale del personaggio capsula che li attraversa. In particolare, questi sistemi rilevano gli eventi trigger causati dal passaggio di un personaggio capsula attraverso un portale avente rispettivamente il componente <b>TemporaryChangeMaterialOnTriggerComponent</b> e <b>PersistentChangeMaterialOnTriggerTagComponent</b>. Quindi modificano il materiale (dunque anche il colore) della capsula in modo temporaneo, finché la capsula non esce dal portale, oppure persistente.
 
 #### Sistema `TemporaryChangeMaterialOnTriggerSystem`
 Questo sistema itera sulle entità aventi un buffer di componenti <b>StatefulTriggerEvent</b> ed il componente <b>TemporaryChangeMaterialOnTriggerComponent</b>:
@@ -512,8 +512,9 @@ Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata 
 Issue: Modificare il codice di PersistentChangeMaterialOnTriggerSystem al fine di non utilizzare il buffer di StatefulTriggerEvent, ma solo un evento trigger.
 </details>
 
-### File <a href="">TeleportSystem.cs</a>
+### Teletrasporto
 <details>
+Il file <a href="">TeleportSystem.cs</a>
 Fare riferimento anche per questo a...
 </details>
 
