@@ -193,21 +193,17 @@ Per ulteriori esempi fare riferimento alla
 <!-- ROADMAP -->
 ## Roadmap
 
-Vedere la sezione [open issues](https://github.com/mikyll/UnityDOTS-Thesis/issues) per avere una lista di 
+Vedere la sezione [open issues](https://github.com/mikyll/UnityDOTS-Thesis/issues) per avere la lista completa delle 
 possibili funzionalità future (e problemi attualmente conosciuti).
 
 ### Problemi Non Risolti
-* La camera che segue la capsula a volte inizia a sfarfallare.
-* Il sistema di collisioni fra entità statiche e ghost, se questi ultimi si muovo aggiornando il componente
-Translation. Per questo motivo per realizzare il movimento della capsula abbiamo dovuto utilizzare il
-componente PhysicsVelocity, che però presenta il ritardo dovuto all'accelerazione.
-* Le collisioni e le interazioni fra ghost ed oggetti dinamici non funzionano sempre come previsto (a volte
-il ghost ci passa attraverso, anche se dovrebbero collidere).
-* A volte l'applicazione lancia un errore nel corso dell'esecuzione e all'uscita dalla PlayMode.
-* A volte le build standalone crashano, probabilmente a causa dell'errore sopra citato.
-
+* La visuale in terza persona a volte inizia sfarfallare.
+* Le simulazioni fisiche con gli oggetti dinamici non sono sincronizzate fra i client.
+* Le build standalone a volte crashano.
 
 ### Sviluppi Futuri
+* Gestione della disconnessione dei client.
+* Aggiunta di una trigger box per uccidere e respawnare le capsule che cadono dalla mappa.
 * Un menu principale in cui inserire il nickname ed avviare un eventuale matchmaking col click di un bottone.
 * Una lobby prepartita in cui i giocatori si possono vedere e possono indicare che sono pronti a iniziare
 la partita.
