@@ -47,13 +47,13 @@
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
 	<br />
 	<br />
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.it.md">Italiano</a>
+	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis">View Demo</a>
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug</a>
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Request Feature</a>
-	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.it.md">Italiano</a>
   </p>
 </p>
 
