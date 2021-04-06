@@ -79,11 +79,15 @@ collisioni, ecc.).
 	<tr>
 		<td>Spawn entità in punti randomici di un area</td>
 		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_RandomSpawner.gif" alt="SpawnEntitiesGIF"/></td>
+		<td width="40%"><span float="left"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_SpawnEntities.gif" alt="SpawnEntitiesGIF" width="60%"/>
+		<img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/InspectorSpawnRandomAuthoring.png" alt="SpawnEntitiesGIF" width="35%"/><span></td>
 	</tr>
 	<tr>
 		<td>Raccolta oggetti "collectibles"</td>
-		<td></td>
+		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PickUpSystem.cs">CollectibleTagComponent.cs</a><br/>
+		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DeleteTagComponent.cs">DeleteTagComponent.cs</a><br/>
+		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a></td>
+		<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/DeleteCollectibleSystem.cs">DeleteCollectibleSystem.cs</a></td>
 		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_PickupCollectibles.gif" alt="CollectiblesGIF"/></td>
 	</tr>
 </table>
