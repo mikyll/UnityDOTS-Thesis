@@ -107,9 +107,11 @@ Il flusso di esecuzione del prototipo è il seguente:
 	e iniziare a inviare comandi e ricevere snapshot (ovvero gli aggiornamenti dello stato di gioco).
 3. Il server esegue il sistema GoInGameServerSystem, che riceve le richieste di entrare in gioco e per
 	ciascun giocatore abilita la comunicazione tramite comandi e snapshot, e genera un personaggio capsula.
-4. input system
-5. movement system
-6. aggiornamento dei system che realizzano le varie funzionalità.
+4. L'applicazione, tramite il sistema PlayerInputSystem, controlla continuamente se il giocatore immette input 
+	da tastiera e in caso li accumula in un buffer e li invia al server.
+6. Il sistema PlayerMovementSystem applica gli input alle varie capsule, utilizzando la predizione lato client
+	per rendere l'esecuzione più fluida e far percepire il meno possibile la latenza della rete.
+8. Nel mentre si aggiornano anche gli altri sistemi che realizzano le varie funzionalità.
 
 
 ## Codice
