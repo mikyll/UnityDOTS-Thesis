@@ -58,7 +58,8 @@ collisioni, ecc.).
 	</tr>
 	<tr>
 		<td>Camera follow in terza persona</td>
-		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowPlayerSystem.cs">CameraFollowPlayerSystem.cs</a></td>
+		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerCameraFollowComponent.cs">PlayerCameraFollowComponent.cs</a><br/>
+			<a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowPlayerSystem.cs">CameraFollowPlayerSystem.cs</a></td>
 		<td><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
 	</tr>
 	<tr>
