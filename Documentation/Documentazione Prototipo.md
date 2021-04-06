@@ -78,8 +78,8 @@ collisioni, ecc.).
 	</tr>
 	<tr>
 		<td>Spawn entità in punti randomici di un area</td>
-		<td></td>
-		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/" alt="SpawnEntitiesGIF"/></td>
+		<td><a href="https://github.com/mikyll/TesiUnityDOTS/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a></td>
+		<td width="40%"><img src="https://github.com/mikyll/TesiUnityDOTS/blob/main/Documentation/Images/GIF_RandomSpawner.gif" alt="SpawnEntitiesGIF"/></td>
 	</tr>
 	<tr>
 		<td>Raccolta oggetti "collectibles"</td>
