@@ -26,6 +26,7 @@ da DOTS.
 			<li><a href="#file-gamecs">File Game.cs</a></li>
 			<li><a href="#file-playerinputsystemcs">File PlayerInputSystem.cs</a></li>
 			<li><a href="#file-playermovementsystemcs">File PlayerMovementSystem.cs</a></li>
+			<li><a href="#file-camerafollowsystemcs">File CameraFollowSystem.cs</a></li>
 		</ul>
 	</li>
   </ol>
@@ -417,10 +418,10 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 </pre>
 
 
-### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowPlayerSystem.cs">CameraFollowPlayerSystem.cs</a>
+### File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a>
 Questo file permette di realizzare una visuale di gioco in terza persona, in cui la camera principale segue il proprio personaggio capsula.
 
-#### Sistema `CameraFollowPlayerSystem`
+#### Sistema `CameraFollowSystem`
 Come per PlayerInputSystem, questo sistema esegue nel gruppo ClientSimulationSystemGroup, in quanto la logica che realizza mostra un risultato diverso a seconda del client che esegue.
 Il metodo OnUpdate() semplicemente salva in una variabile la posizione della camera principale <b>Camera.main</b> e, dopo aver ottenuto il singleton CommandTargetComponent contenente l'entità della capsula corrispondente al client, si cicla su tutte le entità capsule attualmente presenti a tempo di esecuzione. Dunque, si cerca l'entità corrispondente a quella contenuta in CommandTargetComponent, e si aggiorna la posizione della camera con quella della capsula, aggiungendovi un offset per avere una visuale completa. L'offset è ottenuto da un componente <b>PlayerCameraFollowComponent</b>, allegato all'entità capsula.
 <pre>
