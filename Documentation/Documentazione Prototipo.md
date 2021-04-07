@@ -15,26 +15,29 @@ da DOTS.
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Indice</h2></summary>
-  <ol>
-    <li><a href="#obbiettivo-prototipo">Obbiettivo Prototipo</a></li>
-    <li><a href="#principali-funzionalità">Principali Funzionalità</a></li>
-    <li><a href="#build-applicazione-standalone">Build Applicazione Standalone</a></li>
-    <li><a href="#flusso-di-esecuzione">Flusso di esecuzione</a></li>
-    <li>
-		<a href="#codice">Codice</a>
-		<ul>
-			<li><a href="#connessioni">Connessioni</a></li>
-			<li><a href="#input">Input</a></li>
-			<li><a href="#movimento">Movimento</a></li>
-			<li><a href="#visuale-in-terza-persona">Visuale in Terza Persona</a></li>
-			<li><a href="#portali-cambia-colore">Portali Cambia-Colore</a></li>
-			<li><a href="#teletrasporto">Teletrasporto</a></li>
-			<li><a href="#spawn-di-entità">Spawn di Entità</a></li>
-			<li><a href="#raccolta-di-entità">Raccolta di Entità</a></li>
-		</ul>
-	</li>
-  </ol>
+	<summary><h2 style="display: inline-block">Indice</h2></summary>
+	<ol>
+		<li><a href="#obbiettivo-prototipo">Obbiettivo Prototipo</a></li>
+		<li><a href="#principali-funzionalità">Principali Funzionalità</a></li>
+		<li><a href="#build-applicazione-standalone">Build Applicazione Standalone</a></li>
+		<li><a href="#flusso-di-esecuzione">Flusso di Esecuzione</a></li>
+		<li><a href="#codice">Codice</a>
+			<ul>
+				<li><a href="#connessioni">Connessioni</a></li>
+				<li><a href="#input">Input</a></li>
+				<li><a href="#movimento">Movimento</a></li>
+				<li><a href="#visuale-in-terza-persona">Visuale in Terza Persona</a></li>
+				<li><a href="#portali-cambia-colore">Portali Cambia-Colore</a></li>
+				<li><a href="#teletrasporto">Teletrasporto</a></li>
+				<li><a href="#spawn-di-entità">Spawn di Entità</a></li>
+				<li><a href="#raccolta-di-entità">Raccolta di Entità</a></li>
+			</ul>
+		</li>
+		<li><a href="#riferimenti-utili">Riferimenti Utili</a>
+			<ul><a href="#documentazione">Documentazione</a></ul>
+			<ul><a href="#repository-github">Repository GitHub</a></ul>
+		</li>
+	</ol>
 </details>
 
 ## Obbiettivo Prototipo
@@ -523,3 +526,12 @@ Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Pro
 <details>
 Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a>
 </details>
+
+
+## Riferimenti Utili
+
+
+### Documentazione
+
+### Repository GitHub
+
