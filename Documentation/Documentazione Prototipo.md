@@ -525,6 +525,8 @@ Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Pro
 ### Raccolta di Entità
 <details>
 Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a>
+	
+Si poteva realizzare in modo molto più semplice senza DeleteSystem, ma così facciamo vedere un esempio di separazione delle competenze(?).
 </details>
 
 
