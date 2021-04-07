@@ -1,6 +1,3 @@
-
-
-
 # Documentazione Prototipo (ITA)
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
@@ -513,8 +510,68 @@ Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata 
 
 ### Teletrasporto
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a>
-Fare riferimento anche per questo a...
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a> contiene la logica per realizzare il teletrasporto di una capsula fra due portali "compagni".
+
+#### Componente `TeleportComponent`
+Questo componente indica che l'entità a cui è attaccato è un portale per il teletrasporto e contiene due proprietà:
+* L'entità del portale compagno, che serve per identificare da dove usciranno le entità che attraversano il portale a cui è allegato il componente.
+* Il numero di teletrasporti, che serve invece per evitare che l'entità che attraversa il portale non venga immediatamente riportata indietro.
+<pre>
+[GenerateAuthoringComponent]
+public struct TeleportComponent : IComponentData
+{
+	public Entity Companion;
+	public int TransferCount;
+}
+</pre>
+
+#### Sistema `TeleportSystem`
+Questo sistema, nel metodo OnCreate() inizializza il contatore dei trasferimenti a 0.
+<pre>
+Entities.ForEach((ref TeleportComponent tc) =>
+{
+	tc.TransferCount = 0;
+}).Run();
+</pre>
+Nel metodo OnUpdate() iteriamo su tutte le entità aventi il componente <b>TeleportComponent</b> ed un buffer di <b>StatefulTriggerEvent</b>. Dentro al ForEach, salviamo in una variabile l'entità del portale compagno, quindi iteriamo su tutti gli eventi trigger contenuti nel buffer.
+All'interno del ciclo for salviamo l'entità che ha innescato il trigger con il portale in una variabile (otherEntity), dopodiché controlliamo se questa è appena stata teletrasportata e, in questo caso, decrementiamo di 1 il valore di TransferCount.
+Physics utilizza <b>RigidTransform</b> per indicare la posizione di un'entità nel "world-space" e applicarvi la simulazione fisica. Il portale (come nel nostro caso, in cui il teletrasporto effettivo è solo la superficie interna di un prefab) può essere parte di una gerarchia, dunque i componenti Translation e Rotation, che ne indicano la posizione, potrebbero non essere in coordinate globali (rispetto al world-space), ma relative all'entità padre nella gerarchia. Per questo motivo, salviamo in delle variabili le posizioni dei portali come RigidTransform, controllando se l'entità fa match con la maschera hierarchyChildMask (la quale contiene una query che controlla se ha i componenti Parent e LocalToWorld):
+* in caso affermativo, significa che l'entità del portale è parte di una gerarchia, dunque utilizziamo il metodo DecomposeRigidBodyTransform() per ottenere un RigidTransform che ne indica la posizione nel "world-space", così che Physics possa utilizzarlo correttamente;
+* in caso negativo, utilizziamo semplicemente la posizione corrente del portale (Translation e Rotation) per creare RigidTransform.
+<pre>
+var portalTransform = hierarchyChildMask.Matches(portalEntity)
+? Math.DecomposeRigidBodyTransform(GetComponent<LocalToWorld>(portalEntity).Value)
+: new RigidTransform(GetComponent<Rotation>(portalEntity).Value, GetComponent<Translation>(portalEntity).Value);
+var companionTransform = hierarchyChildMask.Matches(companionEntity)
+? Math.DecomposeRigidBodyTransform(GetComponent<LocalToWorld>(companionEntity).Value)
+: new RigidTransform(GetComponent<Rotation>(companionEntity).Value, GetComponent<Translation>(companionEntity).Value);
+</pre>
+Dopodiché calcoliamo l'offset di posizione e rotazione fra i portali, otteniamo i componenti relativi a posizione, rotazione e velocità dell'entità che l'ha attraversato, e vi applichiamo rispettivamente:
+* una traslazione, per realizzare il teletrasporto;
+* una rotazione, per aggiornare la direzione verso cui è rivolta;
+* una rotazione, per aggiornare la direzione della velocità lineare.
+Infine aggiorniamo il valore di questi e incrementiamo TransferCount di 1.
+<pre>
+var portalPositionOffset = companionTransform.pos - portalTransform.pos;
+var portalRotationOffset = math.mul(companionTransform.rot, math.inverse(portalTransform.rot));
+
+var entityPositionComponent = GetComponent<Translation>(otherEntity);
+var entityRotationComponent = GetComponent<Rotation>(otherEntity);
+var entityVelocityComponent = GetComponent<PhysicsVelocity>(otherEntity);
+
+entityVelocityComponent.Linear = math.rotate(portalRotationOffset, entityVelocityComponent.Linear);
+entityPositionComponent.Value += portalPositionOffset;
+entityRotationComponent.Value = math.mul(entityRotationComponent.Value, portalRotationOffset);
+
+SetComponent(otherEntity, entityPositionComponent);
+SetComponent(otherEntity, entityRotationComponent);
+SetComponent(otherEntity, entityVelocityComponent);
+
+companionTeleportComponent.TransferCount++;
+</pre>
+
+Per maggiori informazioni su come funziona il sistema che gestisce la posizione delle entità, fare riferimento a
+<a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/transform_system.html">TransformSystem</a>, mentre per quanto riguarda i calcoli matematici fatti per le gerarchie di entità <a href="https://docs.unity3d.com/Packages/com.unity.physics@0.6/api/Unity.Physics.Math.html">Physics.Math</a>.
 </details>
 
 ### Spawn di Entità
