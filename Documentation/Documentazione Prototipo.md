@@ -656,4 +656,4 @@ Si poteva realizzare in modo molto più semplice senza DeleteSystem, ma così fa
 ### Documentazione
 
 ### Repository GitHub
-
+* <a href=""ttps://github.com/Unity-Technologies/EntityComponentSystemSamples">EntityComponentSystemSamples</a> - contiene delle sub-repository, fra cui anche UnityPhysicsSamples, con esempi, demo e use cases molto utili.
