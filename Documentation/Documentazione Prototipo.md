@@ -1,4 +1,5 @@
 
+
 # Documentazione Prototipo (ITA)
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
@@ -654,11 +655,15 @@ Si poteva realizzare in modo molto più semplice senza DeleteSystem, ma così fa
 
 
 ### Documentazione
-*
-* playlist Unity Copenaghen DOTS
+* <a href="https://docs.unity3d.com/Manual/index.html">Unity Manual</a>
+* <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17">Unity Entities</a>
+* <a href="https://docs.unity3d.com/Packages/com.unity.physics@0.6">Unity Physics</a>
+* <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6">Unity NetCode</a>
+* <a href="https://youtube.com/playlist?list=PLX2vGYjWbI0S1wHRTyDiPtKLEPTWFi4cd">Unity Copenhagen 2019 - DOTS (YouTube Playlist)</a>
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/BNMrevfB6Q0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
 ### Repository GitHub
 * <a href="https://github.com/Unity-Technologies/DOTSSample">DOTS Sample</a> - uno sparatutto multigiocatore completo realizzato utilizzando DOTS.
 * <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">EntityComponentSystemSamples</a> - contiene delle sub-repository, fra cui anche UnityPhysicsSamples, con esempi, demo e use cases molto utili.
-* <a href="https://github.com/Unity-Technologies/FPSSample">FPS Sample</a>
-* <a href="https://github.com/UnityTechnologies/AngryBots_ECS">AngryBots ECS</a>
+* <a href="https://github.com/Unity-Technologies/FPSSample">FPS Sample</a> - obsoleto ma è un progetto interessante.
+* <a href="https://github.com/UnityTechnologies/AngryBots_ECS">AngryBots ECS</a> - semplice gioco in terza persona che mostra in modo semplice alcuni vantaggi dell'utilizzo di DOTS.
