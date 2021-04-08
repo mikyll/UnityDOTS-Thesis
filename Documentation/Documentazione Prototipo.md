@@ -1,3 +1,4 @@
+
 # Documentazione Prototipo (ITA)
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
@@ -84,7 +85,7 @@ collisioni, ecc.).
 		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Teleport.gif" alt="TeletrasportoGIF"/></td>
 	</tr>
 	<tr>
-		<td>Spawn entità in punti randomici di un area</td>
+		<td>Spawn entità in punti randomici di un volume</td>
 		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a></td>
 		<td width="40%"><span float="left"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_SpawnEntities.gif" alt="SpawnEntitiesGIF" width="60%"/>
 		<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/InspectorSpawnRandomAuthoring.png" alt="SpawnEntitiesGIF" width="35%"/><span></td>
@@ -508,9 +509,10 @@ Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEven
 Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata di quello temporaneo. A differenza del precedente, non si gestisce la casistica in cui l'entità che attraversa il portale esca. Per questo motivo si utilizza il componente <b>PersistentChangeMaterialOnTriggerTagComponent</b> che non contiene alcun tipo di informazione, ma serve solo per indicare che un'entità è un portale.
 </details>
 
+
 ### Teletrasporto
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a> contiene la logica per realizzare il teletrasporto di una capsula fra due portali "compagni".
+I file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/TeleportComponent.cs">TeleportComponent.cs</a> e <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a> contengono rispettivamente lo stato e la logica per realizzare il teletrasporto di una capsula fra due portali "compagni".
 
 #### Componente `TeleportComponent`
 Questo componente indica che l'entità a cui è attaccato è un portale per il teletrasporto e contiene due proprietà:
@@ -533,6 +535,7 @@ Entities.ForEach((ref TeleportComponent tc) =>
 	tc.TransferCount = 0;
 }).Run();
 </pre>
+
 Nel metodo OnUpdate() iteriamo su tutte le entità aventi il componente <b>TeleportComponent</b> ed un buffer di <b>StatefulTriggerEvent</b>. Dentro al ForEach, salviamo in una variabile l'entità del portale compagno, quindi iteriamo su tutti gli eventi trigger contenuti nel buffer.
 All'interno del ciclo for salviamo l'entità che ha innescato il trigger con il portale in una variabile (otherEntity), dopodiché controlliamo se questa è appena stata teletrasportata e, in questo caso, decrementiamo di 1 il valore di TransferCount.
 Physics utilizza <b>RigidTransform</b> per indicare la posizione di un'entità nel "world-space" e applicarvi la simulazione fisica. Il portale (come nel nostro caso, in cui il teletrasporto effettivo è solo la superficie interna di un prefab) può essere parte di una gerarchia, dunque i componenti Translation e Rotation, che ne indicano la posizione, potrebbero non essere in coordinate globali (rispetto al world-space), ma relative all'entità padre nella gerarchia. Per questo motivo, salviamo in delle variabili le posizioni dei portali come RigidTransform, controllando se l'entità fa match con la maschera hierarchyChildMask (la quale contiene una query che controlla se ha i componenti Parent e LocalToWorld):
@@ -546,6 +549,7 @@ var companionTransform = hierarchyChildMask.Matches(companionEntity)
 ? Math.DecomposeRigidBodyTransform(GetComponent<LocalToWorld>(companionEntity).Value)
 : new RigidTransform(GetComponent<Rotation>(companionEntity).Value, GetComponent<Translation>(companionEntity).Value);
 </pre>
+
 Dopodiché calcoliamo l'offset di posizione e rotazione fra i portali, otteniamo i componenti relativi a posizione, rotazione e velocità dell'entità che l'ha attraversato, e vi applichiamo rispettivamente:
 * una traslazione, per realizzare il teletrasporto;
 * una rotazione, per aggiornare la direzione verso cui è rivolta;
@@ -574,10 +578,69 @@ Per maggiori informazioni su come funziona il sistema che gestisce la posizione 
 <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/transform_system.html">TransformSystem</a>, mentre per quanto riguarda i calcoli matematici fatti per le gerarchie di entità <a href="https://docs.unity3d.com/Packages/com.unity.physics@0.6/api/Unity.Physics.Math.html">Physics.Math</a>.
 </details>
 
+
 ### Spawn di Entità
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a>
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a> contiene la logica per lo spawn di un numero arbitrario di entità (dato un prefab) all'interno di un volume, in punti randomici. A differenza dei meccanismi precedenti, che sono divisi in file per i componenti e per i sistemi, questo è condensato tutto in un unico file. Il file è stato preso dalla sub-repository </a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Assets/Common/Scripts/SpawnRandomObjectsAuthoring.cs">Unity Physics Samples</a>
+
+#### Componente `SpawnRandomObjectsAuthoring`
+In questo caso, invece di utilizzare l'attributo [GenerateAuthoringComponent] abbiamo utilizzato il <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/conversion.html#the-iconvertgameobjecttoentity-interface">conversion workflow</a> di ECS, che ci permette di convertire un MonoBehaviour nel rispettivo componente.
+Utilizzando l'interfaccia <b>IConvertGameObjectToEntity</b> ed il relativo metodo Convert convertiamo il MonoBehaviour in un componente <b>SpawnSettings</b>, creando e inizializzando la rispettiva struttura, aggiungendolo all'entità convertita dal GameObject.
+<pre>
+public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+{
+	var spawnSettings = new T
+	{
+		Prefab = conversionSystem.GetPrimaryEntity(prefab),
+		Position = transform.position,
+		Rotation = transform.rotation,
+		Range = range,
+		Count = count
+	};
+	Configure(ref spawnSettings);
+	dstManager.AddComponentData(entity, spawnSettings);
+}
+</pre>
+
+#### Sistema `SpawnRandomObjectsSystemBase`
+Questo sistema si occupa dello spawn delle entità: all'interno del metodo OnUpdate(), utilizziamo un ciclo ForEach "rustico" (in quanto il sistema è di tipo generico T) per iterare sulle entità che hanno il componente SpawnSettings. All'interno di questo ciclo creiamo un NativeArray della dimensione di count, ovvero il numero di entità da spawnare, per contenere le istanze delle entità, e altri due NativeArray per le posizioni e le rotazioni.
+Dunque utilizziamo il metodo <b>RandomPointsInRange()</b> per inizializzare questi ultimi due NativeArray ed iteriamo per il numero di entità da spawnare e per ciascuna impostiamo il componente Traslation e Rotation, così che possa comparire all'interno del mondo. Infine rimuoviamo il componente SpawnSettings dall'entità spawner, per impedire che il metodo OnUpdate() esegua di nuovo.
+<pre>
+var instances = new NativeArray<Entity>(count, Allocator.Temp);
+EntityManager.Instantiate(spawnSettings.Prefab, instances);
+
+var positions = new NativeArray<float3>(count, Allocator.Temp);
+var rotations = new NativeArray<quaternion>(count, Allocator.Temp);
+RandomPointsInRange(spawnSettings.Position, spawnSettings.Rotation, spawnSettings.Range, ref positions, ref rotations, GetRandomSeed(spawnSettings));
+
+for (int i = 0; i < count; i++)
+{
+	var instance = instances[i];
+	EntityManager.SetComponentData(instance, new Translation { Value = positions[i] });
+	EntityManager.SetComponentData(instance, new Rotation { Value = rotations[i] });
+	ConfigureInstance(instance, spawnSettings);
+}
+EntityManager.RemoveComponent<T>(entity);
+</pre>
+
+Il metodo <b>RandomPointsInRange()</b> prende i valori del volume passati come parametri e genera un punto radomico all'interno di questo, aggiornando i valori di <b>Translation</b> e <b>Rotation</b> per ciascun elemento dei rispettivi array.
+<pre>
+protected static void RandomPointsInRange(
+float3 center, quaternion orientation, float3 range,
+ref NativeArray<float3> positions, ref NativeArray<quaternion> rotations, int seed = 0)
+{
+	var count = positions.Length;
+	
+	var random = new Unity.Mathematics.Random((uint)seed);
+	for (int i = 0; i < count; i++)
+	{
+		positions[i] = center + math.mul(orientation, random.NextFloat3(-range, range));
+		rotations[i] = math.mul(random.NextQuaternionRotation(), orientation);
+	}
+}
+</pre>
 </details>
+
 
 ### Raccolta di Entità
 <details>
