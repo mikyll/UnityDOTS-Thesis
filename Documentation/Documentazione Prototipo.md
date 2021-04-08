@@ -654,6 +654,11 @@ Si poteva realizzare in modo molto più semplice senza DeleteSystem, ma così fa
 
 
 ### Documentazione
+*
+* playlist Unity Copenaghen DOTS
 
 ### Repository GitHub
+* <a href="https://github.com/Unity-Technologies/DOTSSample">DOTS Sample</a> - uno sparatutto multigiocatore completo realizzato utilizzando DOTS.
 * <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">EntityComponentSystemSamples</a> - contiene delle sub-repository, fra cui anche UnityPhysicsSamples, con esempi, demo e use cases molto utili.
+* <a href="https://github.com/Unity-Technologies/FPSSample">FPS Sample</a>
+* <a href="https://github.com/UnityTechnologies/AngryBots_ECS">AngryBots ECS</a>
