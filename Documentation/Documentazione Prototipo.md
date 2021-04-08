@@ -1,5 +1,3 @@
-
-
 # Documentazione Prototipo (ITA)
 
 Il prototipo consiste in un piccolo gioco multigiocatore in cui ogni giocatore muove il proprio personaggio 
@@ -61,7 +59,8 @@ collisioni, ecc.).
 	</tr>
 	<tr>
 		<td>Accumulo degli input e movimento personaggio capsula</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs">PlayerInputSystem.cs</a><br/>
+		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerMovementSpeed.cs">PlayerMovementSpeed</a><br/>
+		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs">PlayerInputSystem.cs</a><br/>
 		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a></td>
 		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
 	</tr>
@@ -93,7 +92,8 @@ collisioni, ecc.).
 	</tr>
 	<tr>
 		<td>Raccolta oggetti "collectibles"</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PickUpSystem.cs">CollectibleTagComponent.cs</a><br/>
+		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerScoreComponent.cs">PlayerScoreComponent</a><br/>
+		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PickUpSystem.cs">CollectibleTagComponent.cs</a><br/>
 		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DeleteTagComponent.cs">DeleteTagComponent.cs</a><br/>
 		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a><br/>
 		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/DeleteCollectibleSystem.cs">DeleteCollectibleSystem.cs</a></td>
@@ -334,7 +334,7 @@ protected override void OnUpdate()
 <details>
 Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a> contiene la logica per l'accumulo degli input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
 
-#### Struttura `PlayerInput`
+#### Comando `PlayerInput`
 La struttura PlayerInput implementa l'interfaccia ICommandData, ovvero l'interfaccia necessaria per realizzare un comando in NetCode. Questa non è altro che un <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">buffer dinamico</a> utilizzato per accumulare comandi da trasmettere attraverso una connessione. Infatti, questa interfaccia espone la proprietà Tick, che dev'essere specificata, in quanto indica il tick di esecuzione della simulazione in cui è stato campionato l'input, così che il server, quando lo riceverà, potrà applicarlo nello stesso momento del client, indipendentemente dalla latenza della rete. Il tick permette anche di sfruttare la <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/prediction.html">predizione lato client</a> fornita da NetCode.<br/>
 Nel nostro caso questa struttura contiene, oltre al tick, i campi horizontal e vertical, che indicano rispettivamente il movimento sull'asse x e sull'asse y.
 <pre>
@@ -403,7 +403,10 @@ inputBuffer.AddCommandData(input);
 <details>
 Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contiene la logica per l'applicazione del movimento alle capsule dei giocatori, applicando la predizione. 
 
-#### Sistema `PlayerInputSystem`
+#### Componente `PlayerMovementSpeed`
+È associato a un'entità capsula e ne indica la velocità di movimento.
+
+#### Sistema `PlayerMovementSystem`
 Questo sistema viene aggiornato all'interno del gruppo <b>GhostPredictionSystemGroup</b>, che permette di implementare la predizione lato client dei ghost.
 In particolare, nella OnUpdate() otteniamo il tick di predizione da tale gruppo e iteriamo su tutte le entità capsule, inserendo nella lambda i componenti che ci serviranno.
 Come prima cosa controlliamo se il codice della predizione dovrebbe eseguire, utilizzando il metodo <b>ShouldPredict()</b> per sapere se all'entità dev'essere applicata la predizione per il tick in questione. In caso affermativo, dal buffer PlayerInput otteniamo il comando relativo a tale tick, e applichiamo il movimento in base ai dati contenuti nel comando.
@@ -645,9 +648,52 @@ ref NativeArray<float3> positions, ref NativeArray<quaternion> rotations, int se
 
 ### Raccolta di Entità
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a>
-	
-Si poteva realizzare in modo molto più semplice senza DeleteSystem, ma così facciamo vedere un esempio di separazione delle competenze(?).
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a> contiene la logica per la raccolta delle entità "collectible". Quando un personaggio capsula tocca un'entità marcata con questo componente, l'entità viene raccolta, dunque scompare dalla scena e viene assegnato un punteggio al giocatore.
+
+#### Componente `PlayerScoreComponent`
+È assegnato al personaggio capsula di un giocatore e ne indica il punteggio corrente.
+
+#### Componente `CollectibleTagComponent`
+Indica che un'entità è raccoglibile e vi assegna un punteggio.
+
+#### Componente `DeleteTagComponent`
+È un componente vuoto che indica che un'entità dev'essere eliminata.
+
+#### Sistema `PickUpSystem`
+Questo sistema si occupa di rilevare gli eventi trigger tra un player capsula e un'entità collectible. Il funzionamento è simile a quello dei portali: all'interno del metodo OnUpdate() iteriamo su tutte le entità aventi il buffer di <b>StatefulTriggerEvent</b> e <b>CollectibleTagComponent</b>.
+<pre>
+Entities.WithoutBurst().ForEach(
+(Entity e, ref DynamicBuffer<StatefulTriggerEvent> triggerEventBuffer, ref CollectibleTagComponent collectibleComponent) => {
+</pre>
+
+Dopodiché eseguiamo un ciclo sugli eventi trigger contenuti nel buffer:
+1. Otteniamo l'entità con cui è avvenuta la collisione.
+2. Controlliamo che lo stato di StatefulTriggerEvent sia "Enter" e che l'entità con cui è avvenuta la collisione sia un personaggio capsula (ovvero abbia il componente <b>PlayerMovementSpeed</b>).
+3. Otteniamo il componente <b>PlayerScoreComponent</b>, in cui si trova il punteggio attuale del giocatore e lo incrementiamo del valore contenuto in <b>CollectibleTagComponent</b>.
+4. Aggiorniamo il valore di <b>PlayerScoreComponent</b> del giocatore e aggiungiamo il componente <b>DeleteTagComponent</b> all'entità collectible.
+<pre>
+var otherEntity = triggerEvent.GetOtherEntity(e); 
+
+if (triggerEvent.State == EventOverlapState.Enter && EntityManager.HasComponent<PlayerMovementSpeed>(otherEntity))
+{
+	var punteggioPlayer = EntityManager.GetComponentData<PlayerScoreComponent>(otherEntity);
+	punteggioPlayer.score += collectibleComponent.points;
+
+	commandBuffer.SetComponent(otherEntity, punteggioPlayer);
+	commandBuffer.AddComponent<DeleteTagComponent>(e, new DeleteTagComponent());
+}
+</pre>
+
+#### Sistema `DeleteCollectibleSystem`
+Questo sistema si occupa dell'eliminazione delle entità marcate col componente <b>DeleteTagComponent</b>. Semplicemente itera su tutte le entità aventi tale componente e, utilizzando un command buffer, le elimina.
+<pre>
+Entities.WithAll<DeleteTagComponent>().ForEach((Entity entity) =>
+{
+	commandBuffer.DestroyEntity(entity);
+}).Run();
+</pre>
+
+Questa funzionalità poteva essere realizzata direttamente utilizzando solo CollectibleTagComponent e PickUpSystem, realizzando l'eliminazione dell'entità direttamente all'interno di quest'ultimo, ma abbiamo voluto separare le competenze mostrando un'ulteriore possibilità.
 </details>
 
 
