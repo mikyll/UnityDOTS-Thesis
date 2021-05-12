@@ -106,7 +106,7 @@ To make the <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/m
 
 ### Windows Example
 1. Check that com.unity.platforms.windows is installed in the PackageManager.
-2. Create a Build Configuration: Project Window > Create > Build > Windows Classic Build Configuration.
+2. Create a Build Configuration: **Project Window** > **Create** > **Build** > **Windows Classic Build Configuration**.
 3. Select the configuration and run the build.
 <p float="left">
 <img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
