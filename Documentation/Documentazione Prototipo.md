@@ -103,10 +103,10 @@ collisioni, ecc.).
 
 
 ## Build Applicazione Standalone
-Per eseguire la <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/install_setup.html#standalone-builds">build</a> di un'applicazione Unity realizzata usando DOTS, è necessario utilizzare i package Platforms (com.unity.platforms.\*). In particolare, nel caso di un'<a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/client-server-worlds.html#standalone-builds">applicazione multiplayer</a>, NetCode utilizza la proprietà <i>Server Build</i> in Build Settings e gli scripting define symbols in Project Settings > Player per capire che tipo di applicazione buildare (solo client, solo server o scelta a runtime).
+Per eseguire la <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/install_setup.html#standalone-builds">build</a> di un'applicazione Unity realizzata usando DOTS, è necessario utilizzare i package Platforms (com.unity.platforms.\*). In particolare, nel caso di un'<a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/client-server-worlds.html#standalone-builds">applicazione multiplayer</a>, NetCode utilizza la proprietà <i>Server Build</i> in Build Settings e gli scripting define symbols in **Project Settings** > **Player** per capire che tipo di applicazione buildare (solo client, solo server o scelta a runtime).
 ### Esempio Windows
 1. Controllare che il package com.unity.platforms.windows sia presente nel PackageManager.
-2. Creare una Configurazione di Build: Project Window > Create > Build > Windows Classic Build Configuration.
+2. Creare una Configurazione di Build: **Project Window** > **Create** > **Build** > **Windows Classic Build Configuration**.
 3. Selezionare la configurazione ed eseguire la build.
 <p float="left">
 <img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
