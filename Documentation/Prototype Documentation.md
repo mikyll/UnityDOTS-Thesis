@@ -98,3 +98,17 @@ In particular, the following packages were used:
 		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_PickupCollectibles.gif" alt="CollectiblesGIF"/></td>
 	</tr>
 </table>
+
+
+## Standalone Build
+
+To make the <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/install_setup.html#standalone-builds">standalone build</a> of an application created using DOTS, it is necessary to use the Platforms packages (com.unity.platforms.\*). In particular, in the case of a <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/client-server-worlds.html#standalone-builds">multiplayer application</a>, NetCode uses the Server Build property in Build Settings and the scripting define symbols in **Project Settings** > **Player** to decide what type of application to build (client only, server only or chosen at runtime).
+
+### Windows Example
+1. Check that com.unity.platforms.windows is installed in the PackageManager.
+2. Create a Build Configuration: Project Window > Create > Build > Windows Classic Build Configuration.
+3. Select the configuration and run the build.
+<p float="left">
+<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
+<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
+</p>
