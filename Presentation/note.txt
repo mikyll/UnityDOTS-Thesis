@@ -1,3 +1,0 @@
-rimuovere le note dalla presentazione compatta,
-cambiare maiuscole/minuscole nei titoli (e negli argomenti principali)
-modificare .gitignore
