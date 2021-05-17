@@ -234,7 +234,7 @@ Distribuito sotto Licenza MIT. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contatti
 
-Michele Righi - <!-- [@twitter_handle](https://twitter.com/twitter_handle) - -->righi.mikyll@gmail.com
+Michele Righi - <!-- [@twitter_handle](https://twitter.com/twitter_handle) - -->righi.michy@gmail.com
 
 Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/UnityDOTS-Thesis)
 
