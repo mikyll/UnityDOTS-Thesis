@@ -63,11 +63,11 @@
     <br />
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.md">English</a>
 	·
-    <a href="https://github.com/mikyll/UnityDOTS-Thesis">View Demo</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/PresentazioneDOTS%20(pdf_compatto).pdf">Presentazione</a>
     ·
-    <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Segnala un Bug</a>
     ·
-    <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Request Feature</a>
+    <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Richiedi una Funzionalità</a>
   </p>
 </p>
 
