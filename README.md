@@ -214,10 +214,9 @@ Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mi
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-<!--* My co-rapporteur [Andrea Garbugli]() for the thesis topic and for the support and help in drafting the paper. -->
-* []()
+* My co-supervisor [Andrea Garbugli]() for having suggested me this extremely interesting thesis topic and for the help and support in drafting the paper.
 * [Othneil Drew](https://github.com/othneildrew) for the amazing [README template](https://github.com/othneildrew/Best-README-Template).
-
+* []()
 
 
 
