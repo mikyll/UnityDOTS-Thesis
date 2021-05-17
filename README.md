@@ -49,7 +49,7 @@
 	<br />
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.it.md">Italiano</a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis">View Demo</a>
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug</a>
 	·
