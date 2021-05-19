@@ -112,3 +112,6 @@ To make the <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/m
 <img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
 <img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
 </p>
+
+	
+TO-DO Translate Italian doc [...]
