@@ -33,6 +33,7 @@ da DOTS.
 		<li><a href="#riferimenti-utili">Riferimenti Utili</a>
 			<ul><a href="#documentazione">Documentazione</a></ul>
 			<ul><a href="#repository-github">Repository GitHub</a></ul>
+			<ul><a href="#forum-dots">Forum DOTS</a></ul>
 		</li>
 	</ol>
 </details>
@@ -148,7 +149,7 @@ sistema <b>GoInGameServerSystem</b> che riceve la RPC e marchia il client come "
 componente <b>NetworkStreamInGame</b> all'entità che rappresenta la connessione e creando una personaggio 
 capsula per il giocatore corrispondente al client.
 
-#### Struttura `EnableGame`
+#### Componente `EnableGame`
 
 Dichiariamo la struttura <b>EnableGame</b> che ci servirà più avanti per indicare che i client o il server sono
 pronti a stabilire la connessione ed entrare in gioco.
@@ -209,7 +210,7 @@ protected override void OnUpdate()
 }
 </pre>
 
-#### Struttura `GoInGameRequest`
+#### Componente `GoInGameRequest`
 
 Poiché non è stato aggiunto il componente <b>NetworkStreamInGame</b> all'entità che rappresenta la connessione 
 fra un client ed il server, questi non possono comunicare inviando comandi o snapshot. Quindi, utilizziamo 
@@ -713,3 +714,6 @@ Questa funzionalità poteva essere realizzata direttamente utilizzando solo Coll
 * <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">EntityComponentSystemSamples</a> - contiene delle sub-repository, fra cui anche UnityPhysicsSamples, con esempi, demo e use cases molto utili.
 * <a href="https://github.com/Unity-Technologies/FPSSample">FPS Sample</a> - obsoleto ma è un progetto interessante.
 * <a href="https://github.com/UnityTechnologies/AngryBots_ECS">AngryBots ECS</a> - semplice gioco in terza persona che mostra in modo semplice alcuni vantaggi dell'utilizzo di DOTS.
+
+### Forum DOTS
+Clicca <a href="https://forum.unity.com/forums/data-oriented-technology-stack.147/">qui</a> per visitare il forum.
