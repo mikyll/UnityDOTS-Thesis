@@ -129,7 +129,7 @@ and then starts sending commands and receiving snapshots (i.e. game state update
 NB: the code snippets shown in the following section have been cut out to highlight the key parts explained in the text.
 
 ### Connections
-
+<details>
 #### `EnableGame` Component
 	
 #### `Game` System
@@ -139,43 +139,50 @@ NB: the code snippets shown in the following section have been cut out to highli
 #### `GoInGameClientSystem` System
 
 #### `GoInGameServerSystem` System
-	
-### Input
+</details>
 
+### Input
+<details>
 #### `PlayerInput` Command
 	
 #### `PlayerInputSystem` System
-	
+</details>
+
 ### Movement
-	
+<details>
 #### `PlayerMovementSpeed` Component	
 
 #### `PlayerMovementSystem` System
-	
+</details>
+
 ### Third Person Camera View
-	
+<details>	
 #### `CameraFollowSystem` System
-	
+</details>
+
 ### Color-Change Portals
-	
+<details>	
 #### `TemporaryChangeMaterialOnTriggerSystem` System
 	
 #### `PersistentChangeMaterialOnTriggerSystem` System
-	
+</details>
+
 ### Teleports	
-	
+<details>	
 #### `TeleportComponent` Component
 	
 #### `TeleportSystem` System
-	
+</details>
+
 ### Entity spawn
-	
+<details>	
 #### `SpawnRandomObjectsAuthoring` Component
 	
 #### `SpawnRandomObjectsSystemBase` System
-	
+</details>
+
 ### Entity Pick Up
-	
+<details>	
 #### `PlayerScoreComponent` Component
 	
 #### `CollectibleTagComponent` Component	
@@ -185,8 +192,9 @@ NB: the code snippets shown in the following section have been cut out to highli
 #### `PickUpSystem` System
 	
 #### `DeleteCollectibleSystem` System
-	
-	
+</details>
+
+
 ## References
 	
 ### Documentation
