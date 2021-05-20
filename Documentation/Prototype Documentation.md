@@ -34,7 +34,7 @@ provided by DOTS.
 		<li><a href="#references">References</a>
 			<ul><a href="#documentation">Documentation</a></ul>
 			<ul><a href="#github-repositories">GitHub Repositories</a></ul>
-			<ul><a href="dots-forum">DOTS Forum</a></ul>
+			<ul><a href="#dots-forum">DOTS Forum</a></ul>
 		</li>
 	</ol>
 </details>
