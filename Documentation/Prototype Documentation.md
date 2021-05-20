@@ -113,5 +113,15 @@ To make the <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/m
 <img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
 </p>
 
+## Execution Flow
+
+The prototype execution flow is the following:
+1. When the application starts, the Game system (contained in Game.cs file) runs. This system implements the connection of the clients to the server, differentiating the execution of the server, which listens for connections, from the execution of the clients, which connect to the server.
+2. Clients execute the code of GoInGameClientSystem, that sends a request to the server to enter the game
+and then starts sending commands and receiving snapshots (i.e. game state updates).
+3. The server executes the code of GoInGameServerSystem, that receives requests to enter the game and for each player enables communication via commands and snapshots, and generates a capsule character.
+4. The application, through the system PlayerInputSystems, continuously checks if the player enters keyboard inputs, and if so store them in a buffer and sends them to the server.
+5. The PlayerMovementSystem applies the inputs to the various capsules, using the client-side prediction to make the execution more fluid and to make the network latency perception as little as possibile.
+6. In the meantime, the others systems that implement the various features are also getting updated.
 	
 TO-DO Translate Italian doc [...]
