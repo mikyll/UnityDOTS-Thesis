@@ -126,7 +126,7 @@ and then starts sending commands and receiving snapshots (i.e. game state update
 
 ## Code
 
-NB: the code snippets shown in the following section have been cut out to highlight the key parts explained in the text.
+NB: the code snippets shown in this section have been cut out to highlight the key parts explained in the text.
 
 ### Connections
 <details>
