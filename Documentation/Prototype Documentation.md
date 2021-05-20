@@ -34,6 +34,7 @@ provided by DOTS.
 		<li><a href="#references">References</a>
 			<ul><a href="#documentation">Documentation</a></ul>
 			<ul><a href="#github-repositories">GitHub Repositories</a></ul>
+			<ul><a href="dots-forum">DOTS Forum</a></ul>
 		</li>
 	</ol>
 </details>
@@ -128,6 +129,8 @@ and then starts sending commands and receiving snapshots (i.e. game state update
 
 NB: the code snippets shown in this section have been cut out to highlight the key parts explained in the text.
 
+TO-DO Translate Italian doc [...]
+
 ### Connections
 <details>
 #### `EnableGame` Component
@@ -206,10 +209,10 @@ NB: the code snippets shown in this section have been cut out to highlight the k
 <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/BNMrevfB6Q0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 	
 ### GitHub Repositories
-<!--* <a href="https://github.com/Unity-Technologies/DOTSSample">DOTS Sample</a> - uno sparatutto multigiocatore completo realizzato utilizzando DOTS.
-* <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">EntityComponentSystemSamples</a> - contiene delle sub-repository, fra cui anche UnityPhysicsSamples, con esempi, demo e use cases molto utili.
-* <a href="https://github.com/Unity-Technologies/FPSSample">FPS Sample</a> - obsoleto ma è un progetto interessante.
-* <a href="https://github.com/UnityTechnologies/AngryBots_ECS">AngryBots ECS</a> - semplice gioco in terza persona che mostra in modo semplice alcuni vantaggi dell'utilizzo di DOTS.-->
-	
-	
-TO-DO Translate Italian doc [...]
+* <a href="https://github.com/Unity-Technologies/DOTSSample">DOTS Sample</a> - a third-person shooter demo showcasing the various new DOTS technologies in action together (including Unity Physics, NetCode, Hybrid Renderer, and Conversion Workflow).
+* <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">EntityComponentSystemSamples</a> - it contains some sub-repository, including UnityPhysicsSamples, with useful examples, demos and use cases.
+* <a href="https://github.com/Unity-Technologies/FPSSample">FPS Sample</a> - an obsolete but interesting project.
+* <a href="https://github.com/UnityTechnologies/AngryBots_ECS">AngryBots ECS</a> - simple third-person shooter, which shows improvements in gameplay when switching to DOTS implementation.
+
+### DOTS Forum
+Click <a href="https://forum.unity.com/forums/data-oriented-technology-stack.147/">here</a> to visit the forum.
