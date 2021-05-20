@@ -509,7 +509,7 @@ Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEven
 }).Run();
 </pre>
 
-#### Sistema `PersistentChangeMaterialOnTriggerSystem `
+#### Sistema `PersistentChangeMaterialOnTriggerSystem`
 Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata di quello temporaneo. A differenza del precedente, non si gestisce la casistica in cui l'entità che attraversa il portale esca. Per questo motivo si utilizza il componente <b>PersistentChangeMaterialOnTriggerTagComponent</b> che non contiene alcun tipo di informazione, ma serve solo per indicare che un'entità è un portale.
 </details>
 
