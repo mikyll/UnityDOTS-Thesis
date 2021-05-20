@@ -33,7 +33,7 @@ provided by DOTS.
 		</li>
 		<li><a href="#references">References</a>
 			<ul><a href="#documentation">Documentation</a></ul>
-			<ul><a href="#github-repository">GitHub Repository</a></ul>
+			<ul><a href="#github-repositories">GitHub Repositories</a></ul>
 		</li>
 	</ol>
 </details>
@@ -123,5 +123,85 @@ and then starts sending commands and receiving snapshots (i.e. game state update
 4. The application, through the system PlayerInputSystems, continuously checks if the player enters keyboard inputs, and if so store them in a buffer and sends them to the server.
 5. The PlayerMovementSystem applies the inputs to the various capsules, using the client-side prediction to make the execution more fluid and to make the network latency perception as little as possibile.
 6. In the meantime, the others systems that implement the various features are also getting updated.
+
+## Code
+
+NB: the code snippets shown in the following section have been cut out to highlight the key parts explained in the text.
+
+### Connections
+
+#### `EnableGame` Component
+	
+#### `Game` System
+	
+#### `GoInGameRequest` Component
+
+#### `GoInGameClientSystem` System
+
+#### `GoInGameServerSystem` System
+	
+### Input
+
+#### `PlayerInput` Command
+	
+#### `PlayerInputSystem` System
+	
+### Movement
+	
+#### `PlayerMovementSpeed` Component	
+
+#### `PlayerMovementSystem` System
+	
+### Third Person Camera View
+	
+#### `CameraFollowSystem` System
+	
+### Color-Change Portals
+	
+#### `TemporaryChangeMaterialOnTriggerSystem` System
+	
+#### `PersistentChangeMaterialOnTriggerSystem` System
+	
+### Teleports	
+	
+#### `TeleportComponent` Component
+	
+#### `TeleportSystem` System
+	
+### Entity spawn
+	
+#### `SpawnRandomObjectsAuthoring` Component
+	
+#### `SpawnRandomObjectsSystemBase` System
+	
+### Entity Pick Up
+	
+#### `PlayerScoreComponent` Component
+	
+#### `CollectibleTagComponent` Component	
+	
+#### `DeleteTagComponent` Component
+	
+#### `PickUpSystem` System
+	
+#### `DeleteCollectibleSystem` System
+	
+	
+## References
+	
+### Documentation
+* <a href="https://docs.unity3d.com/Manual/index.html">Unity Manual</a>
+* <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17">Unity Entities</a>
+* <a href="https://docs.unity3d.com/Packages/com.unity.physics@0.6">Unity Physics</a>
+* <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6">Unity NetCode</a>
+* <a href="https://youtube.com/playlist?list=PLX2vGYjWbI0S1wHRTyDiPtKLEPTWFi4cd">Unity Copenhagen 2019 - DOTS (YouTube Playlist)</a>
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/BNMrevfB6Q0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+	
+### GitHub Repositories
+<!--* <a href="https://github.com/Unity-Technologies/DOTSSample">DOTS Sample</a> - uno sparatutto multigiocatore completo realizzato utilizzando DOTS.
+* <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">EntityComponentSystemSamples</a> - contiene delle sub-repository, fra cui anche UnityPhysicsSamples, con esempi, demo e use cases molto utili.
+* <a href="https://github.com/Unity-Technologies/FPSSample">FPS Sample</a> - obsoleto ma è un progetto interessante.
+* <a href="https://github.com/UnityTechnologies/AngryBots_ECS">AngryBots ECS</a> - semplice gioco in terza persona che mostra in modo semplice alcuni vantaggi dell'utilizzo di DOTS.-->
+	
 	
 TO-DO Translate Italian doc [...]
