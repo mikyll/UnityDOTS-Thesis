@@ -21,7 +21,7 @@ provided by DOTS.
 		<li><a href="#execution-flow">Execution Flow</a></li>
 		<li><a href="#code">Code</a>
 			<ul>
-				<li><a href="#connection">Connection</a></li>
+				<li><a href="#connections">Connections</a></li>
 				<li><a href="#input">Input</a></li>
 				<li><a href="#movement">Movement</a></li>
 				<li><a href="#third-person-camera-view">Third Person Camera View</a></li>
