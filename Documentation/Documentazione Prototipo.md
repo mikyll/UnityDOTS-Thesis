@@ -713,6 +713,7 @@ Questa funzionalità poteva essere realizzata direttamente utilizzando solo Coll
 * <a href="https://github.com/Unity-Technologies/DOTSSample">DOTS Sample</a> - uno sparatutto multigiocatore completo realizzato utilizzando DOTS.
 * <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples">EntityComponentSystemSamples</a> - contiene delle sub-repository, fra cui anche UnityPhysicsSamples, con esempi, demo e use cases molto utili.
 * <a href="https://github.com/Unity-Technologies/DOTS-training-samples">DOTS training samples</a> - contiene piccole simulazioni e giochi implementati utilizzando l'architettura classica (senza DOTS) di Unity. È una repository utile per allenarsi a usare DOTS.
+* <a href="https://github.com/Unity-Technologies/multiplayer">Unity Real-time Multiplayer Alpha</a> - contiene un progetto d'esempio che utilizza NetCode per realizzare la parte di networking.
 * <a href="https://github.com/Unity-Technologies/FPSSample">FPS Sample</a> - obsoleto ma è un progetto interessante.
 * <a href="https://github.com/UnityTechnologies/AngryBots_ECS">AngryBots ECS</a> - semplice gioco in terza persona che mostra in modo semplice alcuni vantaggi dell'utilizzo di DOTS.
 
