@@ -32,9 +32,11 @@ provided by DOTS.
 			</ul>
 		</li>
 		<li><a href="#references">References</a>
-			<ul><a href="#documentation">Documentation</a></ul>
-			<ul><a href="#github-repositories">GitHub Repositories</a></ul>
-			<ul><a href="#dots-forum">DOTS Forum</a></ul>
+			<ul>
+				<li><a href="#documentation">Documentation</a></li>
+				<li><a href="#github-repositories">GitHub Repositories</a></li>
+				<li><a href="#dots-forum">DOTS Forum</a></li>
+			</ul>
 		</li>
 	</ol>
 </details>
