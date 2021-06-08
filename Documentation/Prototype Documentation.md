@@ -208,7 +208,6 @@ TO-DO Translate Italian doc [...]
 * <a href="https://docs.unity3d.com/Packages/com.unity.physics@0.6">Unity Physics</a>
 * <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6">Unity NetCode</a>
 * <a href="https://youtube.com/playlist?list=PLX2vGYjWbI0S1wHRTyDiPtKLEPTWFi4cd">Unity Copenhagen 2019 - DOTS (YouTube Playlist)</a>
-<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/BNMrevfB6Q0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 	
 ### GitHub Repositories
 * <a href="https://github.com/Unity-Technologies/DOTSSample">DOTS Sample</a> - a third-person shooter demo showcasing the various new DOTS technologies in action together (including Unity Physics, NetCode, Hybrid Renderer, and Conversion Workflow).
