@@ -198,7 +198,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [`LICENSE`](https://github.com/mikyll/UnityDOTS-Thesis/blob/main/LICENSE) for more information.
 
 
 
