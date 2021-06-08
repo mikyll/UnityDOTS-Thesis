@@ -96,7 +96,7 @@ development.<br/>
 DOTS proposes to replace the old architecture of the game engine, that was based on a component model
 (GameObject + MonoBehaviour), with a new one based on ECS (Entities, Components, Systems). The goal is to
 obtain an architecture that is not limited by the objective-oriented programming, which is known to have
-several problems, mainly related to polymorphism, inheritance chains and reference types. In this regard,
+several pifalls and problems, mainly related to polymorphism, inheritance chains and reference types. In this regard,
 through a data-oriented layout, DOTS allows to obtain *performance by default*, as the code becomes
 organized by the separation between data (inside the components) and the behaviour (confined inside systems).
 Runtime "things" are no longer heavy objects, with data scattered in memory, but simple numeric indexes
