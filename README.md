@@ -28,7 +28,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
+[![GitHub followers][github-shield]][github-url]
 
 
 
@@ -235,3 +235,5 @@ Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mi
 [license-url]: https://github.com/mikyll/UnityDOTS-Thesis/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/michele-righi-095283195/?locale=en_US
+[github-shield]: https://img.shields.io/github/followers/mikyll.svg?style=social&label=Follow
+[github-url]: https://github.com/mikyll
