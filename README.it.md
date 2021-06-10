@@ -134,8 +134,8 @@ impostati).</span>
 <br/>
 <table style="border: none">
   <tr>
-    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
-    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
     <td>PC1: Editor Unity</td>
@@ -262,5 +262,5 @@ Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mi
 [issues-url]: https://github.com/mikyll/UnityDOTS-Thesis/issues
 [license-shield]: https://img.shields.io/github/license/mikyll/UnityDOTS-Thesis
 [license-url]: https://github.com/mikyll/UnityDOTS-Thesis/blob/master/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/michele-righi-095283195/?locale=it_IT
