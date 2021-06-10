@@ -49,11 +49,11 @@
 	<br />
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.it.md">Italiano</a>
 	·
+	<a href="#demo">View Demo</a>
+	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug</a>
-	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Request Feature</a>
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug|Request Feature</a>
   </p>
 </p>
 
@@ -111,7 +111,7 @@ The main packages used to make the prototype are:
 * [Physics](https://docs.unity3d.com/Packages/com.unity.physics@0.6) - implements the physics.
 * [NetCode](https://docs.unity3d.com/Packages/com.unity.netcode@0.6) - implements the networking.
 
-The following images show an example run of the prototype, with an headless server and two connected clients: the first one is running in the Unity editor, the second one is a standalone application running on a different computer. Using the NetCode package, when entering PlayMode in the editor, Unity runs the server, a client and an arbitrary number of thin clients (in this case we didn't set any of those).
+<span id="demo">The following images show an example run of the prototype, with an headless server and two connected clients: the first one is running in the Unity editor, the second one is a standalone application running on a different computer. Using the NetCode package, when entering PlayMode in the editor, Unity runs the server, a client and an arbitrary number of thin clients (in this case we didn't set any of those).</span>
 <table style="border: none">
   <tr>
     <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
