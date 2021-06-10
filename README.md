@@ -53,7 +53,7 @@
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug|Request Feature</a>
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug | Request Feature</a>
   </p>
 </p>
 
