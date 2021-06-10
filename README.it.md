@@ -134,8 +134,8 @@ impostati).</span>
 <br/>
 <table style="border: none">
   <tr>
-    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
-    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+    <td width="49.9%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td width="49.9%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
     <td>PC1: Editor Unity</td>
