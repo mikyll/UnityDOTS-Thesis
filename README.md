@@ -114,8 +114,8 @@ The main packages used to make the prototype are:
 <span id="demo">The following images show an example run of the prototype, with an headless server and two connected clients: the first one is running in the Unity editor, the second one is a standalone application running on a different computer. Using the NetCode package, when entering PlayMode in the editor, Unity runs the server, a client and an arbitrary number of thin clients (in this case we didn't set any of those).</span>
 <table style="border: none">
   <tr>
-    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
-    <td><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+    <td width="49.9%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td width="49.9%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
     <td>PC1: Unity Editor</td>
