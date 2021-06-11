@@ -1,0 +1,135 @@
+% Seleziona la classe usata per il documento con le opzioni che vogliamo
+\documentclass[a4paper, 11pt, twoside, openright]{book}
+% Codifica del testo
+\usepackage[utf8]{inputenc}
+% Lingue usate nel testo, l'ultima e' la lingua principale
+\usepackage[english, italian]{babel}
+% Tipo di caratteri utilizzare nell'output (pdf e dvi).
+\usepackage[T1]{fontenc}
+\usepackage{type1ec}
+% Pacchetto che permette di creare il frontespizio della tesi
+\usepackage[signatures]{frontespizio} % signatures = nel campo dei relatori/correlatori viene lasciato lo spazio per le firme
+% Per avere la lettera di inizio capitolo grande.
+\usepackage{lettrine}
+\usepackage[autostyle, italian=guillemets]{csquotes}
+\usepackage{acronym}
+% Serve per inserire codice complesso nel testo
+% Per codice molto semplice ed in linea possiamo usare il
+% l'ambiente o il comando verbatim
+\usepackage{listings}
+% Gestisce la bibliografia
+\usepackage[sorting=none, citestyle=numeric, backend=biber]{biblatex}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+% Per gli indici dei capitolo, sezioni ecc. in caso volessimo metterli
+\usepackage{minitoc}
+% Permette di inserire delle sotto-figure
+\usepackage[font=small]{caption}
+%\captionsetup{width=.8\linewidth} % modifica dimensioni intestazione
+\usepackage{subcaption}
+
+%\usepackage{siunitx}
+\usepackage{emptypage}
+
+% Verbatim in caption
+\usepackage{fancyvrb}
+
+\newcommand{\Csh}{C\includegraphics{hash-symbol}}
+
+
+%\usepackage{enumitem}
+
+\addbibresource{bibliography.bib}
+
+% Imposta lo spazio fra le linee del testo
+\linespread{1,2}
+
+\input{settings} % importa il file "settings.tex"
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document} % INIZIO DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%--------------%
+% FRONTESPIZIO %
+%--------------%
+\input{frontespizio}            % Frontespizio
+\IfFileExists{\jobname-frn.pdf}{}{\immediate\write18{pdflatex \jobname-frn}} % comandi per la generazione del frontespizio
+
+\null\vspace{\stretch{3}}
+\begin{flushright}
+\emph{Ai miei nonni Bruno e Anna,\\
+instancabili sostenitori del mio percorso di studi}
+\end{flushright}
+\vspace{\stretch{1}}\null
+
+
+% Imposta i numeri romani per le pagine 
+% del sommario e dei vari indici
+\cleardoublepage
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+%----------------%
+% RINGRAZIAMENTI %
+%----------------%
+
+%----------%
+% SOMMARIO %
+%----------%
+\input{frontmatter/abstract}    % Sommario
+
+%------------------------%
+% INDICI (TOC, LOF, LOT) %
+%------------------------%
+\input{frontmatter/contents}    % Indici
+
+% Imposta i numeri arabi per il resto
+% del contenuto di tesi
+\cleardoublepage
+\pagenumbering{arabic}
+
+%----------%
+% CAPITOLI %
+%----------%
+\mainmatter % numera le pagine coi numeri arabi ripartendo da 1
+\input{chapters/introduction}   % Introduzione
+\cleardoublepage
+
+%\input{chapters/template}       % Template
+%\cleardoublepage
+
+\input{chapters/chapter1}       % 1.Evoluzione Game Engine
+\cleardoublepage
+
+\input{chapters/chapter2}       % 2.Unity ECS
+\cleardoublepage
+
+\input{chapters/chapter3}       % 3.Unity NetCode
+\cleardoublepage
+
+\input{chapters/chapter4}       % 4.Prototipo
+\cleardoublepage
+
+\input{chapters/chapter5}       % 5.Risultati sperimentali
+\cleardoublepage
+
+
+%\phantomsection
+
+\backmatter
+\input{chapters/conclusions}    % Conclusioni e sviluppi futuri
+\cleardoublepage
+
+%--------------%
+% BIBLIOGRAFIA %
+%--------------%
+\input{backmatter/bibliography} % Bibliografia
+\cleardoublepage
+
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document} % FINE DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

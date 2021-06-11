@@ -1,0 +1,26 @@
+\chapter*{Conclusioni e Sviluppi Futuri}
+\addcontentsline{toc}{chapter}{Conclusioni e Sviluppi Futuri}
+
+Ripercorrendo il lavoro svolto abbiamo visto inizialmente una overview sui motori di gioco, che ci ha portato alla decisione di Unity di rivoluzionare l'architettura del proprio engine. DOTS è stato introdotto con la frase \emph{performance by default}, la quale significa che con la nuova architettura non bisogna impegnarsi per realizzare del codice performante. Questo è dovuto all'efficienza del modello data-oriented su cui è basato.
+Infatti, fino al 2018 Unity veniva utilizzato al massimo per applicazioni per telefono o videogiochi semplici, salvo qualche eccezione. Questo perché il modello a componenti su cui era basato si prestava molto bene per essere semplice ed user-friendly, ma era fortemente inefficiente. Di conseguenza, chi voleva realizzare un gioco più complesso solitamente optava per Unreal o qualche altro game engine.
+
+DOTS è stato creato avendo una chiara idea di come funziona l'hardware su cui esegue il motore di gioco. Di conseguenza, sfruttando un design orientato ai dati, gli sviluppatori Unity hanno potuto realizzare un'architettura estremamente performante, basata su un modello ad entità, componenti e sistemi. 
+
+Tramite la trattazione del package Entities, nel Capitolo~\ref{cap:ecs} abbiamo analizzato la struttura del nuovo metodo di progettare e scrivere codice di Unity, che garantisce flessibilità, separazione delle competenze e leggibilità. La sua logica basata su strutture e tipi blittable, è alla base di tutto lo stack DOTS, infatti è il package a cui è stata dedicata maggiore attenzione.
+
+Tramite lo studio del package NetCode nel Capitolo~\ref{cap:netcode} abbiamo potuto analizzare i vari modelli di rete e le principali problematiche che possono presentarsi nello sviluppo di un gioco multiplayer. A tal proposito siamo giunti alla conclusione che il miglior pattern di networking è il modello a server autoritativo dedicato, con predizione del client. Unity ha deciso di fondare NetCode su questo modello, appunto perché è il più performante. Non a caso tipicamente viene utilizzato per videogiochi quali gli FPS, in cui è necessaria una latenza minima.
+
+Dopo la trattazione del multigiocatore siamo passati allo sviluppo di un prototipo multigiocatore implementato interamente utilizzando i package della nuova architettura.
+Lo sviluppo dei prototipi ed i risultati sperimentali ottenuti nel Capitolo~\ref{cap:risultati} ci hanno permesso di dimostrare che l'architettura classica di Unity possiede dei limiti consistenti, sia per quanto riguarda il modello su cui si basa, sia per quanto riguarda le prestazioni e la struttura del codice. In particolare, aiutandoci col Profiler Unity, abbiamo visto le diverse possibilità di miglioramento di performance, tramite l'utilizzo dei package Jobs e Burst, che ci permettono di sfruttare il multithreading. Inoltre, un utilizzo efficiente della CPU e dei suoi core, non significa solo maggiori performance, ma si traduce anche, ad esempio, in minor consumo di risorse, e maggiore durata della batteria, nel caso di applicazioni per telefono. DOTS permette di guadagnare sotto ogni punto di vista.
+
+Al contrario, con l'approccio classico, l'utilizzo dei MonoBehaviour è molto inefficiente, in quanto, eseguendo sempre sul main thread e in sequenza, non permette di realizzare una soluzione scalabile. Inoltre, essendo un tipo riferimento, non si presta molto bene ad essere memorizzato nelle cache della CPU, all'interno delle quali occupa più spazio di quello che dovrebbe.
+
+In conclusione, l'architettura DOTS offre un potenziale senza limiti, che può essere sfruttato per realizzare giochi e applicazioni di varia natura. Infatti, al giorno d'oggi Unity viene utilizzato non solo in ambito videoludico, ma anche in settori quali l'ingegneria ed edilizia, l'architettura, le simulazioni ed il cinema.
+Per questi motivi possiamo affermare con certezza che l'assioma su cui si fonda DOTS ``performance by default'' è veritiero.
+
+Per quanto riguarda gli sviluppi futuri, possiamo aspettarci che venga rimosso parte del codice per l'utilizzo di NetCode, il quale è leggermente prolisso e dispendioso. Probabilmente Unity continuerà il suo percorso per rendere l'architettura il più semplice possibile da usare, rimuovendo parte del codice ``boilerplate'', come ha già fatto per i job all'interno dei sistemi e la generazione automatica di comandi.
+Possiamo dunque confidare che la documentazione dei vari package diventi più completa, e l'utilizzo dell'approccio data-oriented venga normalizzato, magari inserendo nell'editor qualche interfaccia specifica.
+
+In ogni caso siamo certi che Unity continuerà lo sviluppo dello stack DOTS, fino alla release ufficiale, per la quale forse sarà necessario aspettare ancora un po'.
+
+Per quanto riguarda il prototipo DOTS sviluppato nel capitolo~\ref{cap:prototipo}, come sviluppi futuri prevediamo di realizzare un sistema che gestisca le lobby dei giocatori, prima dell'ingresso in partita, ed un sistema di punteggio con scoreboard.

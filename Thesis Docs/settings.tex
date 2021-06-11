@@ -1,0 +1,90 @@
+\newcommand{\Csharp}{%
+    {\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\bf \#}}}  
+}
+
+% ********************************************************************
+% listings
+% ******************************************************************** 
+\renewcommand{\lstlistingname}{Codice}% Listing -> Algorithm
+
+%------------------%
+% MINITOC settings %
+%------------------%
+
+\dominitoc % Indice per ogni capitolo
+% Questi di solito li lascerei commentati altrimenti
+% l'indice per capitolo diventa troppo complesso e con troppe cose.
+% \dominilof % Lista delle figure per ogni capitolo
+% \dominilot % Lista delle tabelle per ogni capitolo
+
+% impostazioni per codice listings (preso da documento Andrea)
+\definecolor{stringColor}{HTML}{a31515} % for strings
+\definecolor{commentColor}{HTML}{008000} % comments
+\definecolor{keywordColor}{HTML}{0000ff} % keywords
+\definecolor{stringDocColor}{HTML}{a31515} % javadoc
+
+\definecolor{moreKey1Color}{HTML}{af00db} % keywords
+\definecolor{moreKey2Color}{HTML}{267f99} % keywords
+\definecolor{regionColor}{HTML}{b4b4b4} % regions
+
+\definecolor{blightgray}{rgb}{0.98,0.98,0.98}
+
+\lstset{
+    captionpos=t,
+	basicstyle={\scriptsize\ttfamily},
+% 	numbers=left,
+% 	numberstyle=\tiny\color{black},
+	backgroundcolor=\color{blightgray},
+	showstringspaces=false,
+	columns=flexible,
+	stringstyle={\color{stringColor}},
+	commentstyle={\color{commentColor}},
+	keywordstyle={\color{keywordColor}},
+	frame=single,
+	framesep=5pt,
+	breaklines=true,
+	rulecolor=\color{lightgray},
+	flexiblecolumns=true,
+	xleftmargin=2pt,
+	breakatwhitespace=true,
+	tabsize=4,
+	showspaces=false,
+	showstringspaces=false,
+	%% escapeinside={(*@}{@*)},
+} 
+
+
+\lstset{
+	basicstyle={\scriptsize\ttfamily},
+% 	numbers=left,
+% 	numberstyle=\tiny\color{black},
+	backgroundcolor=\color{blightgray},
+	showstringspaces=false,
+	columns=flexible,
+	stringstyle={\color{stringColor}},
+	commentstyle={\color{commentColor}},
+	keywordstyle={\color{keywordColor}},
+	frame=single,
+	framesep=5pt,
+	breaklines=true,
+	rulecolor=\color{lightgray},
+	flexiblecolumns=true,
+	xleftmargin=2pt,
+	breakatwhitespace=true,
+	tabsize=4,
+	showspaces=false,
+	showstringspaces=false,
+	%% escapeinside={(*@}{@*)},
+}
+\lstset{
+    emph={%  
+    region, endregion%
+    },emphstyle={\color{regionColor}\bfseries}%
+}%
+\lstdefinestyle{sharpc}{
+    classoffset=0,
+    morekeywords={try, catch, throw},keywordstyle=\color{moreKey1Color},
+    classoffset=1,
+    morekeywords={spdlog, std},keywordstyle=\color{moreKey2Color},
+    classoffset=0
+}
