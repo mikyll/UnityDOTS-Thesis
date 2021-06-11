@@ -51,6 +51,8 @@
 	·
 	<a href="#demo">View Demo</a>
 	·
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Thesis</a>
+	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug | Request Feature</a>
