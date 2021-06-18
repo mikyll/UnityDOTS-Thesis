@@ -279,7 +279,7 @@ variabile.<br/>
 Dopodiché otteniamo la lista dei <b>NetworkIdComponent</b> delle connessioni, salvandola in networkIdFromEntity,
 ovvero un container <i>dictionary-like</i>. Tramite questo container possiamo assegnare il rispettivo id della 
 connessione al componente <b>GhostOwnerComponent</b> del ghost di ciascun client. Questa è un'operazione 
-fondamentale che bisogna fare a runtime, in quanto prima non è possibile conoscere a chi apparterrà un certo
+fondamentale che bisogna fare "a runtime", in quanto prima non è possibile conoscere a chi apparterrà un certo
 ghost.
 <br/>
 Dunque iteriamo su tutte le entità che corrispondono a richieste RPC (aventi dunque GoInGameRequest e
