@@ -136,15 +136,136 @@ TO-DO Translate Italian doc [...]
 
 ### Connections
 <details>
+File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a> contains the <i>logic to make the connection</i>. In particular, the system <b>Game</b> checks wheter if we are in a client or a server, calling a connect or listen respectively. <br/>
+Once the client and the server are connected, we need to tell NetCode that the clients are ready to send commands and receive snapshots from the server: on the client side, as soon as the connection is established, the system <b>GoInGameSystem</b> starts running and sends a RPC to the server; on the server side, the system <b>GoInGameServerSystem</b>, which started running, receives the RPC and marks the client as "in game", adding the component <b>NetworkStreamInGame</b> to the entity representing the connection and creating a capsule player for the user corresponding to that client.
+
 #### `EnableGame` Component
-	
+
+We declare the <b>EnableGame</b> structure which we will need later to indicate that the clients or the server are ready to connect and enter the game.
+
 #### `Game` System
-	
+
+[UpdateInWorld(UpdateInWorld.TargetWorld.Default)] indicates that the Game system must run in the default world, as this world is always present because it is automatically instantiated by Unity.
+
+Since the Game system code carries out the connection, it only needs to be executed once per application run. Therefore, we use the additional singleton <b>InitGameComponent</b>, to indicate when the code of the system has already been executed once: in the OnCreate() we use the method <b>RequireSingletonForUpdate<>()</b> to state the entity that must be present for OnUpdate() to be called; then we create the entity having this component; finally in OnUpdate() we remove that entity, so the application no longer calls OnUpdate() of the Game system.
+<pre>
+protected override void OnCreate()
+{
+	RequireSingletonForUpdate<InitGameComponent>();
+	EntityManager.CreateEntity(typeof(InitGameComponent));
+}
+</pre>
+
+The OnUpdate() method loops over all teh worlds present in the application and, after obtaining the system <b>NetworkStreamReceiveSystem</b> (which exposes the Connect and Listen methods), we check if we are in a client or a server:
+* if the application is a client, the ClientWorld will be present, inside which there will be a system group called <b>ClientSimulationSystemGroup</b>. Accordingly, we create the singleton entity <b>EnableGame</b> and we connect to localhost:7979.
+* Otherwise, if the application is a server, there will be the ServerWorld, inside which there will be <b>ServerSimulationSystemGroup</b>. Therefore we create the singleton entity <b>EnableGame</b> and we listen on port 7979.
+<pre>
+protected override void OnUpdate()
+{
+    EntityManager.DestroyEntity(GetSingletonEntity<InitGameComponent>());
+    foreach (var world in World.All)
+    {
+        var network = world.GetExistingSystem<NetworkStreamReceiveSystem>();
+        if (world.GetExistingSystem<ClientSimulationSystemGroup>() != null)
+        {
+            world.EntityManager.CreateEntity(typeof(EnableGame));
+            NetworkEndPoint ep = NetworkEndPoint.LoopbackIpv4;
+            ep.Port = 7979;
+            ep = NetworkEndPoint.Parse(ClientServerBootstrap.RequestedAutoConnect, 7979);
+
+            network.Connect(ep);
+        }
+        else if (world.GetExistingSystem<ServerSimulationSystemGroup>() != null)
+        {
+            world.EntityManager.CreateEntity(typeof(EnableGame));
+            NetworkEndPoint ep = NetworkEndPoint.AnyIpv4;
+            ep.Port = 7979;
+
+            network.Listen(ep);
+        }
+    }
+}
+</pre>
+
 #### `GoInGameRequest` Component
+Since the component <b>NetworkStreamInGame</b> has not been added to the entity representing the connection between a client and the server, they cannot communicate by sending commands or snapshots yet. So, we use a NetCode RPC (IRpcCommand) to notify the server that the client is ready to enter the game, so the server can mark the connection and start the communication.<br/>
+As explained in the <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/rpcs.html">NetCode docs</a>, to send an RPC we need to create an entity and add the RPC command just created and then the component SendRpcCommandRequestComponent, which triggers the Unity RPC sending system.
 
 #### `GoInGameClientSystem` System
+The [UpdateInGroup(typeof(ClientSimulationSystemGroup))] attribute indicates that this system must be updated only on clients, within the ClientSimulationSystemGroup.<br/>
+We want this system to run only once, when the client wants to enter the game, specifically between the connection with the server and before the communication via commands and snapshots is started. Therefore, we require that the EnableGame singleton is present and that the entity representing the connection (which has the <b>NetworkIdComponent</b>), does not have the <b>NetworkStreamInGame</b> component.
+<pre>
+protected override void OnCreate()
+{
+    RequireSingletonForUpdate<EnableGame>();
+    RequireForUpdate(GetEntityQuery(ComponentType.ReadOnly<NetworkIdComponent>(), ComponentType.Exclude<NetworkStreamInGame>()));
+}
+</pre>
+
+After that, in OnUpdate(), we iterate over all the entities that have <b>NetworkIdComponent</b> but do not have <b>NetworkStreamInGame</b>, which is the entity of the connection. Therefore, using a command buffer, we follow the procedure to send the RPC: we create an entity, we add the RPC command to it, and finally we add the <b>SendRpcCommandRequestComponent</b>, by indicating the target connection.
+<pre>
+protected override void OnUpdate()
+{
+    var commandBuffer = new EntityCommandBuffer(Allocator.Temp);
+    Entities.WithNone<NetworkStreamInGame>().ForEach((Entity ent, in NetworkIdComponent id) =>
+    {
+        commandBuffer.AddComponent<NetworkStreamInGame>(ent);
+        var req = commandBuffer.CreateEntity();
+        commandBuffer.AddComponent<GoInGameRequest>(req);
+        commandBuffer.AddComponent(req, new SendRpcCommandRequestComponent { TargetConnection = ent });
+    }).Run();
+    commandBuffer.Playback(EntityManager);
+    commandBuffer.Dispose();
+}
+</pre>
 
 #### `GoInGameServerSystem` System
+The [UpdateInGroup(typeof(ServerSimulationSystemGroup))] attribute indicates that this system must be updated only on the server.
+We want this system to run only when, after the EnableGame singleton has been added, it arrives an RPC request from a client. Therefore, we require EnableGame to be present and that there is an entity having as components our RPC command and <b>ReceiveRpcCommandRequestComponent</b>.
+<pre>
+protected override void OnCreate()
+{
+    RequireSingletonForUpdate<EnableGame>();
+    RequireForUpdate(GetEntityQuery(ComponentType.ReadOnly<GoInGameRequest>(), ComponentType.ReadOnly<ReceiveRpcCommandRequestComponent>()));
+}
+</pre>
+
+In the OnUpdate() method, we get the list of ghost prefabs, which are the networked objects. In our prototype the only ghost is the PlayerCapsule, which is the character that each player controls and moves around the map. Since this list could be extended in the future, we check anyway if the ghost is the capsule one (i.e. if it has the PlayerMovementSpeed component), and we save it in a variable.<br/>
+Then we get the list of the connections <b>NetworkIdComponent</b>, we save it in networkIdFromEntity, which is a <i>dictionary-like</i> container. Through this container we can assign the respective id of the connection to the <b>GhostOwnerComponent</b> of each client's ghost. This fundamental operation must be done "at runtime", since it is not possible to know before who will belong to a certain ghost.<br/>
+Then we iterate over all the entities that correspond to RPC requests (thus having GoInGameRequest e ReceiveRpcCommandRequestComponent). Since the request contains the entity of the source connection from which the RPC has been sent, we can use it to add the <b>NetworkStreamInGame</b> component to that entity, and start the communication via commands and snapshots. Once this is done, we instantiate the player capsule and update the NetworkId of that ghost's owner.<br/>
+Finally we add to the capsule entity the buffer on which the player's inputs will be stored, and to the connection the <b>CommandTargetComponent</b>, which will be used by the input management system to understand which ghost to apply the inputs received from the player. Furthermore, we destroy the RPC request entity, otherwise the system would keep running forever.<br/>
+Now everything is set up to allow the client to sample inputs and send them to the server as commands, and for the server to receive these commands, apply them in its simulation and send snapshots (i.e. game state updates) back to the client.
+<pre>
+protected override void OnUpdate()
+{
+    var ghostCollection = GetSingletonEntity<GhostPrefabCollectionComponent>();
+    var prefab = Entity.Null;
+    var prefabs = EntityManager.GetBuffer<GhostPrefabBuffer>(ghostCollection);
+    for (int ghostId = 0; ghostId < prefabs.Length; ++ghostId)
+    {
+        if (EntityManager.HasComponent<PlayerMovementSpeed>(prefabs[ghostId].Value))
+            prefab = prefabs[ghostId].Value;
+    }
+
+    var commandBuffer = new EntityCommandBuffer(Allocator.Temp);
+    var networkIdFromEntity = GetComponentDataFromEntity<NetworkIdComponent>(true);
+    Entities.WithReadOnly(networkIdFromEntity).ForEach((Entity reqEnt, in GoInGameRequest req, in ReceiveRpcCommandRequestComponent reqSrc) =>
+    {
+        commandBuffer.AddComponent<NetworkStreamInGame>(reqSrc.SourceConnection);
+        UnityEngine.Debug.Log(String.Format("Server setting connection {0} to in game", networkIdFromEntity[reqSrc.SourceConnection].Value));
+
+        var player = commandBuffer.Instantiate(prefab); // spawn capsula per il giocatore
+        commandBuffer.SetComponent(player, new GhostOwnerComponent { NetworkId = networkIdFromEntity[reqSrc.SourceConnection].Value });
+
+        commandBuffer.AddBuffer<PlayerInput>(player);
+        commandBuffer.SetComponent(reqSrc.SourceConnection, new CommandTargetComponent { targetEntity = player });
+
+        commandBuffer.DestroyEntity(reqEnt);
+    }).Run();
+    commandBuffer.Playback(EntityManager);
+    commandBuffer.Dispose();
+}
+</pre>
 </details>
 
 ### Input
