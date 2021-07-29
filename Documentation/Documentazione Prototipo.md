@@ -165,13 +165,14 @@ codice di questo sistema è già stato eseguito una volta: nella OnCreate() usia
 <b>RequireSingletonForUpdate<>()</b> per indicare l'entità che dev'essere presente affinché OnUpdate() venga
 chiamata; dopodiché creiamo l'entità avente questo componente; infine nella OnUpdate() rimuoviamo tale
 entità, così Unity non chiama più OnUpdate() del sistema Game.
-<pre>
+
+```csharp
 protected override void OnCreate()
 {
 	RequireSingletonForUpdate<InitGameComponent>();
 	EntityManager.CreateEntity(typeof(InitGameComponent));
 }
-</pre>
+```
 
 La OnUpdate() itera su tutti i mondi presenti nell'applicazione e, dopo aver ottenuto il sistema
 <b>NetworkStreamReceiveSystem</b> (che espone i metodi Connect e Listen), controlliamo se ci troviamo in un
@@ -182,7 +183,7 @@ facciamo una connect a localhost:7979.
 * Nel caso l'applicazione sia un server, sarà presente il mondo ServerWorld, al cui interno vi sarà il
 gruppo di sistemi <b>ServerSimulationSystemGroup</b>. Dunque creiamo l'entità singleton <b>EnableGame</b> e
 facciamo una listen sulla porta 7979.
-<pre>
+```csharp
 protected override void OnUpdate()
 {
     EntityManager.DestroyEntity(GetSingletonEntity<InitGameComponent>());
@@ -208,7 +209,7 @@ protected override void OnUpdate()
         }
     }
 }
-</pre>
+```
 
 #### Componente `GoInGameRequest`
 
@@ -228,19 +229,19 @@ Vogliamo che questo sistema esegua una sola volta, quando il client deve entrare
 dopo la connessione con il server, ma prima che venga avviata la comunicazione via comandi e snapshot.
 Dunque, richiediamo che sia presente il singleton EnableGame e che l'entità rappresentante la connessione
 (che possiede il componente <b>NetworkIdComponent</b>), non abbia <b>NetworkStreamInGame</b>.
-<pre>
+```csharp
 protected override void OnCreate()
 {
     RequireSingletonForUpdate<EnableGame>();
     RequireForUpdate(GetEntityQuery(ComponentType.ReadOnly<NetworkIdComponent>(), ComponentType.Exclude<NetworkStreamInGame>()));
 }
-</pre>
+```
 
 Dopodiché nella OnUpdate(), iteriamo su tutte le entità che possiedono <b>NetworkIdComponent</b> ma non hanno
 <b>NetworkStreamInGame</b>, ovvero l'entità della connessione. Dunque, utilizzando un command buffer, seguiamo 
 la procedura per inviare la RPC: creiamo un'entità, vi aggiungiamo il comando RPC, ed infine aggiungiamo il
 componente <b>SendRpcCommandRequestComponent</b> indicando la connessione target.
-<pre>
+```csharp
 protected override void OnUpdate()
 {
     var commandBuffer = new EntityCommandBuffer(Allocator.Temp);
@@ -254,7 +255,7 @@ protected override void OnUpdate()
     commandBuffer.Playback(EntityManager);
     commandBuffer.Dispose();
 }
-</pre>
+```
 
 #### Sistema `GoInGameServerSystem`
 
@@ -263,13 +264,13 @@ aggiornato solo nel server.<br/>
 Vogliamo che questo sistema esegua solo quando, dopo che è stato aggiunto il singleton EnableGame, arriva 
 una richiesta di RPC da un client. Dunque, richiediamo che sia presente EnableGame e che vi sia un'entità
 avente come componenti il nostro comando RPC e <b>ReceiveRpcCommandRequestComponent</b>.
-<pre>
+```csharp
 protected override void OnCreate()
 {
     RequireSingletonForUpdate<EnableGame>();
     RequireForUpdate(GetEntityQuery(ComponentType.ReadOnly<GoInGameRequest>(), ComponentType.ReadOnly<ReceiveRpcCommandRequestComponent>()));
 }
-</pre>
+```
 
 Nella OnUpdate() otteniamo la lista dei ghost prefab, ovvero i networked object. Nel nostro prototipo
 l'unico ghost presente è la PlayerCapsule, ovvero il personaggio che ciascun giocatore controlla e muove per
@@ -297,7 +298,7 @@ richiesta RPC altrimenti il sistema continua ad eseguire all'infinito.
 Ora è tutto impostato correttamente per permettere al client di accumulare input ed inviarli al server 
 sottoforma di comandi, ed al server di ricevere questi comandi, applicarli nella propria simulazione ed
 inviare le snapshot (ovvero gli aggiornamenti dello stato di gioco) al client.
-<pre>
+```csharp
 protected override void OnUpdate()
 {
     var ghostCollection = GetSingletonEntity<GhostPrefabCollectionComponent>();
@@ -327,7 +328,7 @@ protected override void OnUpdate()
     commandBuffer.Playback(EntityManager);
     commandBuffer.Dispose();
 }
-</pre>
+```
 </details>
 
 
@@ -338,18 +339,18 @@ Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Pro
 #### Comando `PlayerInput`
 La struttura PlayerInput implementa l'interfaccia ICommandData, ovvero l'interfaccia necessaria per realizzare un comando in NetCode. Questa non è altro che un <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">buffer dinamico</a> utilizzato per accumulare comandi da trasmettere attraverso una connessione. Infatti, questa interfaccia espone la proprietà Tick, che dev'essere specificata, in quanto indica il tick di esecuzione della simulazione in cui è stato campionato l'input, così che il server, quando lo riceverà, potrà applicarlo nello stesso momento del client, indipendentemente dalla latenza della rete. Il tick permette anche di sfruttare la <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/prediction.html">predizione lato client</a> fornita da NetCode.<br/>
 Nel nostro caso questa struttura contiene, oltre al tick, i campi horizontal e vertical, che indicano rispettivamente il movimento sull'asse x e sull'asse y.
-<pre>
+```csharp
 public struct PlayerInput : ICommandData
 {
 	public uint Tick { get; set; }
 	public int horizontal;
 	public int vertical;
 }
-</pre>
+```
 
 #### Sistema `PlayerInputSystem`
 La raccolta degli input avviene tramite il sistema <b>PlayerInputSystem</b>, che esegue solo lato client. All'interno di questo, in OnCreate(), innanzitutto richiediamo che, affinché il sistema venga aggiornato, siano presenti il singleton <b>NetworkIdComponent</b> (che identifica una connessione, dunque un client) ed EnableGame (che indica che il gioco è iniziato). Poi salviamo in una variabile il gruppo di sistema <b>ClientSimulationSystemGroup</b>, in quanto da questo possiamo ottenere il tick del server (che aggiorna sempre ad un timestep fisso).
-<pre>
+```csharp
 ClientSimulationSystemGroup m_ClientSimulationSystemGroup;
 protected override void OnCreate()
 {
@@ -357,11 +358,11 @@ protected override void OnCreate()
 	RequireSingletonForUpdate<EnableGame>();
 	m_ClientSimulationSystemGroup = World.GetExistingSystem<ClientSimulationSystemGroup>();
 }
-</pre>
+```
 
 La parte più complicata di questo sistema risiede nel metodo OnUpdate(): dopo aver ottenuto il singleton <b>CommandTargetComponent</b>, controlliamo che contenga il  riferimento all'entità capsula del giocatore. Poiché a runtime ci possono essere diversi giocatori, e di conseguenza diversi personaggi capsula, è necessario distinguere il client a cui appartengono. Il componente CommandTargetComponent serve proprio a questo: è un singleton, diverso per ogni client. Infatti, quando l'applicazione viene messa in esecuzione normalmente, è presente solo il World del client specifico, di conseguenza il singleton rappresenta l'entità ghost della capsula associata al client del mondo.
 Però, poiché alla prima esecuzione questo componente non è inizializzato, dobbiamo gestire anche il caso in cui non contenga ancora l'entità. In questo caso semplicemente otteniamo l'id della connessione dal singleton NetworkIdComponent e, iterando su tutte le entità capsula, cerchiamo quella con il <b>NetworkId</b> (nel componente <b>GhostOwner</b>, che avevamo inizializzato in Game.cs) corrispondente. Una volta trovata, impostiamo il valore di targetEntity di CommandTargetComponent.
-<pre>
+```csharp
 var localInput = GetSingleton<CommandTargetComponent>().targetEntity; 
 if (localInput == Entity.Null)
 {
@@ -380,10 +381,10 @@ if (localInput == Entity.Null)
 	commandBuffer.Playback(EntityManager);
 	return;
 }
-</pre>
+```
 
 Fatto ciò possiamo finalmente campionare gli input: dopo aver aggiornato il tick del comando, con quello del server, ottenuto da ClientSimulationSystemGroup, impostiamo il valore di horizontal e vertical in base all'input ricevuto dall'utente. Infine, aggiungiamo l'input al buffer di comandi PlayerInput.
-<pre>
+```csharp
 var input = default(PlayerInput);
 input.Tick = m_ClientSimulationSystemGroup.ServerTick;
 if (Input.GetKey("a"))
@@ -396,7 +397,7 @@ if (Input.GetKey("w"))
 	input.vertical += 1;
 var inputBuffer = EntityManager.GetBuffer<PlayerInput>(localInput);
 inputBuffer.AddCommandData(input);
-</pre>
+```
 </details>
 
 
@@ -411,7 +412,7 @@ Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Pro
 Questo sistema viene aggiornato all'interno del gruppo <b>GhostPredictionSystemGroup</b>, che permette di implementare la predizione lato client dei ghost.
 In particolare, nella OnUpdate() otteniamo il tick di predizione da tale gruppo e iteriamo su tutte le entità capsule, inserendo nella lambda i componenti che ci serviranno.
 Come prima cosa controlliamo se il codice della predizione dovrebbe eseguire, utilizzando il metodo <b>ShouldPredict()</b> per sapere se all'entità dev'essere applicata la predizione per il tick in questione. In caso affermativo, dal buffer PlayerInput otteniamo il comando relativo a tale tick, e applichiamo il movimento in base ai dati contenuti nel comando.
-<pre>
+```csharp
 var tick = m_GhostPredictionSystemGroup.PredictingTick;
 var deltaTime = Time.DeltaTime;
 Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv, in PredictedGhostComponent prediction, in PlayerMovementSpeed pms) =>
@@ -431,7 +432,7 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 	if (input.vertical < 0)
 		pv.Linear.z -= speed * deltaTime;
 }).ScheduleParallel();
-</pre>
+```
 </details>
 
 
@@ -442,7 +443,7 @@ Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Pro
 #### Sistema `CameraFollowSystem`
 Come per PlayerInputSystem, questo sistema esegue nel gruppo ClientSimulationSystemGroup, in quanto la logica che realizza mostra un risultato diverso a seconda del client che esegue.
 Il metodo OnUpdate() semplicemente salva in una variabile la posizione della camera principale <b>Camera.main</b> e, dopo aver ottenuto il singleton CommandTargetComponent contenente l'entità della capsula corrispondente al client, si cicla su tutte le entità capsule attualmente presenti a tempo di esecuzione. Dunque, si cerca l'entità corrispondente a quella contenuta in CommandTargetComponent, e si aggiorna la posizione della camera con quella della capsula, aggiungendovi un offset per avere una visuale completa. L'offset è ottenuto da un componente <b>PlayerCameraFollowComponent</b>, allegato all'entità capsula.
-<pre>
+```csharp
 var position = Camera.main.transform.position;
 
 var commandTargetComponentEntity = GetSingletonEntity<CommandTargetComponent>();
@@ -457,7 +458,7 @@ Entities.WithAll<PlayerScoreComponent>().ForEach((Entity entity, in Translation 
 	}
 }).Run();
 Camera.main.transform.position = position;
-</pre>
+```
 </details>
 
 
@@ -474,7 +475,7 @@ All'interno del ForEach, iteriamo sugli eventi trigger del buffer, che contengon
 * Quando entra, si aggiorna il materiale dell'entità con quello del portale.
 * Quando esce, si ripristina il materiale originale dell'entità.
 In questo modo, viene resettato il materiale originale dell'entità, non quello precedente all'ingresso nel portale.
-<pre>
+```csharp
 Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEvent> triggerEventBuffer, ref TemporaryChangeMaterialOnTriggerComponent changeMaterial) =>
 {
 	for (int i = 0; i < triggerEventBuffer.Length; i++)
@@ -508,7 +509,7 @@ Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEven
 		}
 	}
 }).Run();
-</pre>
+```
 
 #### Sistema `PersistentChangeMaterialOnTriggerSystem`
 Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata di quello temporaneo. A differenza del precedente, non si gestisce la casistica in cui l'entità che attraversa il portale esca. Per questo motivo si utilizza il componente <b>PersistentChangeMaterialOnTriggerTagComponent</b> che non contiene alcun tipo di informazione, ma serve solo per indicare che un'entità è un portale.
@@ -523,44 +524,44 @@ I file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prot
 Questo componente indica che l'entità a cui è attaccato è un portale per il teletrasporto e contiene due proprietà:
 * L'entità del portale compagno, che serve per identificare da dove usciranno le entità che attraversano il portale a cui è allegato il componente.
 * Il numero di teletrasporti, che serve invece per evitare che l'entità che attraversa il portale non venga immediatamente riportata indietro.
-<pre>
+```csharp
 [GenerateAuthoringComponent]
 public struct TeleportComponent : IComponentData
 {
 	public Entity Companion;
 	public int TransferCount;
 }
-</pre>
+```
 
 #### Sistema `TeleportSystem`
 Questo sistema, nel metodo OnCreate() inizializza il contatore dei trasferimenti a 0.
-<pre>
+```csharp
 Entities.ForEach((ref TeleportComponent tc) =>
 {
 	tc.TransferCount = 0;
 }).Run();
-</pre>
+```
 
 Nel metodo OnUpdate() iteriamo su tutte le entità aventi il componente <b>TeleportComponent</b> ed un buffer di <b>StatefulTriggerEvent</b>. Dentro al ForEach, salviamo in una variabile l'entità del portale compagno, quindi iteriamo su tutti gli eventi trigger contenuti nel buffer.
 All'interno del ciclo for salviamo l'entità che ha innescato il trigger con il portale in una variabile (otherEntity), dopodiché controlliamo se questa è appena stata teletrasportata e, in questo caso, decrementiamo di 1 il valore di TransferCount.
 Physics utilizza <b>RigidTransform</b> per indicare la posizione di un'entità nel "world-space" e applicarvi la simulazione fisica. Il portale (come nel nostro caso, in cui il teletrasporto effettivo è solo la superficie interna di un prefab) può essere parte di una gerarchia, dunque i componenti Translation e Rotation, che ne indicano la posizione, potrebbero non essere in coordinate globali (rispetto al world-space), ma relative all'entità padre nella gerarchia. Per questo motivo, salviamo in delle variabili le posizioni dei portali come RigidTransform, controllando se l'entità fa match con la maschera hierarchyChildMask (la quale contiene una query che controlla se ha i componenti Parent e LocalToWorld):
 * in caso affermativo, significa che l'entità del portale è parte di una gerarchia, dunque utilizziamo il metodo DecomposeRigidBodyTransform() per ottenere un RigidTransform che ne indica la posizione nel "world-space", così che Physics possa utilizzarlo correttamente;
 * in caso negativo, utilizziamo semplicemente la posizione corrente del portale (Translation e Rotation) per creare RigidTransform.
-<pre>
+```csharp
 var portalTransform = hierarchyChildMask.Matches(portalEntity)
 ? Math.DecomposeRigidBodyTransform(GetComponent<LocalToWorld>(portalEntity).Value)
 : new RigidTransform(GetComponent<Rotation>(portalEntity).Value, GetComponent<Translation>(portalEntity).Value);
 var companionTransform = hierarchyChildMask.Matches(companionEntity)
 ? Math.DecomposeRigidBodyTransform(GetComponent<LocalToWorld>(companionEntity).Value)
 : new RigidTransform(GetComponent<Rotation>(companionEntity).Value, GetComponent<Translation>(companionEntity).Value);
-</pre>
+```
 
 Dopodiché calcoliamo l'offset di posizione e rotazione fra i portali, otteniamo i componenti relativi a posizione, rotazione e velocità dell'entità che l'ha attraversato, e vi applichiamo rispettivamente:
 * una traslazione, per realizzare il teletrasporto;
 * una rotazione, per aggiornare la direzione verso cui è rivolta;
 * una rotazione, per aggiornare la direzione della velocità lineare.
 Infine aggiorniamo il valore di questi e incrementiamo TransferCount di 1.
-<pre>
+```csharp
 var portalPositionOffset = companionTransform.pos - portalTransform.pos;
 var portalRotationOffset = math.mul(companionTransform.rot, math.inverse(portalTransform.rot));
 
@@ -577,7 +578,7 @@ SetComponent(otherEntity, entityRotationComponent);
 SetComponent(otherEntity, entityVelocityComponent);
 
 companionTeleportComponent.TransferCount++;
-</pre>
+```
 
 Per maggiori informazioni su come funziona il sistema che gestisce la posizione delle entità, fare riferimento a
 <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/transform_system.html">TransformSystem</a>, mentre per quanto riguarda i calcoli matematici fatti per le gerarchie di entità <a href="https://docs.unity3d.com/Packages/com.unity.physics@0.6/api/Unity.Physics.Math.html">Physics.Math</a>.
@@ -591,7 +592,7 @@ Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Pro
 #### Componente `SpawnRandomObjectsAuthoring`
 In questo caso, invece di utilizzare l'attributo [GenerateAuthoringComponent] abbiamo utilizzato il <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/conversion.html#the-iconvertgameobjecttoentity-interface">conversion workflow</a> di ECS, che ci permette di convertire un MonoBehaviour nel rispettivo componente.
 Utilizzando l'interfaccia <b>IConvertGameObjectToEntity</b> ed il relativo metodo Convert convertiamo il MonoBehaviour in un componente <b>SpawnSettings</b>, creando e inizializzando la rispettiva struttura, aggiungendolo all'entità convertita dal GameObject.
-<pre>
+```csharp
 public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
 {
 	var spawnSettings = new T
@@ -605,12 +606,12 @@ public void Convert(Entity entity, EntityManager dstManager, GameObjectConversio
 	Configure(ref spawnSettings);
 	dstManager.AddComponentData(entity, spawnSettings);
 }
-</pre>
+```
 
 #### Sistema `SpawnRandomObjectsSystemBase`
 Questo sistema si occupa dello spawn delle entità: all'interno del metodo OnUpdate(), utilizziamo un ciclo ForEach "rustico" (in quanto il sistema è di tipo generico T) per iterare sulle entità che hanno il componente SpawnSettings. All'interno di questo ciclo creiamo un NativeArray della dimensione di count, ovvero il numero di entità da spawnare, per contenere le istanze delle entità, e altri due NativeArray per le posizioni e le rotazioni.
 Dunque utilizziamo il metodo <b>RandomPointsInRange()</b> per inizializzare questi ultimi due NativeArray ed iteriamo per il numero di entità da spawnare e per ciascuna impostiamo il componente Traslation e Rotation, così che possa comparire all'interno del mondo. Infine rimuoviamo il componente SpawnSettings dall'entità spawner, per impedire che il metodo OnUpdate() esegua di nuovo.
-<pre>
+```csharp
 var instances = new NativeArray<Entity>(count, Allocator.Temp);
 EntityManager.Instantiate(spawnSettings.Prefab, instances);
 
@@ -626,10 +627,10 @@ for (int i = 0; i < count; i++)
 	ConfigureInstance(instance, spawnSettings);
 }
 EntityManager.RemoveComponent<T>(entity);
-</pre>
+```
 
 Il metodo <b>RandomPointsInRange()</b> prende i valori del volume passati come parametri e genera un punto radomico all'interno di questo, aggiornando i valori di <b>Translation</b> e <b>Rotation</b> per ciascun elemento dei rispettivi array.
-<pre>
+```csharp
 protected static void RandomPointsInRange(
 float3 center, quaternion orientation, float3 range,
 ref NativeArray<float3> positions, ref NativeArray<quaternion> rotations, int seed = 0)
@@ -643,7 +644,7 @@ ref NativeArray<float3> positions, ref NativeArray<quaternion> rotations, int se
 		rotations[i] = math.mul(random.NextQuaternionRotation(), orientation);
 	}
 }
-</pre>
+```
 </details>
 
 
@@ -662,17 +663,17 @@ Indica che un'entità è raccoglibile e vi assegna un punteggio.
 
 #### Sistema `PickUpSystem`
 Questo sistema si occupa di rilevare gli eventi trigger tra un player capsula e un'entità collectible. Il funzionamento è simile a quello dei portali: all'interno del metodo OnUpdate() iteriamo su tutte le entità aventi il buffer di <b>StatefulTriggerEvent</b> e <b>CollectibleTagComponent</b>.
-<pre>
+```csharp
 Entities.WithoutBurst().ForEach(
 (Entity e, ref DynamicBuffer<StatefulTriggerEvent> triggerEventBuffer, ref CollectibleTagComponent collectibleComponent) => {
-</pre>
+```
 
 Dopodiché eseguiamo un ciclo sugli eventi trigger contenuti nel buffer:
 1. Otteniamo l'entità con cui è avvenuta la collisione.
 2. Controlliamo che lo stato di StatefulTriggerEvent sia "Enter" e che l'entità con cui è avvenuta la collisione sia un personaggio capsula (ovvero abbia il componente <b>PlayerMovementSpeed</b>).
 3. Otteniamo il componente <b>PlayerScoreComponent</b>, in cui si trova il punteggio attuale del giocatore e lo incrementiamo del valore contenuto in <b>CollectibleTagComponent</b>.
 4. Aggiorniamo il valore di <b>PlayerScoreComponent</b> del giocatore e aggiungiamo il componente <b>DeleteTagComponent</b> all'entità collectible.
-<pre>
+```csharp
 var otherEntity = triggerEvent.GetOtherEntity(e); 
 
 if (triggerEvent.State == EventOverlapState.Enter && EntityManager.HasComponent<PlayerMovementSpeed>(otherEntity))
@@ -683,16 +684,16 @@ if (triggerEvent.State == EventOverlapState.Enter && EntityManager.HasComponent<
 	commandBuffer.SetComponent(otherEntity, punteggioPlayer);
 	commandBuffer.AddComponent<DeleteTagComponent>(e, new DeleteTagComponent());
 }
-</pre>
+```
 
 #### Sistema `DeleteCollectibleSystem`
 Questo sistema si occupa dell'eliminazione delle entità marcate col componente <b>DeleteTagComponent</b>. Semplicemente itera su tutte le entità aventi tale componente e, utilizzando un command buffer, le elimina.
-<pre>
+```csharp
 Entities.WithAll<DeleteTagComponent>().ForEach((Entity entity) =>
 {
 	commandBuffer.DestroyEntity(entity);
 }).Run();
-</pre>
+```
 
 Questa funzionalità poteva essere realizzata direttamente utilizzando solo CollectibleTagComponent e PickUpSystem, realizzando l'eliminazione dell'entità direttamente all'interno di quest'ultimo, ma abbiamo voluto separare le competenze mostrando un'ulteriore possibilità.
 </details>
