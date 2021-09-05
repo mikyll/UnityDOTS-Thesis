@@ -222,8 +222,6 @@ Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mi
 
 * Il mio correlatore [Andrea Garbugli](https://www.unibo.it/sitoweb/andrea.garbugli) per avermi proposto un argomento così interessante e per avermi fornito aiuto e supporto nella stesura del documento di tesi. 
 * [Othneil Drew](https://github.com/othneildrew) per il magnifico [template del README](https://github.com/othneildrew/Best-README-Template).
-<!--* []() -->
-
 
 
 
