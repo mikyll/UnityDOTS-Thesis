@@ -270,9 +270,71 @@ protected override void OnUpdate()
 
 ### Input
 <details>
+The file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a> contains the logic for the player input sampling. Since this is a multiplayer game, it's not enough to simply sample the input and use it directly, but it's necessary to store it somewhere (an <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b> structure) and send it to the Server in the form of a command, so that it too can apply it in its own simulation.
+In fact, since NetCode is based on an authoritative server model, the simulation is performed on both client and server, but the server has the authority, i.e. its simulation is always correct and trusted, and the client must fix its own based on it.
+
 #### `PlayerInput` Command
-	
+The PlayerInput structure implements the ICommandData interface, which is the interface required to execute a command in NetCode. This is nothing more than a <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">dynamic buffer</a> used to store commands to be transmitted across a connection. In fact, this interface exposes the Tick property, which must be implemented, as it indicates the execution tick of the simulation in which the input was sampled, so that the server, when receives it, can apply it at the same time as the client, regardless of network latency. The tick also allows you to take advantage of the <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/prediction.html">client-side prediction</a> provided by NetCode. <br/>
+In our case this structure contains, in addition to the tick, the horizontal and vertical fields, which respectively indicate the movement on the x axis and on the y axis.
+```csharp
+public struct PlayerInput : ICommandData
+{
+	public uint Tick { get; set; }
+	public int horizontal;
+	public int vertical;
+}
+```
+
 #### `PlayerInputSystem` System
+The collection of inputs is done through the <b>PlayerInputSystem</b>, which runs only on the client side. Within this, in OnCreate(), first of all we require that, in order for the system to be updated, the singleton <b>NetworkIdComponent</b> (which identifies a connection, therefore a client) and EnableGame (which indicates that the game has begun) are both present. Then we save the <b>ClientSimulationSystemGroup</b> system group in a variable, as from this we can obtain the server tick (which always updates at a fixed timestep).
+```csharp
+ClientSimulationSystemGroup m_ClientSimulationSystemGroup;
+protected override void OnCreate()
+{
+	RequireSingletonForUpdate<NetworkIdComponent>();
+	RequireSingletonForUpdate<EnableGame>();
+	m_ClientSimulationSystemGroup = World.GetExistingSystem<ClientSimulationSystemGroup>();
+}
+```
+
+The most complex part of this system lies in the OnUpdate() method: after obtaining the <b>CommandTargetComponent</b> singleton, we check that it contains the reference to the player's capsule entity. Since there can be several players at runtime, and consequently several capsule characters, it is necessary to distinguish which client each capsule belongs to. The CommandTargetComponent component does just that: it's a singleton, different for each client. In fact, when the application is run normally, only the World of the specific client is present, consequently the singleton represents the ghost entity of the capsule associated with the client of the world.
+However, since at the first run this component is not initialized, we also have to handle the case in which it does not yet contain the entity. In this case we simply get the connection id from the NetworkIdComponent singleton and, by iterating over all the capsule entities, we look for the one having the corresponding <b>NetworkId</b> (inside the <b>GhostOwner</b> component, which we had initialized in Game.cs). Once found, we set the targetEntity value of CommandTargetComponent.
+```csharp
+var localInput = GetSingleton<CommandTargetComponent>().targetEntity; 
+if (localInput == Entity.Null)
+{
+	var localPlayerId = GetSingleton<NetworkIdComponent>().Value;
+	var commandBuffer = new EntityCommandBuffer(Allocator.Temp);
+	var commandTargetEntity = GetSingletonEntity<CommandTargetComponent>();
+	Entities.WithAll<PlayerMovementSpeed>().WithNone<PlayerInput>()
+	.ForEach((Entity ent, ref GhostOwnerComponent ghostOwner) =>
+	{
+	if (ghostOwner.NetworkId == localPlayerId)
+	{
+		commandBuffer.AddBuffer<PlayerInput>(ent);
+		commandBuffer.SetComponent(commandTargetEntity, new CommandTargetComponent { targetEntity = ent });
+	}
+	}).Run();
+	commandBuffer.Playback(EntityManager);
+	return;
+}
+```
+
+Once this is done we can finally sample the inputs: after updating the tick of the command, with the one of the server, obtained from ClientSimulationSystemGroup, we set horizontal and vertical values based on the input received from the user. Finally, we add the input to the PlayerInput command buffer.
+```csharp
+var input = default(PlayerInput);
+input.Tick = m_ClientSimulationSystemGroup.ServerTick;
+if (Input.GetKey("a"))
+	input.horizontal -= 1;
+if (Input.GetKey("d"))
+	input.horizontal += 1;
+if (Input.GetKey("s"))
+	input.vertical -= 1;
+if (Input.GetKey("w"))
+	input.vertical += 1;
+var inputBuffer = EntityManager.GetBuffer<PlayerInput>(localInput);
+inputBuffer.AddCommandData(input);
+```
 </details>
 
 ### Movement
