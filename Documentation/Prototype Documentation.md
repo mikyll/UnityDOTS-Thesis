@@ -363,7 +363,7 @@ inputBuffer.AddCommandData(input);
 #### `TeleportSystem` System
 </details>
 
-### Entity spawn
+### Entity Spawn
 <details>	
 #### `SpawnRandomObjectsAuthoring` Component
 	
