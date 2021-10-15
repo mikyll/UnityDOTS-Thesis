@@ -1,4 +1,3 @@
-
 # Prototype Documentation (ENG)
 
 The prototype consists of a small multiplayer videogame in which each player controls their capsule character,
