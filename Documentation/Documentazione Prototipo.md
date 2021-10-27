@@ -403,7 +403,7 @@ inputBuffer.AddCommandData(input);
 
 ### Movimento
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contiene la logica per l'applicazione del movimento alle capsule dei giocatori, applicando la predizione. 
+Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contiene la logica per l'applicazione del movimento alle capsule dei giocatori, sfruttando la predizione. 
 
 #### Componente `PlayerMovementSpeed`
 È associato a un'entità capsula e ne indica la velocità di movimento.
