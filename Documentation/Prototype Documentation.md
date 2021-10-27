@@ -338,7 +338,10 @@ inputBuffer.AddCommandData(input);
 
 ### Movement
 <details>
+The file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contains the logic for applying movement to player capsules, using prediction.
+
 #### `PlayerMovementSpeed` Component	
+It is associated with a capsule entity and indicates its movement speed.
 
 #### `PlayerMovementSystem` System
 </details>
