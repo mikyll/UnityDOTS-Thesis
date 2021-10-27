@@ -347,6 +347,27 @@ It is associated with a capsule entity and indicates its movement speed.
 This system is updated within the <b>GhostPredictionSystemGroup</b>, which allows you to implement client-side prediction of ghosts.
 In particular, in OnUpdate () we get the prediction tick from this group and iterate over all the capsule entities, inserting the components we will need into the lambda.
 First we check if the prediction code should execute, using the <b>ShouldPredict()</b> method to find out if the prediction for the tick in question should be applied to the entity. If so, from the PlayerInput buffer we get the command related to that tick, and we apply the movement based on the data contained in the command.
+```csharp
+var tick = m_GhostPredictionSystemGroup.PredictingTick;
+var deltaTime = Time.DeltaTime;
+Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv, in PredictedGhostComponent prediction, in PlayerMovementSpeed pms) =>
+{
+	if (!GhostPredictionSystemGroup.ShouldPredict(tick, prediction))
+		return;
+	PlayerInput input;
+	inputBuffer.GetDataAtTick(tick, out input);
+	var speed = pms.speed;
+	
+	if (input.horizontal > 0)
+		pv.Linear.x += speed * deltaTime;
+	if (input.horizontal < 0)
+		pv.Linear.x -= speed * deltaTime;
+	if (input.vertical > 0)
+		pv.Linear.z += speed * deltaTime;
+	if (input.vertical < 0)
+		pv.Linear.z -= speed * deltaTime;
+}).ScheduleParallel();
+```
 </details>
 
 ### Third Person Camera View
