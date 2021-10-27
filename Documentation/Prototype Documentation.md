@@ -344,6 +344,9 @@ The file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Pr
 It is associated with a capsule entity and indicates its movement speed.
 
 #### `PlayerMovementSystem` System
+This system is updated within the <b>GhostPredictionSystemGroup</b>, which allows you to implement client-side prediction of ghosts.
+In particular, in OnUpdate () we get the prediction tick from this group and iterate over all the capsule entities, inserting the components we will need into the lambda.
+First we check if the prediction code should execute, using the <b>ShouldPredict()</b> method to find out if the prediction for the tick in question should be applied to the entity. If so, from the PlayerInput buffer we get the command related to that tick, and we apply the movement based on the data contained in the command.
 </details>
 
 ### Third Person Camera View
