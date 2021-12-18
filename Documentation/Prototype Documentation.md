@@ -375,6 +375,7 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 The file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a> allows us to create a third-person game view, in which the main camera follows its capsule character.
 	
 #### `CameraFollowSystem` System
+TO-DO
 </details>
 
 ### Color-Change Portals
