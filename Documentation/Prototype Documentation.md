@@ -397,7 +397,9 @@ Camera.main.transform.position = position;
 </details>
 
 ### Color-Change Portals
-<details>	
+<details>
+Files <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a> and <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a> contain the logic to change the material of the capsule character passing through them. In particular, these systems detect the trigger events caused by the passage of a capsule character through a portal having the component <b>TemporaryChangeMaterialOnTriggerComponent</b> and <b>PersistentChangeMaterialOnTriggerTagComponent</b> respectively. Then they modify the material (therefore also the color) of the capsule temporarily, until the capsule leaves the portal, or persistently.
+
 #### `TemporaryChangeMaterialOnTriggerSystem` System
 	
 #### `PersistentChangeMaterialOnTriggerSystem` System
