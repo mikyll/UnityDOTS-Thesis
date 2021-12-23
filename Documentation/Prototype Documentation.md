@@ -401,6 +401,9 @@ Camera.main.transform.position = position;
 Files <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a> and <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a> contain the logic to change the material of the capsule character passing through them. In particular, these systems detect the trigger events caused by the passage of a capsule character through a portal having the component <b>TemporaryChangeMaterialOnTriggerComponent</b> and <b>PersistentChangeMaterialOnTriggerTagComponent</b> respectively. Then they modify the material (therefore also the color) of the capsule temporarily, until the capsule leaves the portal, or persistently.
 
 #### `TemporaryChangeMaterialOnTriggerSystem` System
+This system iterates over entities having a buffer of <b>StatefulTriggerEvent</b> components and the <b>TemporaryChangeMaterialOnTriggerComponent</b> component:
+* <b>StatefulTriggerEvent</b> is contained in file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> and allows you to accumulate "Trigger" events (they're launched when an object crosses a portal, through the properties of the latter's PhysicsShape component).
+ 
 	
 #### `PersistentChangeMaterialOnTriggerSystem` System
 </details>
