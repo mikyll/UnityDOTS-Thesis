@@ -375,7 +375,25 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 The file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a> allows us to create a third-person game view, in which the main camera follows its capsule character.
 	
 #### `CameraFollowSystem` System
-TO-DO
+As well as PlayerInputSystem, this system runs in the ClientSimulationSystemGroup group, since its logic shows a different result depending on the client it executes.
+The OnUpdate () method simply saves in a variable the position of the main camera <b>Camera.main</b> and, after obtaining the singleton CommandTargetComponent containing the entity of the capsule corresponding to the client, it cycles through all the capsule entities currently present at runtime.
+Therefore, we search for the entity corresponding to the one contained in CommandTargetComponent, and update the position of the camera with the one of the capsule, adding an offset to it to get a complete view. The offset is obtained from a <b>PlayerCameraFollowComponent</b> component, attached to the capsule entity.
+```csharp
+var position = Camera.main.transform.position;
+
+var commandTargetComponentEntity = GetSingletonEntity<CommandTargetComponent>();
+var commandTargetComponent = GetComponent<CommandTargetComponent>(commandTargetComponentEntity);
+Entities.WithAll<PlayerScoreComponent>().ForEach((Entity entity, in Translation translation, in PlayerCameraFollowComponent pcf) =>
+{
+	if (entity == commandTargetComponent.targetEntity && !pcf.fixedCamera)
+	{
+		position.x = translation.Value.x + pcf.xOffset;
+		position.y = translation.Value.y + pcf.yOffset;
+		position.z = translation.Value.z + pcf.zOffset;
+	}
+}).Run();
+Camera.main.transform.position = position;
+```
 </details>
 
 ### Color-Change Portals
