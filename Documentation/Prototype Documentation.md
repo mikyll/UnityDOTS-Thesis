@@ -402,9 +402,50 @@ Files <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Proto
 
 #### `TemporaryChangeMaterialOnTriggerSystem` System
 This system iterates over entities having a buffer of <b>StatefulTriggerEvent</b> components and the <b>TemporaryChangeMaterialOnTriggerComponent</b> component:
-* <b>StatefulTriggerEvent</b> is contained in file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> and allows you to accumulate "Trigger" events (they're launched when an object crosses a portal, through the properties of the latter's PhysicsShape component).
- 
-	
+* <b>StatefulTriggerEvent</b> is contained in file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> and allows you to accumulate "Trigger" events (they're launched when an object crosses a portal, through the properties of the latter's PhysicsShape component). Through this we can know the exact frame of entry and exit from the portal, as well as the frames in which an entity remains within it, since the single Trigger events are buffered and the status of the previous frame is checked. This file was taken from the Unity sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a>, where there are several examples for using the Physics package.
+* <b>TemporaryChangeMaterialOnTriggerComponent</b> contains the entity whose material the portal will change each time it passes through the portal.
+
+Inside the ForEach, we iterate over the trigger events of the buffer, which contain the entity with which the portal collided, checking in particular when this enters or exits:
+* When it enters, the material of the entity is updated with the one of the portal.
+* When exiting, the entity's original material is restored.
+
+This way, the original material of the entity gets reset, not the one before entering the portal.
+```csharp
+Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEvent> triggerEventBuffer, ref TemporaryChangeMaterialOnTriggerComponent changeMaterial) =>
+{
+	for (int i = 0; i < triggerEventBuffer.Length; i++)
+	{
+		var triggerEvent = triggerEventBuffer[i];
+		var otherEntity = triggerEvent.GetOtherEntity(e);
+		
+		// exclude other triggers and processed events
+		if (triggerEvent.State == EventOverlapState.Stay || !nonTriggerMask.Matches(otherEntity))
+		{
+			continue;
+		}
+		if (triggerEvent.State == EventOverlapState.Enter)
+		{
+			var volumeRenderMesh = EntityManager.GetSharedComponentData<RenderMesh>(e);
+			var overlappingRenderMesh = EntityManager.GetSharedComponentData<RenderMesh>(otherEntity);
+			overlappingRenderMesh.material = volumeRenderMesh.material;
+			commandBuffer.SetSharedComponent(otherEntity, overlappingRenderMesh);
+		}
+		else
+		{
+			// State == PhysicsEventState.Exit
+			if (changeMaterial.ReferenceEntity == Entity.Null)
+			{
+				continue;
+			}
+			var overlappingRenderMesh = EntityManager.GetSharedComponentData<RenderMesh>(otherEntity);
+			var referenceRenderMesh = EntityManager.GetSharedComponentData<RenderMesh>(changeMaterial.ReferenceEntity);
+			overlappingRenderMesh.material = referenceRenderMesh.material;
+			commandBuffer.SetSharedComponent(otherEntity, overlappingRenderMesh);
+		}
+	}
+}).Run();
+```
+
 #### `PersistentChangeMaterialOnTriggerSystem` System
 </details>
 
