@@ -185,7 +185,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/mikyll/Uni
 
 Michele Righi - righi.michele98@gmail.com
 
-Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/UnityDOTS-Thesis)
+Project Link: [github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/UnityDOTS-Thesis)
 
 
 
