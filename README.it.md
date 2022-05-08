@@ -204,7 +204,7 @@ ad un problema o anche solo un'idea su come risolverlo, è **largamente apprezza
 <!-- LICENSE -->
 ## Licenza
 
-Distribuito sotto Licenza MIT. See `LICENSE` for more information.
+Distribuito sotto Licenza MIT. Vedi [`LICENSE`](https://github.com/mikyll/UnityDOTS-Thesis/blob/main/LICENSE) per maggiori informazioni.
 
 
 
@@ -213,7 +213,7 @@ Distribuito sotto Licenza MIT. See `LICENSE` for more information.
 
 Michele Righi - righi.michele98@gmail.com
 
-Project Link: [https://github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/UnityDOTS-Thesis)
+Project Link: [github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/UnityDOTS-Thesis)
 
 
 
