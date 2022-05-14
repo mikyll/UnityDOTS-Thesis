@@ -20,16 +20,16 @@
   <p align="center">
 	This project was carried out as an integral part of my bachelor's degree thesis in Computer Engineering, concerning the new Unity DOTS architecture. The goal of the paper, in addition to analyzing the new data-oriented layout provided by the ECS-based model, was to create a <i>working multiplayer game prototype made entirely using DOTS.</i>
 	<br />
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
+	<a href="./Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
 	<br />
 	<br />
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.it.md">Italiano</a>
+	<a href="./README.it.md">Italiano</a>
 	·
 	<a href="#demo">View Demo</a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Thesis</a>
+	<a href="./Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Thesis</a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
+	<a href="./Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug | Request Feature</a>
   </p>
@@ -92,8 +92,8 @@ The main packages used to make the prototype are:
 <span id="demo">The following images show an example run of the prototype, with an headless server and two connected clients: the first one is running in the Unity editor, the second one is a standalone application running on a different computer. Using the NetCode package, when entering PlayMode in the editor, Unity runs the server, a client and an arbitrary number of thin clients (in this case we didn't set any of those).</span>
 <table style="border: none">
   <tr>
-    <td width="49.9%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
-    <td width="49.9%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+    <td width="49.9%"><img src="./Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td width="49.9%"><img src="./Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
     <td>PC1: Unity Editor</td>
@@ -139,7 +139,7 @@ To get a local copy up and running follow these simple steps.
 
 To test the prototype in multiplayer you can create a build for a standalone client, then enter PlayMode in the editor and connect the standalone application; otherwise you can create one build for the server and one for the client and connect several clients to the server.
 
-For more examples, please refer to the [Documentation](https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md).
+For more examples, please refer to the [Documentation](./Documentation/Prototype%20Documentation.md).
 
 
 
@@ -176,7 +176,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See [`LICENSE`](https://github.com/mikyll/UnityDOTS-Thesis/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
 
 
 
