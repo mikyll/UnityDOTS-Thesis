@@ -33,16 +33,16 @@
 	performante a priori, in modo tale che gli sviluppatori non debbano preoccuparsi delle prestazioni
 	del codice che scrivono, se non come ultimo aspetto.-->
     <br />
-    <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
+    <a href="./Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
     <br />
     <br />
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/README.md">English</a>
+	<a href="./README.md">English</a>
 	·
 	<a href="#demo">Guarda la Demo</a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Tesi</a>
+	<a href="./Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Tesi</a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Presentation/PresentazioneDOTS%20(pdf_compatto).pdf">Presentazione</a>
+	<a href="./Presentation/PresentazioneDOTS%20(pdf_compatto).pdf">Presentazione</a>
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Segnala un Bug | Richiedi una Funzionalità</a>
 </p>
@@ -111,8 +111,8 @@ impostati).</span>
 <br/>
 <table style="border: none">
   <tr>
-    <td width="49.9%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
-    <td width="49.9%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
+    <td width="49.9%"><img src="./Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
+    <td width="49.9%"><img src="./Documentation/Images/GIF_AppStandalone_Prototype.gif" alt="StandaloneGIF"/></td>
   </tr>
   <tr>
     <td>PC1: Editor Unity</td>
@@ -163,7 +163,7 @@ entrare in Play Mode nell'editor Unity e connettere un'applicazione standalone; 
 il server ed una per il client e connettere diversi client al server.
 
 Per ulteriori esempi fare riferimento alla 
-[Documentazione](https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Documentazione%20Prototipo.md).
+[Documentazione](./Documentation/Documentazione%20Prototipo.md).
 
 
 
@@ -204,7 +204,7 @@ ad un problema o anche solo un'idea su come risolverlo, è **largamente apprezza
 <!-- LICENSE -->
 ## Licenza
 
-Distribuito sotto Licenza MIT. Vedi [`LICENSE`](https://github.com/mikyll/UnityDOTS-Thesis/blob/main/LICENSE) per maggiori informazioni.
+Distribuito sotto Licenza MIT. Vedi [`LICENSE`](./LICENSE) per maggiori informazioni.
 
 
 
