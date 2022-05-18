@@ -5,7 +5,7 @@ moving it inside the map and interacting with many scene objects. It was made en
 provided by DOTS.
 <br/>
 <p align="center">
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Documentazione%20Prototipo.md">Italiano</a>
+	<a href="./Documentazione%20Prototipo.md">Italiano</a>
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis">Home page</a>
 </p>
@@ -53,52 +53,53 @@ In particular, the following packages were used:
 
 <table>
 	<tr>
-		<td><b>Feature</b></td>
-		<td><b>File</b></td>
-		<td width="40%"><b>Demo</b></td>
+		<td align="center"><b>Feature</b></td>
+		<td align="center"><b>File</b></td>
+		<td align="center" width="40%"><b>Demo</b></td>
 	</tr>
 	<tr>
 		<td>Input stacking and capsule player movement</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerMovementSpeed.cs">PlayerMovementSpeed</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs">PlayerInputSystem.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/PlayerMovementSpeed.cs">PlayerMovementSpeed</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs">PlayerInputSystem.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a></td>
+		<td><img src="./Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Third person camera follow</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerCameraFollowComponent.cs">PlayerCameraFollowComponent.cs</a><br/>
-			<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/PlayerCameraFollowComponent.cs">PlayerCameraFollowComponent.cs</a><br/>
+			<a href="/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a></td>
+		<td><img src="./Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
 	</tr>
 	<tr>
 		<td>Color change portals</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PersistentChangeMaterialOnTriggerComponent.cs">PersistentChangeMaterialOnTriggerComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a><br/><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/TemporaryChangeMaterialOnTriggerComponent.cs">TemporaryChangeMaterialOnTriggerComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_ChangeMaterialPortals.gif" alt="PortaliColoreGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/PersistentChangeMaterialOnTriggerComponent.cs">PersistentChangeMaterialOnTriggerComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a><br/><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Components/TemporaryChangeMaterialOnTriggerComponent.cs">TemporaryChangeMaterialOnTriggerComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a></td>
+		<td><img src="./Images/GIF_ChangeMaterialPortals.gif" alt="PortaliColoreGIF"/></td>
 	</tr>
 	<tr>
 		<td>Teleports</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/TeleportComponent.cs">TeleportComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Teleport.gif" alt="TeletrasportoGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/TeleportComponent.cs">TeleportComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a></td>
+		<td><img src="./Images/GIF_Teleport.gif" alt="TeletrasportoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Entities spawn at random points in a volume</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/InspectorSpawnRandomAuthoring.png" alt="SpawnRandomAuthoring" width="60%"/>
-			<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_SpawnEntities.gif" alt="SpawnEntitiesGIF" width="35%"/>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a></td>
+		<td>
+			<img src="./Images/InspectorSpawnRandomAuthoring.png" alt="SpawnRandomAuthoring" width="60%"/>
+			<img src="./Images/GIF_SpawnEntities.gif" alt="SpawnEntitiesGIF" width="35%"/>
 		</td>
 	</tr>
 	<tr>
 		<td>Collectibles pick up</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerScoreComponent.cs">PlayerScoreComponent</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PickUpSystem.cs">CollectibleTagComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DeleteTagComponent.cs">DeleteTagComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/DeleteCollectibleSystem.cs">DeleteCollectibleSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_PickupCollectibles.gif" alt="CollectiblesGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/PlayerScoreComponent.cs">PlayerScoreComponent</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Components/PickUpSystem.cs">CollectibleTagComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Components/DeleteTagComponent.cs">DeleteTagComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/DeleteCollectibleSystem.cs">DeleteCollectibleSystem.cs</a></td>
+		<td width="40%"><img src="./Images/GIF_PickupCollectibles.gif" alt="CollectiblesGIF"/></td>
 	</tr>
 </table>
 
