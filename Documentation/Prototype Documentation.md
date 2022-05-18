@@ -113,8 +113,8 @@ To make the <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/m
 2. Create a Build Configuration: **Project Window** > **Create** > **Build** > **Windows Classic Build Configuration**.
 3. Select the configuration and run the build.
 <p float="left">
-<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
-<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
+<img src="./Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
+<img src="./Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
 </p>
 
 ## Execution Flow
@@ -136,7 +136,7 @@ TO-DO Translate Italian doc [...]
 
 ### Connections
 <details>
-File <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a> contains the <i>logic to make the connection</i>. In particular, the system <b>Game</b> checks wheter if we are in a client or a server, calling a connect or listen respectively. <br/>
+File <a href="/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a> contains the <i>logic to make the connection</i>. In particular, the system <b>Game</b> checks wheter if we are in a client or a server, calling a connect or listen respectively. <br/>
 Once the client and the server are connected, we need to tell NetCode that the clients are ready to send commands and receive snapshots from the server: on the client side, as soon as the connection is established, the system <b>GoInGameSystem</b> starts running and sends a RPC to the server; on the server side, the system <b>GoInGameServerSystem</b>, which started running, receives the RPC and marks the client as "in game", adding the component <b>NetworkStreamInGame</b> to the entity representing the connection and creating a capsule player for the user corresponding to that client.
 
 #### `EnableGame` Component
@@ -270,7 +270,7 @@ protected override void OnUpdate()
 
 ### Input
 <details>
-The file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a> contains the logic for the player input sampling. Since this is a multiplayer game, it's not enough to simply sample the input and use it directly, but it's necessary to store it somewhere (an <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b> structure) and send it to the Server in the form of a command, so that it too can apply it in its own simulation.
+The file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a> contains the logic for the player input sampling. Since this is a multiplayer game, it's not enough to simply sample the input and use it directly, but it's necessary to store it somewhere (an <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b> structure) and send it to the Server in the form of a command, so that it too can apply it in its own simulation.
 In fact, since NetCode is based on an authoritative server model, the simulation is performed on both client and server, but the server has the authority, i.e. its simulation is always correct and trusted, and the client must fix its own based on it.
 
 #### `PlayerInput` Command
@@ -339,7 +339,7 @@ inputBuffer.AddCommandData(input);
 
 ### Movement
 <details>
-The file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contains the logic for applying movement to player capsules, using prediction.
+The file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contains the logic for applying movement to player capsules, using prediction.
 
 #### `PlayerMovementSpeed` Component	
 It is associated with a capsule entity and indicates its movement speed.
@@ -373,7 +373,7 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 
 ### Third Person Camera View
 <details>
-The file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a> allows us to create a third-person game view, in which the main camera follows its capsule character.
+The file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a> allows us to create a third-person game view, in which the main camera follows its capsule character.
 	
 #### `CameraFollowSystem` System
 As well as PlayerInputSystem, this system runs in the ClientSimulationSystemGroup group, since its logic shows a different result depending on the client it executes.
@@ -399,11 +399,11 @@ Camera.main.transform.position = position;
 
 ### Color-Change Portals
 <details>
-Files <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a> and <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a> contain the logic to change the material of the capsule character passing through them. In particular, these systems detect the trigger events caused by the passage of a capsule character through a portal having the component <b>TemporaryChangeMaterialOnTriggerComponent</b> and <b>PersistentChangeMaterialOnTriggerTagComponent</b> respectively. Then they modify the material (therefore also the color) of the capsule temporarily, until the capsule leaves the portal, or persistently.
+Files <a href="/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a> and <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a> contain the logic to change the material of the capsule character passing through them. In particular, these systems detect the trigger events caused by the passage of a capsule character through a portal having the component <b>TemporaryChangeMaterialOnTriggerComponent</b> and <b>PersistentChangeMaterialOnTriggerTagComponent</b> respectively. Then they modify the material (therefore also the color) of the capsule temporarily, until the capsule leaves the portal, or persistently.
 
 #### `TemporaryChangeMaterialOnTriggerSystem` System
 This system iterates over entities having a buffer of <b>StatefulTriggerEvent</b> components and the <b>TemporaryChangeMaterialOnTriggerComponent</b> component:
-* <b>StatefulTriggerEvent</b> is contained in file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> and allows you to accumulate "Trigger" events (they're launched when an object crosses a portal, through the properties of the latter's PhysicsShape component). Through this we can know the exact frame of entry and exit from the portal, as well as the frames in which an entity remains within it, since the single Trigger events are buffered and the status of the previous frame is checked. This file was taken from the Unity sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a>, where there are several examples for using the Physics package.
+* <b>StatefulTriggerEvent</b> is contained in file <a href="/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> and allows you to accumulate "Trigger" events (they're launched when an object crosses a portal, through the properties of the latter's PhysicsShape component). Through this we can know the exact frame of entry and exit from the portal, as well as the frames in which an entity remains within it, since the single Trigger events are buffered and the status of the previous frame is checked. This file was taken from the Unity sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a>, where there are several examples for using the Physics package.
 * <b>TemporaryChangeMaterialOnTriggerComponent</b> contains the entity whose material the portal will change each time it passes through the portal.
 
 Inside the ForEach, we iterate over the trigger events of the buffer, which contain the entity with which the portal collided, checking in particular when this enters or exits:
