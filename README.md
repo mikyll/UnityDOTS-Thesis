@@ -1,3 +1,5 @@
+<div align="center">
+
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -7,34 +9,27 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![GitHub followers][github-shield]][github-url]
 
-
 <!-- PROJECT LOGO -->
+<!-- <a href="https://github.com/mikyll/UnityDOTS-Thesis">
+<img src="images/logo.png" alt="Logo" width="80" height="80">
+</a> -->
+
+<h1 align="center">Multiplayer Applications and Games Project<br/>on Unity DOTS Architecture</h1>
+This project was carried out as an integral part of my bachelor's degree thesis in Computer Engineering, concerning the new Unity DOTS architecture. The goal of the paper, in addition to analyzing the new data-oriented layout provided by the ECS-based model, was to create a <i>working multiplayer game prototype made entirely using DOTS.</i>
 <br />
-<p align="center">
-  <!--<a href="https://github.com/mikyll/UnityDOTS-Thesis">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>-->
-
-  <h1 align="center">Multiplayer Applications and Games Project<br/>on Unity DOTS Architecture</h1>
-
-  <p align="center">
-	This project was carried out as an integral part of my bachelor's degree thesis in Computer Engineering, concerning the new Unity DOTS architecture. The goal of the paper, in addition to analyzing the new data-oriented layout provided by the ECS-based model, was to create a <i>working multiplayer game prototype made entirely using DOTS.</i>
-	<br />
-	<a href="./Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
-	<br />
-	<br />
-	<a href="./README.it.md">Italiano</a>
-	·
-	<a href="#demo">View Demo</a>
-	·
-	<a href="./Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Thesis</a>
-	·
-	<a href="./Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
-	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug | Request Feature</a>
-  </p>
-</p>
-
+<a href="./Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
+<br />
+<br />
+<a href="./README.it.md">Italiano</a>
+·
+<a href="#demo">View Demo</a>
+·
+<a href="./Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Thesis</a>
+·
+<a href="./Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
+·
+<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug | Request Feature</a>
+</div>
 
 
 <!-- TABLE OF CONTENTS -->
