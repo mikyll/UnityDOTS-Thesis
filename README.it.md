@@ -1,3 +1,5 @@
+<div align="center">
+
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -7,46 +9,39 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![GitHub followers][github-shield]][github-url]
 
-
 <!-- PROJECT LOGO -->
+<!-- <a href="https://github.com/mikyll/UnityDOTS-Thesis">
+<img src="images/logo.png" alt="Logo" width="80" height="80">
+</a> -->
+<h1 align="center">Progetto di Applicazioni e Giochi Multiplayer<br/>su Architettura Unity DOTS</h1>
+Questo progetto è stato realizzato come parte integrante della mia tesi di laurea triennale in Ingegneria
+Informatica, riguardante appunto la nuova architettura Unity DOTS. L'obbiettivo dell'elaborato, oltre 
+all'analisi del nuovo layout orientato ai dati fornito dal modello basato su ECS, era quello di creare 
+un <i>prototipo di gioco multiplayer funzionante realizzato interamente sfruttando DOTS.</i>
+<!--A tal proposito sono stati utilizzati i vari package forniti dallo stack DOTS, con particolare 
+attenzione a Entities (che realizza il modello a Entità, Componenti e Sistemi) e NetCode (che implementa 
+il networking).
+Il motivo che ha spinto Unity alla ristrutturazione dell'architettura del proprio game engine è dovuto
+al fatto che questa era limitata dal modello basato su componenti, troppo legato all'Object-Oriented
+Programming. Infatti, come è ormai risaputo, questo modello ha diversi problemi, dovuti principalmente
+al polimorfismo, alle catene di ereditarietà ed ai tipi riferimento.
+Dunque, con DOTS Unity si propone di superare questi limiti fornendo un'architettura efficiente e
+performante a priori, in modo tale che gli sviluppatori non debbano preoccuparsi delle prestazioni
+del codice che scrivono, se non come ultimo aspetto.-->
 <br />
-<p align="center">
-  <!--<a href="https://github.com/mikyll/UnityDOTS-Thesis">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>-->
-
-  <h1 align="center">Progetto di Applicazioni e Giochi Multiplayer<br/>su Architettura Unity DOTS</h1>
-
-  <p align="center">
-	Questo progetto è stato realizzato come parte integrante della mia tesi di laurea triennale in Ingegneria
-	Informatica, riguardante appunto la nuova architettura Unity DOTS. L'obbiettivo dell'elaborato, oltre 
-	all'analisi del nuovo layout orientato ai dati fornito dal modello basato su ECS, era quello di creare 
-	un <i>prototipo di gioco multiplayer funzionante realizzato interamente sfruttando DOTS.</i>
-	<!--A tal proposito sono stati utilizzati i vari package forniti dallo stack DOTS, con particolare 
-	attenzione a Entities (che realizza il modello a Entità, Componenti e Sistemi) e NetCode (che implementa 
-	il networking).
-	Il motivo che ha spinto Unity alla ristrutturazione dell'architettura del proprio game engine è dovuto
-	al fatto che questa era limitata dal modello basato su componenti, troppo legato all'Object-Oriented
-	Programming. Infatti, come è ormai risaputo, questo modello ha diversi problemi, dovuti principalmente
-	al polimorfismo, alle catene di ereditarietà ed ai tipi riferimento.
-	Dunque, con DOTS Unity si propone di superare questi limiti fornendo un'architettura efficiente e
-	performante a priori, in modo tale che gli sviluppatori non debbano preoccuparsi delle prestazioni
-	del codice che scrivono, se non come ultimo aspetto.-->
-    <br />
-    <a href="./Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
-    <br />
-    <br />
-	<a href="./README.md">English</a>
-	·
-	<a href="#demo">Guarda la Demo</a>
-	·
-	<a href="./Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Tesi</a>
-	·
-	<a href="./Presentation/PresentazioneDOTS%20(pdf_compatto).pdf">Presentazione</a>
-	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Segnala un Bug | Richiedi una Funzionalità</a>
-</p>
-</p>
+<a href="./Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
+<br />
+<br />
+<a href="./README.md">English</a>
+·
+<a href="#demo">Guarda la Demo</a>
+·
+<a href="./Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Tesi</a>
+·
+<a href="./Presentation/PresentazioneDOTS%20(pdf_compatto).pdf">Presentazione</a>
+·
+<a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Segnala un Bug | Richiedi una Funzionalità</a>
+</div>
 
 
 
