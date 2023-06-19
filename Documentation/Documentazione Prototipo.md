@@ -5,9 +5,9 @@ capsula e può interagire con i vari oggetti di scena. È stato realizzato inter
 da DOTS.
 <br/>
 <p align="center">
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md">English <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/gb.svg"></kbd></a>
+	<a href="./Prototype%20Documentation.md">English <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/gb.svg"></kbd></a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis">Home page</a>
+	<a href="/README.it.md">Home page</a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -60,45 +60,45 @@ collisioni, ecc.).
 	</tr>
 	<tr>
 		<td>Accumulo degli input e movimento personaggio capsula</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerMovementSpeed.cs">PlayerMovementSpeed</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs">PlayerInputSystem.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/PlayerMovementSpeed.cs">PlayerMovementSpeed</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerInputSystem.cs">PlayerInputSystem.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a></td>
+		<td width="40%"><img src="/Documentation/Images/GIF_Movement.gif" alt="MovimentoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Camera follow in terza persona</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerCameraFollowComponent.cs">PlayerCameraFollowComponent.cs</a><br/>
-			<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/PlayerCameraFollowComponent.cs">PlayerCameraFollowComponent.cs</a><br/>
+			<a href="/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a></td>
+		<td width="40%"><img src="/Documentation/Images/GIF_CameraFollow.gif" alt="CameraFollowGIF"/></td>
 	</tr>
 	<tr>
 		<td>Portali cambia-colore</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PersistentChangeMaterialOnTriggerComponent.cs">PersistentChangeMaterialOnTriggerComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a><br/><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/TemporaryChangeMaterialOnTriggerComponent.cs">TemporaryChangeMaterialOnTriggerComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_ChangeMaterialPortals.gif" alt="PortaliColoreGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/PersistentChangeMaterialOnTriggerComponent.cs">PersistentChangeMaterialOnTriggerComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a><br/><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Components/TemporaryChangeMaterialOnTriggerComponent.cs">TemporaryChangeMaterialOnTriggerComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a></td>
+		<td width="40%"><img src="/Documentation/Images/GIF_ChangeMaterialPortals.gif" alt="PortaliColoreGIF"/></td>
 	</tr>
 	<tr>
 		<td>Teletrasporti</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/TeleportComponent.cs">TeleportComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_Teleport.gif" alt="TeletrasportoGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/TeleportComponent.cs">TeleportComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a></td>
+		<td width="40%"><img src="/Documentation/Images/GIF_Teleport.gif" alt="TeletrasportoGIF"/></td>
 	</tr>
 	<tr>
 		<td>Spawn entità in punti randomici di un volume</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/InspectorSpawnRandomAuthoring.png" alt="SpawnRandomAuthoring" width="60%"/>
-			<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_SpawnEntities.gif" alt="SpawnEntitiesGIF" width="35%"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a></td>
+		<td width="40%"><img src="/Documentation/Images/InspectorSpawnRandomAuthoring.png" alt="SpawnRandomAuthoring" width="60%"/>
+			<img src="/Documentation/Images/GIF_SpawnEntities.gif" alt="SpawnEntitiesGIF" width="35%"/></td>
 	</tr>
 	<tr>
 		<td>Raccolta oggetti "collectibles"</td>
-		<td><a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PlayerScoreComponent.cs">PlayerScoreComponent</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/PickUpSystem.cs">CollectibleTagComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DeleteTagComponent.cs">DeleteTagComponent.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a><br/>
-		<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/DeleteCollectibleSystem.cs">DeleteCollectibleSystem.cs</a></td>
-		<td width="40%"><img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/GIF_PickupCollectibles.gif" alt="CollectiblesGIF"/></td>
+		<td><a href="/DOTS%20Prototype/Assets/Scripts/Components/PlayerScoreComponent.cs">PlayerScoreComponent</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Components/PickUpSystem.cs">CollectibleTagComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Components/DeleteTagComponent.cs">DeleteTagComponent.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a><br/>
+		<a href="/DOTS%20Prototype/Assets/Scripts/Systems/DeleteCollectibleSystem.cs">DeleteCollectibleSystem.cs</a></td>
+		<td width="40%"><img src="/Documentation/Images/GIF_PickupCollectibles.gif" alt="CollectiblesGIF"/></td>
 	</tr>
 </table>
 
@@ -110,8 +110,8 @@ Per eseguire la <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.
 2. Creare una Configurazione di Build: **Project Window** > **Create** > **Build** > **Windows Classic Build Configuration**.
 3. Selezionare la configurazione ed eseguire la build.
 <p float="left">
-<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
-<img src="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
+<img src="/Documentation/Images/WindowsBuild%20(1).png" alt="WindowsBuild (1)" width="50%"/>
+<img src="/Documentation/Images/WindowsBuild%20(2).png" alt="WindowsBuild (2)" width="45%"/>
 </p>
 
 ## Flusso di Esecuzione
@@ -138,7 +138,7 @@ nel testo.
 
 ### Connessioni
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a> 
+Il file <a href="/DOTS%20Prototype/Assets/Scripts/Game.cs">Game.cs</a> 
 contiene la <i>logica per realizzare la connessione</i>. In particolare al suo interno c'è un sistema 
 <b>Game</b> che controlla se il codice che esegue è quello di un client o di un server, svolgendo 
 rispettivamente connect o listen.<br/>
@@ -334,7 +334,7 @@ protected override void OnUpdate()
 
 ### Input
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a> contiene la logica per l'accumulo degli input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
+Il file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerInputSystem.cs</a> contiene la logica per l'accumulo degli input del giocatore. Essendo questo un gioco multiplayer, non basta semplicemente campionare l'input e usarlo direttamente, ma è necessario immagazzinarlo da qualche parte (una struttura <b><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/api/Unity.NetCode.ICommandData.html?q=ICommandData">ICommandData</a></b>) ed inviarlo al Server sotto forma di comando, così che anche lui possa applicarlo nella propria simulazione. Infatti, poiché NetCode si basa su un modello a server autoritativo, la simulazione viene eseguita sia su client che su server, ma il server ha l'autorità, ovvero la sua simulazione è sempre corretta ed il client deve correggere la propria in base a questa.
 
 #### Comando `PlayerInput`
 La struttura PlayerInput implementa l'interfaccia ICommandData, ovvero l'interfaccia necessaria per realizzare un comando in NetCode. Questa non è altro che un <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">buffer dinamico</a> utilizzato per accumulare comandi da trasmettere attraverso una connessione. Infatti, questa interfaccia espone la proprietà Tick, che dev'essere specificata, in quanto indica il tick di esecuzione della simulazione in cui è stato campionato l'input, così che il server, quando lo riceverà, potrà applicarlo nello stesso momento del client, indipendentemente dalla latenza della rete. Il tick permette anche di sfruttare la <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/prediction.html">predizione lato client</a> fornita da NetCode.<br/>
@@ -403,7 +403,7 @@ inputBuffer.AddCommandData(input);
 
 ### Movimento
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contiene la logica per l'applicazione del movimento alle capsule dei giocatori, sfruttando la predizione. 
+Il file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.cs">PlayerMovementSystem.cs</a> contiene la logica per l'applicazione del movimento alle capsule dei giocatori, sfruttando la predizione. 
 
 #### Componente `PlayerMovementSpeed`
 È associato a un'entità capsula e ne indica la velocità di movimento.
@@ -438,7 +438,7 @@ Entities.ForEach((DynamicBuffer<PlayerInput> inputBuffer, ref PhysicsVelocity pv
 
 ### Visuale in Terza Persona
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a> permette di realizzare una visuale di gioco in terza persona, in cui la camera principale segue il proprio personaggio capsula.
+Il file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/CameraFollowSystem.cs">CameraFollowSystem.cs</a> permette di realizzare una visuale di gioco in terza persona, in cui la camera principale segue il proprio personaggio capsula.
 
 #### Sistema `CameraFollowSystem`
 Come per PlayerInputSystem, questo sistema esegue nel gruppo ClientSimulationSystemGroup, in quanto la logica che realizza mostra un risultato diverso a seconda del client che esegue.
@@ -464,11 +464,11 @@ Camera.main.transform.position = position;
 
 ### Portali Cambia-Colore 
 <details>
-I file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a> e <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a> contengono la logica per cambiare il materiale del personaggio capsula che li attraversa. In particolare, questi sistemi rilevano gli eventi trigger causati dal passaggio di un personaggio capsula attraverso un portale avente rispettivamente il componente <b>TemporaryChangeMaterialOnTriggerComponent</b> e <b>PersistentChangeMaterialOnTriggerTagComponent</b>. Quindi modificano il materiale (dunque anche il colore) della capsula in modo temporaneo, finché la capsula non esce dal portale, oppure persistente.
+I file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialOnTriggerSystem.cs">TemporaryChangeMaterialOnTriggerSystem.cs</a> e <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PersistentChangeMaterialOnTriggerSystem.cs">PersistentChangeMaterialOnTriggerSystem.cs</a> contengono la logica per cambiare il materiale del personaggio capsula che li attraversa. In particolare, questi sistemi rilevano gli eventi trigger causati dal passaggio di un personaggio capsula attraverso un portale avente rispettivamente il componente <b>TemporaryChangeMaterialOnTriggerComponent</b> e <b>PersistentChangeMaterialOnTriggerTagComponent</b>. Quindi modificano il materiale (dunque anche il colore) della capsula in modo temporaneo, finché la capsula non esce dal portale, oppure persistente.
 
 #### Sistema `TemporaryChangeMaterialOnTriggerSystem`
 Questo sistema itera sulle entità aventi un buffer di componenti <b>StatefulTriggerEvent</b> ed il componente <b>TemporaryChangeMaterialOnTriggerComponent</b>:
-* <b>StatefulTriggerEvent</b> è contenuto nel file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> e permette di accumulare eventi di tipo Trigger (lanciati quando una oggetto attraversa un portale, tramite le proprietà del componente PhysicsShape di quest'ultimo). Tramite questo possiamo sapere il frame esatto di entrata ed uscita dal portale, oltre che i frame in cui un'entità rimane all'interno di esso, poiché vengono bufferizzati gli eventi Trigger singoli e si controlla lo stato del frame precedente. Tale file è stato preso dalla sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a> di Unity, in cui vi sono diversi esempi per l'utilizzo del package Physics.
+* <b>StatefulTriggerEvent</b> è contenuto nel file <a href="/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> e permette di accumulare eventi di tipo Trigger (lanciati quando una oggetto attraversa un portale, tramite le proprietà del componente PhysicsShape di quest'ultimo). Tramite questo possiamo sapere il frame esatto di entrata ed uscita dal portale, oltre che i frame in cui un'entità rimane all'interno di esso, poiché vengono bufferizzati gli eventi Trigger singoli e si controlla lo stato del frame precedente. Tale file è stato preso dalla sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a> di Unity, in cui vi sono diversi esempi per l'utilizzo del package Physics.
 * <b>TemporaryChangeMaterialOnTriggerComponent</b> contiene l'entità di cui il portale cambierà il materiale, ogni volta che questa entrerà nel portale.
 
 All'interno del ForEach, iteriamo sugli eventi trigger del buffer, che contengono l'entità con la quale il portale ha avuto la collisione, controllando in particolare quando questa entra o esce:
@@ -518,7 +518,7 @@ Il sistema PersistentChangeMaterialOnTriggerSystem è una versione semplificata 
 
 ### Teletrasporto
 <details>
-I file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/TeleportComponent.cs">TeleportComponent.cs</a> e <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a> contengono rispettivamente lo stato e la logica per realizzare il teletrasporto di una capsula fra due portali "compagni".
+I file <a href="/DOTS%20Prototype/Assets/Scripts/Components/TeleportComponent.cs">TeleportComponent.cs</a> e <a href="/DOTS%20Prototype/Assets/Scripts/Systems/TeleportSystem.cs">TeleportSystem.cs</a> contengono rispettivamente lo stato e la logica per realizzare il teletrasporto di una capsula fra due portali "compagni".
 
 #### Componente `TeleportComponent`
 Questo componente indica che l'entità a cui è attaccato è un portale per il teletrasporto e contiene due proprietà:
@@ -587,7 +587,7 @@ Per maggiori informazioni su come funziona il sistema che gestisce la posizione 
 
 ### Spawn di Entità
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a> contiene la logica per lo spawn di un numero arbitrario di entità (dato un prefab) all'interno di un volume, in punti randomici. A differenza dei meccanismi precedenti, che sono divisi in file per i componenti e per i sistemi, questo è condensato tutto in un unico file. Il file è stato preso dalla sub-repository </a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Assets/Common/Scripts/SpawnRandomObjectsAuthoring.cs">Unity Physics Samples</a>
+Il file <a href="/DOTS%20Prototype/Assets/Scripts/Components/SpawnRandomObjectsAuthoring.cs">SpawnRandomObjectsAuthoring.cs</a> contiene la logica per lo spawn di un numero arbitrario di entità (dato un prefab) all'interno di un volume, in punti randomici. A differenza dei meccanismi precedenti, che sono divisi in file per i componenti e per i sistemi, questo è condensato tutto in un unico file. Il file è stato preso dalla sub-repository </a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Assets/Common/Scripts/SpawnRandomObjectsAuthoring.cs">Unity Physics Samples</a>
 
 #### Componente `SpawnRandomObjectsAuthoring`
 In questo caso, invece di utilizzare l'attributo [GenerateAuthoringComponent] abbiamo utilizzato il <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/conversion.html#the-iconvertgameobjecttoentity-interface">conversion workflow</a> di ECS, che ci permette di convertire un MonoBehaviour nel rispettivo componente.
@@ -650,7 +650,7 @@ ref NativeArray<float3> positions, ref NativeArray<quaternion> rotations, int se
 
 ### Raccolta di Entità
 <details>
-Il file <a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a> contiene la logica per la raccolta delle entità "collectible". Quando un personaggio capsula tocca un'entità marcata con questo componente, l'entità viene raccolta, dunque scompare dalla scena e viene assegnato un punteggio al giocatore.
+Il file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PickUpSystem.cs">PickUpSystem.cs</a> contiene la logica per la raccolta delle entità "collectible". Quando un personaggio capsula tocca un'entità marcata con questo componente, l'entità viene raccolta, dunque scompare dalla scena e viene assegnato un punteggio al giocatore.
 
 #### Componente `PlayerScoreComponent`
 È assegnato al personaggio capsula di un giocatore e ne indica il punteggio corrente.
