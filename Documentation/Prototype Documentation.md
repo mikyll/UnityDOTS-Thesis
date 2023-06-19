@@ -7,7 +7,7 @@ provided by DOTS.
 <p align="center">
 	<a href="./Documentazione%20Prototipo.md">Italiano <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/it.svg"></kbd></a>
 	·
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis">Home page</a>
+	<a href="/README.md">Home page</a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
