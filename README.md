@@ -20,7 +20,7 @@ This project was carried out as an integral part of my bachelor's degree thesis 
 <a href="./Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
 <br />
 <br />
-<a href="./README.it.md">Italiano</a>
+<a href="./README.it.md">Italiano <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/it.svg"></kbd></a>
 ·
 <a href="#demo">View Demo</a>
 ·
