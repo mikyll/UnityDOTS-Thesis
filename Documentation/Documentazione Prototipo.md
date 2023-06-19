@@ -5,7 +5,7 @@ capsula e può interagire con i vari oggetti di scena. È stato realizzato inter
 da DOTS.
 <br/>
 <p align="center">
-	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md">English</a>
+	<a href="https://github.com/mikyll/UnityDOTS-Thesis/blob/main/Documentation/Prototype%20Documentation.md">English <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/gb.svg"></kbd></a>
 	·
 	<a href="https://github.com/mikyll/UnityDOTS-Thesis">Home page</a>
 </p>
