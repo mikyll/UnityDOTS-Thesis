@@ -274,7 +274,7 @@ The file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.
 In fact, since NetCode is based on an authoritative server model, the simulation is performed on both client and server, but the server has the authority, i.e. its simulation is always correct and trusted, and the client must fix its own based on it.
 
 #### `PlayerInput` Command
-The PlayerInput structure implements the ICommandData interface, which is the interface required to execute a command in NetCode. This is nothing more than a <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">dynamic buffer</a> used to store commands to be transmitted across a connection. In fact, this interface exposes the Tick property, which must be implemented, as it indicates the execution tick of the simulation in which the input was sampled, so that the server, when receives it, can apply it at the same time as the client, regardless of network latency. The tick also allows you to take advantage of the <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/prediction.html">client-side prediction</a> provided by NetCode. <br/>
+The PlayerInput structure implements the ICommandData interface, which is the interface required to execute a command in NetCode. This is nothing more than a <a href="https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/dynamic_buffers.html#:~:text=A%20DynamicBuffer%20is%20a%20type,the%20internal%20capacity%20is%20exhausted.">dynamic buffer</a> used to store commands to be transmitted across a connection. In fact, this interface exposes the Tick property, which must be implemented, as it indicates the execution tick of the simulation in which the input was sampled, so that the server, when receives it, can apply it at the same time as the client, regardless of network latency. The tick also allows us to take advantage of the <a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.6/manual/prediction.html">client-side prediction</a> provided by NetCode. <br/>
 In our case this structure contains, in addition to the tick, the horizontal and vertical fields, which respectively indicate the movement on the x axis and on the y axis.
 ```csharp
 public struct PlayerInput : ICommandData
@@ -345,7 +345,7 @@ The file <a href="/DOTS%20Prototype/Assets/Scripts/Systems/PlayerMovementSystem.
 It is associated with a capsule entity and indicates its movement speed.
 
 #### `PlayerMovementSystem` System
-This system is updated within the <b>GhostPredictionSystemGroup</b>, which allows you to implement client-side prediction of ghosts.
+This system is updated within the <b>GhostPredictionSystemGroup</b>, which allows us to implement client-side prediction of ghosts.
 In particular, in OnUpdate () we get the prediction tick from this group and iterate over all the capsule entities, inserting the components we will need into the lambda.
 First we check if the prediction code should execute, using the <b>ShouldPredict()</b> method to find out if the prediction for the tick in question should be applied to the entity. If so, from the PlayerInput buffer we get the command related to that tick, and we apply the movement based on the data contained in the command.
 ```csharp
@@ -403,7 +403,7 @@ Files <a href="/DOTS%20Prototype/Assets/Scripts/Systems/TemporaryChangeMaterialO
 
 #### `TemporaryChangeMaterialOnTriggerSystem` System
 This system iterates over entities having a buffer of <b>StatefulTriggerEvent</b> components and the <b>TemporaryChangeMaterialOnTriggerComponent</b> component:
-* <b>StatefulTriggerEvent</b> is contained in file <a href="/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> and allows you to accumulate "Trigger" events (they're launched when an object crosses a portal, through the properties of the latter's PhysicsShape component). Through this we can know the exact frame of entry and exit from the portal, as well as the frames in which an entity remains within it, since the single Trigger events are buffered and the status of the previous frame is checked. This file was taken from the Unity sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a>, where there are several examples for using the Physics package.
+* <b>StatefulTriggerEvent</b> is contained in file <a href="/DOTS%20Prototype/Assets/Scripts/Components/DynamicBufferTriggerEventAuthoring.cs">DynamicBufferTriggerEventAuthoring.cs</a> and allows us to accumulate "Trigger" events (they're launched when an object crosses a portal, through the properties of the latter's PhysicsShape component). Through this we can know the exact frame of entry and exit from the portal, as well as the frames in which an entity remains within it, since the single Trigger events are buffered and the status of the previous frame is checked. This file was taken from the Unity sub-repository <a href="https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/UnityPhysicsSamples/Documentation/samples.md">UnityPhysicsSamples</a>, where there are several examples for using the Physics package.
 * <b>TemporaryChangeMaterialOnTriggerComponent</b> contains the entity whose material the portal will change each time it passes through the portal.
 
 Inside the ForEach, we iterate over the trigger events of the buffer, which contain the entity with which the portal collided, checking in particular when this enters or exits:
@@ -448,7 +448,7 @@ Entities.WithoutBurst().ForEach((Entity e, ref DynamicBuffer<StatefulTriggerEven
 ```
 
 #### `PersistentChangeMaterialOnTriggerSystem` System
-	TO-DO
+This system is a simplified version of the temporary one (TemporaryChangeMaterialOnTriggerSystem). Unlike that, PersistentChangeMaterialOnTriggerSystem doesn't manage the case in which the entity that crossed the portal exits. For this reason we use **PersistentChangeMaterialOnTriggerTagComponent**, since it doesn't contain any type of information, and serves only to indicate that an entity is a portal. 
 </details>
 
 ### Teleports	
