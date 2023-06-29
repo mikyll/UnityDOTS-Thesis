@@ -76,19 +76,21 @@ del codice che scrivono, se non come ultimo aspetto.-->
 <!-- ABOUT THE PROJECT -->
 ## Il Progetto
 
-[Data-Oriented Technology Stack (DOTS)](https://unity.com/dots) è un insieme di 
+[**Data-Oriented Technology Stack** (DOTS)](https://unity.com/dots) è un insieme di 
 [librerie](https://unity.com/dots/packages) realizzate dagli sviluppatori di Unity nel corso degli ultimi 
-anni, tutt'oggi in fase di sviluppo.<br/>
-DOTS si propone di sostituire la vecchia architettura, basata su un modello a componenti (GameObject + 
+anni, ed al momento della scrittura (2021) si trova ancora in fase di sviluppo.
+
+DOTS si propone di *sostituire* la vecchia architettura, basata su un modello a componenti (GameObject + 
 MonoBehaviour), con una nuova basata su ECS (Entità, Componenti e Sistemi). L'obbiettivo è ottenere 
 un'architettura non limitata dalla programmazione a oggetti, in quanto come sappiamo presenta diversi 
-problemi, legati soprattutto al polimorfismo, alle catene di ereditarietà ed ai tipi riferimento. A tal 
-proposito, tramite un layout orientato ai dati, DOTS permette di ottenere *performance by default*, in 
-quanto il codice viene organizzato separando i dati (racchiusi nei componenti) dal comportamento (confinato 
+problemi - legati soprattutto al polimorfismo, alle catene di ereditarietà ed ai tipi riferimento.
+
+A tal proposito, tramite un layout orientato ai dati, DOTS permette di ottenere *performance by default*, in 
+quanto il codice viene organizzato **separando i dati** (racchiusi nei componenti) **dal comportamento** (confinato 
 nei sistemi). Le "cose" a tempo di esecuzione non sono più dei pesanti oggetti, con i dati sparpagliati in 
 memoria, ma dei semplici indici numerici (che rappresentano le entità), paragonabili alle chiavi di un 
-database. Fra i numerosi vantaggi di questa architettura, spiccano la possibilità di utilizzare al meglio le 
-CPU moderne, sfruttando il potenziale dei core multipli e permettendo un uso efficiente delle cache, che non 
+database. Fra i numerosi vantaggi di questa architettura, spiccano la possibilità di **utilizzare al meglio le 
+CPU moderne**, sfruttando il potenziale dei core multipli e permettendo un uso efficiente delle cache, che non 
 vengono saturate dalla miriade di dati inutili o superflui presenti negli oggetti. Inoltre, grazie alla 
 separazione delle competenze e della logica, il codice che gli sviluppatori scrivono diventa una buona 
 approssimazione di basso livello di una soluzione già corretta ed efficiente, che non ha bisogno quindi, se 
