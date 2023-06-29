@@ -63,18 +63,19 @@ This project was carried out as an integral part of my bachelor's degree thesis 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Data-Oriented Technology Stack (DOTS)](https://unity.com/dots) is a set of 
+[**Data-Oriented Technology Stack** (DOTS)](https://unity.com/dots) is a set of 
 [libraries](https://unity.com/dots/packages) created by Unity over the last few years, which is still under 
-development.<br/>
-DOTS proposes to replace the old architecture of the game engine, that was based on a component model
+development at the time of writing (2021).<br/>
+DOTS proposes to *replace* the old architecture & programming pattern of the game engine, that was based on a component model
 (GameObject + MonoBehaviour), with a new one based on ECS (Entities, Components, Systems). The goal is to
-obtain an architecture that is not limited by the objective-oriented programming, which is known to have
-several pifalls and problems, mainly related to polymorphism, inheritance chains and reference types. In this regard,
-through a data-oriented layout, DOTS allows to obtain *performance by default*, as the code becomes
-organized by the separation between data (inside the components) and the behaviour (confined inside systems).
+obtain an architecture that is not limited by the object-oriented programming, which is known to have
+several pifalls and problems - mainly related to polymorphism, inheritance chains and reference types.
+
+In this regard, through a data-oriented layout, DOTS allows to obtain *performance by default*, as the code becomes
+organized through the **separation between data** (placed inside the components) **and behaviour** (confined inside systems).
 Runtime "things" are no longer heavy objects, with data scattered in memory, but simple numeric indexes
-(representing entities), which we can compare to the keys of a database. Among the many advantages that come
-with this new architecture, stand out the possibility of making the most of modern CPUs, exploiting the 
+representing entities, which we can compare to the keys of a database. Among the many advantages that come
+with this new architecture, what stand out is the possibility to **make the most of modern CPUs**, exploiting the 
 potential of multiple cores and allowing efficient use of caches, which are not satured by the myriad of
 useless or unnecessary data present in objects. Moreover, thanks to the separation logic, the code that
 developers write becomes a good low-level approximation of an already correct and efficient solution, which
@@ -84,7 +85,10 @@ The main packages used to make the prototype are:
 * [Physics](https://docs.unity3d.com/Packages/com.unity.physics@0.6) - implements the physics.
 * [NetCode](https://docs.unity3d.com/Packages/com.unity.netcode@0.6) - implements the networking.
 
-<span id="demo">The following images show an example run of the prototype, with an headless server and two connected clients: the first one is running in the Unity editor, the second one is a standalone application running on a different computer. Using the NetCode package, when entering PlayMode in the editor, Unity runs the server, a client and an arbitrary number of thin clients (in this case we didn't set any of those).</span>
+<span id="demo">The following animations show an example run of the prototype, with an headless server and two connected clients: 
+one running in the Unity editor, the other as a standalone application on a different computer. With the NetCode package, when 
+entering PlayMode inside the editor, Unity runs the server, a client and an arbitrary number of *thin clients* (in this demo we didn't
+make use of any of those).</span>
 <table style="border: none">
   <tr>
     <td width="49.9%"><img src="./Documentation/Images/GIF_Editor_Prototype.gif" alt="EditorGIF"/></td>
