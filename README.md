@@ -65,7 +65,8 @@ This project was carried out as an integral part of my bachelor's degree thesis 
 
 [**Data-Oriented Technology Stack** (DOTS)](https://unity.com/dots) is a set of 
 [libraries](https://unity.com/dots/packages) created by Unity over the last few years, which is still under 
-development at the time of writing (2021).<br/>
+development at the time of writing (2021).
+
 DOTS proposes to *replace* the old architecture & programming pattern of the game engine, that was based on a component model
 (GameObject + MonoBehaviour), with a new one based on ECS (Entities, Components, Systems). The goal is to
 obtain an architecture that is not limited by the object-oriented programming, which is known to have
