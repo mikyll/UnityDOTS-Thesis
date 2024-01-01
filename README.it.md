@@ -226,9 +226,9 @@ Project Link: [github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/Uni
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/mikyll/UnityDOTS-Thesis
 [contributors-url]: https://github.com/mikyll/UnityDOTS-Thesis/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/mikyll/UnityDOTS-Thesis
+[forks-shield]: https://img.shields.io/github/forks/mikyll/UnityDOTS-Thesis?style=flat
 [forks-url]: https://github.com/mikyll/UnityDOTS-Thesis/network/members
-[stars-shield]: https://img.shields.io/github/stars/mikyll/UnityDOTS-Thesis
+[stars-shield]: https://img.shields.io/github/stars/mikyll/UnityDOTS-Thesis?style=flat
 [stars-url]: https://github.com/mikyll/UnityDOTS-Thesis/stargazers
 [issues-shield]: https://img.shields.io/github/issues/mikyll/UnityDOTS-Thesis
 [issues-url]: https://github.com/mikyll/UnityDOTS-Thesis/issues
