@@ -5,9 +5,10 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-[![GitHub followers][github-shield]][github-url]
+[![MIT License][license-shield]][license-url]\
+[![Unity][unity-shield]][unity-url]
+[![C#][csharp-shield]][csharp-url]
+[![Visual Studio][vs-shield]][vs-url]
 
 <!-- PROJECT LOGO -->
 <!-- <a href="https://github.com/mikyll/UnityDOTS-Thesis">
@@ -196,6 +197,13 @@ Project Link: [github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/Uni
 * [Othneil Drew](https://github.com/othneildrew) for the amazing [README template](https://github.com/othneildrew/Best-README-Template).
 
 
+<div align="center">
+
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![GitHub followers][github-shield]][github-url]
+
+</div>
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -209,6 +217,14 @@ Project Link: [github.com/mikyll/UnityDOTS-Thesis](https://github.com/mikyll/Uni
 [issues-url]: https://github.com/mikyll/UnityDOTS-Thesis/issues
 [license-shield]: https://img.shields.io/github/license/mikyll/UnityDOTS-Thesis
 [license-url]: https://github.com/mikyll/UnityDOTS-Thesis/blob/master/LICENSE
+
+[unity-shield]: https://img.shields.io/badge/Unity-000000?logo=unity&logoColor=white
+[unity-url]: https://unity.com/
+[csharp-shield]: https://img.shields.io/badge/C%23-%23239120.svg?logo=csharp&logoColor=white
+[csharp-url]: https://docs.microsoft.com/en-us/dotnet/csharp/
+[vs-shield]: https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?logo=visual-studio-code&logoColor=white
+[vs-url]: https://visualstudio.microsoft.com/
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?logo=linkedin&colorB=0077B5
 [linkedin-url]: https://www.linkedin.com/in/michele-righi/?locale=en_US
 [github-shield]: https://img.shields.io/github/followers/mikyll.svg?style=social&label=Follow
