@@ -33,8 +33,6 @@ del codice che scrivono, se non come ultimo aspetto.-->
 <a href="./Documentation/Documentazione%20Prototipo.md"><strong>Esplora la documentazione »</strong></a>
 <br />
 <br />
-<a href="./README.md">English <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/gb.svg"></kbd></a>
-·
 <a href="#demo">Guarda la Demo</a>
 ·
 <a href="./Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Tesi</a>
@@ -42,6 +40,8 @@ del codice che scrivono, se non come ultimo aspetto.-->
 <a href="./Presentation/PresentazioneDOTS%20(pdf_compatto).pdf">Presentazione</a>
 ·
 <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Segnala un Bug | Richiedi una Funzionalità</a>
+·
+<a href="./README.md">English <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/gb.svg"></kbd></a>
 </div>
 
 
