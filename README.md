@@ -21,8 +21,6 @@ This project was carried out as an integral part of my bachelor's degree thesis 
 <a href="./Documentation/Prototype%20Documentation.md"><strong>Explore the docs »</strong></a>
 <br />
 <br />
-<a href="./README.it.md">Italiano <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/it.svg"></kbd></a>
-·
 <a href="#demo">View Demo</a>
 ·
 <a href="./Thesis%20Docs/Tesi%20di%20Laurea%20di%20Michele%20Righi%20-%20Progetto%20di%20Applicazioni%20e%20Giochi%20Multiplayer%20su%20Architettura%20Unity%20DOTS.pdf">Thesis</a>
@@ -30,6 +28,8 @@ This project was carried out as an integral part of my bachelor's degree thesis 
 <a href="./Presentation/PresentationDOTS%20(pdf).pdf">Presentation</a>
 ·
 <a href="https://github.com/mikyll/UnityDOTS-Thesis/issues">Report Bug | Request Feature</a>
+·
+<a href="./README.it.md">Italiano <kbd><img width="20px" src="https://flagicons.lipis.dev/flags/4x3/it.svg"></kbd></a>
 </div>
 
 
